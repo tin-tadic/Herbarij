@@ -36,6 +36,8 @@ class Plants extends Migration
             $table->string('opis')->nullable();
             $table->float('trenutna_cijena')->nullable();
             $table->string('kolicina_cijene')->nullable();
+
+            $table->timestamps();
         });
     }
 

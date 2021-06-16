@@ -21,6 +21,8 @@ class Planters extends Migration
             $table->float('povrsina')->nullable();
             $table->string('komentar')->nullable();
             $table->string('vrsta_tla')->nullable();
+
+            $table->timestamps();
         });
     }
 

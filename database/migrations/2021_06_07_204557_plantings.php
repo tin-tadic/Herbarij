@@ -17,17 +17,14 @@ class Plantings extends Migration
             $table->id();
 
             $table->unsignedBigInteger('id_plota');
-            // $table->foreign('id_plota')->references('id')->on('plots');
-
             $table->unsignedBigInteger('id_transakcije');
-            // $table->foreign('id_transakcije')->references('id')->on('transactions');
-
             $table->unsignedBigInteger('id_biljke');
-            // $table->foreign('id_biljke')->references('id')->on('plants');
 
             $table->integer('broj_biljaka');
             $table->date('datum_sadnje');
             $table->date('datum_uklanjanja');
+
+            $table->timestamps();
         });
     }
 

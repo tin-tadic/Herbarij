@@ -18,6 +18,8 @@ class Buyers extends Migration
             $table->string('ime')->nullable();
             $table->string('adresa')->nullable();
             $table->string('tip');
+
+            $table->timestamps();
         });
     }
 

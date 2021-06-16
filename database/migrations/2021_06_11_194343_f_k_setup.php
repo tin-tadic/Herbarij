@@ -30,10 +30,6 @@ class FKSetup extends Migration
             $table->foreign('id_biljke')->references('id')->on('plants');
         });
 
-        // Schema::table('XXX', function (Blueprint $table) {
-            
-        // });
-
     }
 
     /**

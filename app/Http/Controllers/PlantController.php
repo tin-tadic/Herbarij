@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Plant;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class PlantController extends Controller
 {
@@ -15,7 +16,6 @@ class PlantController extends Controller
         $name = $request->slika->getClientOriginalName();
         $request->slika->storeAs('plantPictures', $name, 'public');
         
-        dd($request->slika->getClientOriginalName());
 
         $rules = [
             'naziv' => ['required'],
@@ -65,6 +65,7 @@ class PlantController extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
+            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
@@ -88,11 +89,12 @@ class PlantController extends Controller
 
             'komentar' => $request->input('komentar'),
             'opis' => $request->input('opis'),
-            'slika' => $request->input('slika'),
+            'slika' => $name,
             'trenutna_cijena' => $request->input('trenutna_cijena'),
             'kolicina_cijene' => $request->input('kolicina_cijene'),
         ]);
 
-        return redirect()->route('ADD A ROUTE', ['idBiljke' => $newPlant->id])->with('success', 'Biljka uspješno napravljena.');
+        // return redirect()->route('ADD A ROUTE', ['idBiljke' => $newPlant->id])->with('success', 'Biljka uspješno napravljena.');
+        return redirect()->route('home');
     }
 }

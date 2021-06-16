@@ -22,6 +22,8 @@ class Transactions extends Migration
             $table->dateTime('datum');
             $table->integer('stanje');
             $table->float('cijena');
+
+            $table->timestamps();
         });
     }
 
