@@ -1,0 +1,98 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Plant;
+use Illuminate\Support\Facades\DB;
+
+class PlantController extends Controller
+{
+
+    public function addPlant(Request $request) {
+
+
+        $name = $request->slika->getClientOriginalName();
+        $request->slika->storeAs('plantPictures', $name, 'public');
+        
+        dd($request->slika->getClientOriginalName());
+
+        $rules = [
+            'naziv' => ['required'],
+            'narodna_imena' => ['sometimes', 'max:200'],
+            'tip_tla' => ['required'],
+
+            'jestivost_ljudi' => ['required'],
+            'jestivost_zivotinje' => ['required'],
+            'ljekovitost' => ['required'],
+            'gnjojivo' => ['required'],
+            'otrovno' => ['required'],
+            'gorivo' => ['required'],
+            'sirovina' => ['required'],
+
+            'vrijeme_sadnje' => ['sometimes', 'date'],
+            'vrijeme_zetve' => ['sometimes', 'date'],
+            'vrijeme_orezivanja' => ['sometimes', 'date'],
+
+            'komentar' => ['sometimes', 'max:1000'],
+            'opis' => ['sometimes', 'max:200'],
+            'slika' => ['sometimes', 'mimes:jpeg,jpg,png,bmp'],
+            'trenutna_cijena' => ['sometimes', 'numeric'],
+        ];
+        $messages = [
+            'naziv.required' => 'Obavezno je unijeti latinski naziv biljke!',
+            'narodna_imena.max' => 'Narodna imena ne smiju biti duža od 200 znakova!',
+            'tip_tla.required' => 'Obavezno je odabrati tip tla!',
+
+            'jestivost_ljudi.required' => 'Obavezno je ustanoviti sve gore navedene atribute!',
+            'jestivost_zivotinje.required' => 'Obavezno je ustanoviti sve gore navedene atribute!',
+            'ljekovitost.required' => 'Obavezno je ustanoviti sve gore navedene atribute!',
+            'gnjojivo.required' => 'Obavezno je ustanoviti sve gore navedene atribute!',
+            'otrovno.required' => 'Obavezno je ustanoviti sve gore navedene atribute!',
+            'gorivo.required' => 'Obavezno je ustanoviti sve gore navedene atribute!',
+            'sirovina.required' => 'Obavezno je ustanoviti sve gore navedene atribute!',
+
+            'vrijeme_sadnje.date' => 'Vrijeme sadnje mora biti valjan datum!',
+            'vrijeme_zetve.date' => 'Vrijeme žetve mora biti valjan datum!',
+            'vrijeme_orezivanja.date' => 'Vrijeme orezivanja mora biti valjan datum!',
+            
+            'komentar.max' => 'Komentar ne može biti dulji od 1000 znakova!',
+            'opis.max' => 'Opis ne može biti dulji od 200 znakova!',
+            'slika.mimes' => 'Format slike nije podržan! Podržani formati: .bmp .jpg .png .jpeg',
+            'trenutna_cijena.numeric' => 'Trenutna cijena mora biti broj! Probajte koristiti točku umjesto zareza.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+
+
+        $newPlant = Plant::create([
+            'naziv' => $request->input('naziv'),
+            'narodna_imena' => $request->input('narodna_imena'),
+            'tip_tla' => $request->input('tip_tla'),
+
+            'jestivost_ljudi' => $request->input('jestivost_ljudi'),
+            'jestivost_zivotinje' => $request->input('jestivost_zivotinje'),
+            'ljekovitost' => $request->input('ljekovitost'),
+            'gnjojivo' => $request->input('gnjojivo'),
+            'otrovno' => $request->input('otrovno'),
+            'gorivo' => $request->input('gorivo'),
+            'sirovina' => $request->input('sirovina'),
+
+            'vrijeme_sadnje' => $request->input('vrijeme_sadnje'),
+            'vrijeme_zetve' => $request->input('vrijeme_zetve'),
+            'vrijeme_orezivanja' => $request->input('vrijeme_orezivanja'),
+
+            'komentar' => $request->input('komentar'),
+            'opis' => $request->input('opis'),
+            'slika' => $request->input('slika'),
+            'trenutna_cijena' => $request->input('trenutna_cijena'),
+            'kolicina_cijene' => $request->input('kolicina_cijene'),
+        ]);
+
+        return redirect()->route('ADD A ROUTE', ['idBiljke' => $newPlant->id])->with('success', 'Biljka uspješno napravljena.');
+    }
+}
