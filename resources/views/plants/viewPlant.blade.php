@@ -62,6 +62,7 @@
           </div>-->
         </div>
 
+        {{-- TODO::What is up with these HTML and CSS names? --}}
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="control">
@@ -103,6 +104,7 @@
             <td class="bigger">{{ $plant->trenutna_cijena }}</td>
           </tr>
           <tr>
+            {{-- TODO::Standardize date format --}}
             <th class="smaller">Vrijeme sadnje:</th>
             <td class="bigger">{{ $plant->vrijeme_sadnje }}</td>
           </tr>

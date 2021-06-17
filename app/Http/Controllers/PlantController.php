@@ -99,6 +99,45 @@ class PlantController extends Controller
     public function getPlant($plantId) {
         $plant = Plant::find($plantId);
         if ($plant) {
+
+            //Transform booleans into Y/N for frontend
+            if($plant->jestivost_ljudi) {
+                $plant->jestivost_ljudi = "Da";
+            } else {
+                $plant->jestivost_ljudi = "Ne";
+            }
+            if($plant->jestivost_zivotinje) {
+                $plant->jestivost_zivotinje = "Da";
+            } else {
+                $plant->jestivost_zivotinje = "Ne";
+            }
+            if($plant->ljekovitost) {
+                $plant->ljekovitost = "Da";
+            } else {
+                $plant->ljekovitost = "Ne";
+            }
+            if($plant->gnjojivo) {
+                $plant->gnjojivo = "Da";
+            } else {
+                $plant->gnjojivo = "Ne";
+            }
+            if($plant->otrovno) {
+                $plant->otrovno = "Da";
+            } else {
+                $plant->otrovno = "Ne";
+            }
+            if($plant->gorivo) {
+                $plant->gorivo = "Da";
+            } else {
+                $plant->gorivo = "Ne";
+            }
+            if($plant->sirovina) {
+                $plant->sirovina = "Da";
+            } else {
+                $plant->sirovina = "Ne";
+            }
+            
+            
             return view('plants.viewPlant')->with('plant', $plant);
         } else {
             dd("TODO::Biljka ne postoji!");
