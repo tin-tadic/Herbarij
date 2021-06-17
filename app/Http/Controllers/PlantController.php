@@ -96,6 +96,12 @@ class PlantController extends Controller
         return redirect()->route('home');
     }
 
+    public function getPlant($plantId) {
+        $plant = Plant::find($plantId);
+        dd($plant);
+        // return view('plants.viewPlant');
+    }
+
 
     public function deletePlant($plantId) {
         try {

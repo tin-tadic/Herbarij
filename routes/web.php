@@ -30,13 +30,11 @@ Route::get('/', function() {
 Route::get('/addPlant', function() {
     return view('plants.addPlant');
 });
-Route::post('/dodaj-biljku', [PlantController::class, 'addPlant']);
+Route::post('/dodaj-biljku', [PlantController::class, 'addPlant'])
+    ->name('addPlant');
 
-//Plant view
-Route::get('/viewPlant', function() {
-    return view('plants.viewPlant');
-}); //DODAJ-BILJKU SKONTAT
-Route::post('/pogledaj-biljku', [PlantController::class, 'viewPlant']);
+Route::get('/viewPlant/{$plantId}', [PlantController::class, 'getPlant'])
+    ->name('viewPlant'); //DODAJ-BILJKU SKONTAT
 
 //Planter routes
 
