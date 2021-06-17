@@ -30,9 +30,9 @@
 <body>
     <div id="app">
 
-        {{-- @include('nav')
+        {{-- @include('nav') --}}
 
-        @include('messages') --}}
+        @include('misc.messages')
 
         HOMEPAGE RADI
         <main>
