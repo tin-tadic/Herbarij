@@ -6,16 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Plant;
 use Illuminate\Support\Facades\DB;
 use Validator;
+use Illuminate\Support\Str;
 
 class PlantController extends Controller
 {
 
     public function addPlant(Request $request) {
-
-
-        $name = $request->slika->getClientOriginalName();
-        $request->slika->storeAs('plantPictures', $name, 'public');
-        
 
         $rules = [
             'naziv' => ['required'],
@@ -63,12 +59,14 @@ class PlantController extends Controller
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
-
         if ($validator->fails()) {
             dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
+        
+        $name = Str::random(15) . $request->slika->getClientOriginalName();
+        $request->slika->storeAs('plantPictures', $name, 'public');
 
         $newPlant = Plant::create([
             'naziv' => $request->input('naziv'),
@@ -97,4 +95,15 @@ class PlantController extends Controller
         // return redirect()->route('ADD A ROUTE', ['idBiljke' => $newPlant->id])->with('success', 'Biljka uspješno napravljena.');
         return redirect()->route('home');
     }
+
+
+    public function deletePlant($plantId) {
+        try {
+            Plant::destroy($plantId);
+        } catch(\Illuminate\Database\QueryException $e) {
+            //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
+            dd($e);
+        }
+    }
+
 }

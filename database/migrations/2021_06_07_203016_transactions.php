@@ -16,7 +16,6 @@ class Transactions extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_kupca');
-            // $table->foreign('id_kupca')->references('id')->on('buyers');
             $table->string('tip_transakcije');
             $table->string('komentar');
             $table->dateTime('datum');
