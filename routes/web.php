@@ -18,6 +18,7 @@ Route::get('/', function() {
     return view('app');
 })->name('home');
 
+
 // Route::get('link/{parameter}', [NameController::class, 'function'])
 //     ->name('routeName');
 
@@ -30,6 +31,12 @@ Route::get('/addPlant', function() {
     return view('plants.addPlant');
 });
 Route::post('/dodaj-biljku', [PlantController::class, 'addPlant']);
+
+//Plant view
+Route::get('/viewPlant', function() {
+    return view('plants.viewPlant');
+}); //DODAJ-BILJKU SKONTAT
+Route::post('/pogledaj-biljku', [PlantController::class, 'viewPlant']);
 
 //Planter routes
 
