@@ -76,8 +76,8 @@
   <!--sadrzaj-->
   <div id="mom">
     <div id="mainChick">
-      <p class="hero is-white is-small">UBACITI IZ BAZE - NAZIV</p>
-      <p id="herosml3" class="hero is-white is-small">UBACITI IZ BAZE - NARODNI</p>
+      <p class="hero is-white is-small">{{ $plant->naziv }}</p>
+      <p id="herosml3" class="hero is-white is-small">{{ $plant->narodna_imena }}</p>
       <div id="zaslikicu">
         <img id="slikica"
           src="https://images.pexels.com/photos/954046/pexels-photo-954046.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
@@ -88,67 +88,67 @@
         <table class="table is-hoverable is-striped is-fullwidth">
           <tr>
             <th class="smaller">Naziv biljke:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->naziv }}</td>
           </tr>
           <tr>
             <th class="smaller">Narodni naziv biljke:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->narodna_imena }}</td>
           </tr>
           <tr>
             <th class="smaller">Tip tla:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->tip_tla }}</td>
           </tr>
           <tr>
             <th class="smaller">Cijena</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->trenutna_cijena }}</td>
           </tr>
           <tr>
             <th class="smaller">Vrijeme sadnje:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->vrijeme_sadnje }}</td>
           </tr>
           <tr>
             <th class="smaller">Vrijeme žetve:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->vrijeme_zetve }}</td>
           </tr>
           <tr>
             <th class="smaller">Vrijeme orezivanja:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->vrijeme_orezivanja }}</td>
           </tr>
           <tr>
             <th class="smaller">Jestivo za ljude:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->jestivost_ljudi }}</td>
           </tr>
           <tr>
             <th class="smaller">Jestivo za životinje:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->jestivost_zivotinje }}</td>
           </tr>
           <tr>
             <th class="smaller">Ljekovito:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->ljekovitost }}</td>
           </tr>
           <tr>
             <th class="smaller">Otrovno:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->otrovno }}</td>
           </tr>
           <tr>
             <th class="smaller">Upotrebljivo kao gorivo:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->gorivo }}</td>
           </tr>
           <tr>
             <th class="smaller">Upotrebljivo kao gnojivo:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->gnjojivo }}</td>
           </tr>
           <tr>
             <th class="smaller">Upotrebljivo kao sirovina:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->sirovina }}</td>
           </tr>
           <tr>
             <th class="smaller">Komentar:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->komentar }}</td>
           </tr>
           <tr>
             <th class="smaller">Opis:</th>
-            <td class="bigger">OwO im empty</td>
+            <td class="bigger">{{ $plant->opis }}</td>
           </tr>
         </table>
       </div>

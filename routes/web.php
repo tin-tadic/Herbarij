@@ -33,8 +33,8 @@ Route::get('/addPlant', function() {
 Route::post('/dodaj-biljku', [PlantController::class, 'addPlant'])
     ->name('addPlant');
 
-Route::get('/viewPlant/{$plantId}', [PlantController::class, 'getPlant'])
-    ->name('viewPlant'); //DODAJ-BILJKU SKONTAT
+Route::get('/viewPlant/{plantId}', [PlantController::class, 'getPlant'])
+    ->name('viewPlant');
 
 //Planter routes
 

@@ -98,8 +98,12 @@ class PlantController extends Controller
 
     public function getPlant($plantId) {
         $plant = Plant::find($plantId);
-        dd($plant);
-        // return view('plants.viewPlant');
+        if ($plant) {
+            return view('plants.viewPlant')->with('plant', $plant);
+        } else {
+            dd("TODO::Biljka ne postoji!");
+        }
+        
     }
 
 
