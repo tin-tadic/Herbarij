@@ -18,10 +18,10 @@ class PlantingSeeder extends Seeder
 
             'id_plota' => 1,
             'id_transakcije' => 1,
-             'id_biljke' => 1,
-             'broj_biljaka'=> 22,
-             'datum_sadnje' => Carbon::now()->format('Y-m-d'),
-             'datum_uklanjanja' => Carbon::now()->format('Y-m-d'),
+            'id_biljke' => 1,
+            'broj_biljaka'=> 22,
+            'datum_sadnje' => Carbon::now()->format('Y-m-d'),
+            'datum_uklanjanja' => Carbon::now()->format('Y-m-d'),
         ]);
     }
 }
