@@ -30,7 +30,7 @@
 <body>
     <div id="app">
 
-        {{-- @include('nav') --}}
+        {{-- @include('misc.navbar') --}}
 
         @include('misc.messages')
 

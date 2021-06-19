@@ -82,7 +82,7 @@
       <div id="zaslikicu">
         <img id="slikica"
           src="https://images.pexels.com/photos/954046/pexels-photo-954046.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-        <div id="noticeMeSenpai"><a id="put" href="#sideChick">Pregledajte biljnu putovnicu</a></div>
+        <div id="noticeMeSenpai"><a id="put" href="#documentId">Pregledajte biljnu putovnicu</a></div>
       </div>
 
       <div id="tablica">
