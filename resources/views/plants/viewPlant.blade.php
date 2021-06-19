@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('pageTitle', 'Dodaj novu biljku')
+@section('pageTitle', 'Informacije o biljci')
 
 @section('content')
 <div class="container">
@@ -76,7 +76,7 @@
   <!--kraj navbar-a-->
   <!--sadrzaj-->
   <div id="mom">
-    <div id="mainChick">
+    <div id="mainDiv">
       <p class="hero is-white is-small">{{ $plant->naziv }}</p>
       <p id="herosml3" class="hero is-white is-small">{{ $plant->narodna_imena }}</p>
       <div id="zaslikicu">
@@ -157,7 +157,7 @@
 
     </div>
     <!--biljna putovnica-->
-    <div id="sideChick">
+    <div id="documentId">
       <div class="card">
         <div class="card-content">
           <img id="putImg" src="sprout (1).png" height="50px">
@@ -221,14 +221,14 @@
     margin: auto;
   }
 
-  #mainChick {
+  #mainDiv {
     width: 90%;
     margin-top: 2%;
     text-align: center;
     margin: auto;
   }
 
-  #sideChick {
+  #documentId {
     width: 50%;
     text-align: center;
     margin: auto;
