@@ -34,11 +34,13 @@
 
         @include('misc.messages')
 
+       
+
         HOMEPAGE RADI
         <main>
             @yield('content')
         </main>
-
+        @include('misc.footer')
     </div>
 </body>
 </html>
