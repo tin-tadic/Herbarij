@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('pageTitle', 'Dodaj novu biljku')
+@section('pageTitle', 'Informacije o biljci')
 
 @section('content')
 <div class="container">
