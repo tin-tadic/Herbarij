@@ -1,7 +1,6 @@
-<div class="container">
-    <div>
+<div class="mojContainer ">
         <!--navbar-->
-        <nav id="viridian" class="navbar is-transparent is-boxed is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <nav id="viridian" class="navbar is-transparent is-spaced has-shadow" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="">
             <img src="storage\app\public\assets\sprout (1).png" height="28">
@@ -65,7 +64,6 @@
             </div>
         </div>
         </nav>
-    </div>
     <!--kraj navbar-a-->
 </div>
 <style scoped>
@@ -73,7 +71,9 @@
   body {
     font-family: 'Roboto', sans-serif;
   }
-
+  nav{
+      max-width:100%;
+  }
   .navbar-item {
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -84,10 +84,15 @@
     background-color: #40826d;
     color: white;
     font-weight: bold;
+    max-width:100%;
   }
 
   #viridian a:hover {
     color: #274f42;
-    text-shadow: 2px 2px 5px #274f42;
+    text-shadow: 2px 2px 5px white;
   }
+  #mojContainer{
+      max-width:100%;
+  }
+  
 </style>
