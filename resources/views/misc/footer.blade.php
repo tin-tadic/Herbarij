@@ -55,7 +55,7 @@
 .navbar-item a:hover {
     color: #274f42;
     text-shadow: 2px 2px 5px white;
-
+  
   }
 .person{
     padding-left:20px;
