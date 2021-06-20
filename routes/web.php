@@ -30,11 +30,14 @@ Route::get('/', function() {
 Route::get('/addPlant', function() {
     return view('plants.addPlant');
 });
+
+
 Route::post('/dodaj-biljku', [PlantController::class, 'addPlant'])
     ->name('addPlant');
 
 Route::get('/viewPlant/{plantId}', [PlantController::class, 'getPlant'])
     ->name('viewPlant');
+
 
 //Planter routes
 
@@ -46,4 +49,6 @@ Route::get('/viewPlant/{plantId}', [PlantController::class, 'getPlant'])
 
 
 //Transaction routes
-
+Route::get('/viewTransactions', function() {
+    return view('transactions.viewTransactions');
+});

@@ -33,7 +33,6 @@
   /*za sve str*/
   body {
     font-family: 'Roboto', sans-serif;
-    
   }
 .navbar{
       max-width:100%;
