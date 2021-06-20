@@ -1,3 +1,0 @@
-plantPictures/
-!assets/
-!.gitignore
