@@ -1,6 +1,6 @@
 <div class="mojContainer ">
         <!--navbar-->
-        <nav id="viridian" class="navbar is-transparent is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <nav id="viridian" class="navbar is-transparent is-fixed-top is-spaced has-shadow" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="">
             <img src="storage\app\public\assets\sprout (1).png" height="28">
