@@ -50,6 +50,16 @@ class PlotController extends Controller
         return redirect()->route('home');
     }
 
+    public function getPlot($plotId) {
+        $plot = Plot::find($plotId);
+        if ($plot) {
+            dd($plot);
+            return view('plots.viewPlot')->with('plot', $plot);
+        } else {
+            dd("TODO::Plot ne postoji!");
+        }
+    }
+
     public function deletePlot($plotId) {
         try {
             Plot::destroy($plotId);

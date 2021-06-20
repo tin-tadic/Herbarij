@@ -46,6 +46,16 @@ class PlanterController extends Controller
         return redirect()->route('home');
     }
 
+    public function getPlanter($planterId) {
+        $planter = Planter::find($planterId);
+        if ($planter) {
+            dd($planter);
+            return view('planters.viewPlanter')->with('planter', $planter);
+        } else {
+            dd("TODO::Rasadnik ne postoji!");
+        }
+    }
+
     public function deletePlanter($planterId) {
         try {
             Planter::destroy($planterId);

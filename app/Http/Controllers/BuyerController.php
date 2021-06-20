@@ -37,6 +37,17 @@ class BuyerController extends Controller
         return redirect()->route('home');
     }
 
+
+    public function getBuyer($buyerId) {
+        $buyer = Buyer::find($buyerId);
+        if ($buyer) {
+            dd($buyer);
+            return view('buyers.viewBuyer')->with('buyer', $buyer);
+        } else {
+            dd("TODO::Kupac ne postoji!");
+        }
+    }
+
     public function deleteBuyer($buyerId) {
         try {
             Buyer::destroy($buyerId);

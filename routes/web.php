@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\PlantController;
+use App\Http\Controllers\PlanterController;
+use App\Http\Controllers\PlantingController;
+use App\Http\Controllers\PlotController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +29,8 @@ Route::get('/', function() {
 
 
 //Buyer routes
-
+Route::get('/viewBuyer/{buyerId}', [BuyerController::class, 'getBuyer'])
+    ->name('getBuyer');
 
 //Plant routes
 Route::get('/addPlant', function() {
@@ -40,15 +46,21 @@ Route::get('/viewPlant/{plantId}', [PlantController::class, 'getPlant'])
 
 
 //Planter routes
-
+Route::get('/viewPlanter/{planterId}', [PlanterController::class, 'getPlanter'])
+    ->name('getPlanter');
 
 //Planting routes
-
+Route::get('/viewPlanting/{plantingId}', [PlantingController::class, 'getPlanting'])
+    ->name('getPlanting');
 
 //Plot routes
+Route::get('/viewPlot/{plotId}', [PlotController::class, 'getPlot'])
+    ->name('getPlot');
 
 
 //Transaction routes
 Route::get('/viewTransactions', function() {
     return view('transactions.viewTransactions');
 });
+Route::get('/viewTransaction/{transactionId}', [TransactionController::class, 'getTransaction'])
+    ->name('getTransaction');

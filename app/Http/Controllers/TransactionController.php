@@ -53,6 +53,16 @@ class TransactionController extends Controller
         return redirect()->route('home');
     }
 
+    public function getTransaction($transactionId) {
+        $transaction = Transaction::find($transactionId);
+        if ($transaction) {
+            dd($transaction);
+            return view('transactions.viewTransaction')->with('transaction', $transaction);
+        } else {
+            dd("TODO::Transaction ne postoji!");
+        }
+    }
+
     public function deleteTransaction($transactionId) {
         try {
             Transaction::destroy($transactionId);

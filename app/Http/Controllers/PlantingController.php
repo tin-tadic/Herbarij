@@ -54,6 +54,16 @@ class PlantingController extends Controller
         return redirect()->route('home');
     }
 
+    public function getPlanting($plantingId) {
+        $planting = Planting::find($plantingId);
+        if ($planting) {
+            dd($planting);
+            return view('plantings.viewPlanting')->with('planting', $planting);
+        } else {
+            dd("TODO::Planting ne postoji!");
+        }
+    }
+
     public function deletePlanting($plantingId) {
         try {
             Planting::destroy($plantingId);
