@@ -27,6 +27,10 @@ Route::get('/', function() {
 // Route::get('link/{parameter}', [NameController::class, 'function'])
 //     ->name('routeName');
 
+//FRONTPAGE
+Route::get('/', function() {
+    return view('home.frontpage');
+});
 
 //Buyer routes
 Route::get('/viewBuyer/{buyerId}', [BuyerController::class, 'getBuyer'])
