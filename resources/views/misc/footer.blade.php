@@ -3,30 +3,30 @@
   <div class="navbar-item ">
     
       <span class="person">
-      <img src="storage\app\public\assets\gabi.png">
+      <img src="/storage/assets/gabi.png">
       <a class="name">Gabrijela</a>
       </span>
       <span class="person">
-      <img src="storage\app\public\assets\ankica.png">
+      <img src="/storage/assets/ankica.png">
       <a class="name">Ankica</a>
       </span>
       <span class="person">
-      <img src="storage\app\public\assets\tin.png">
+      <img src="/storage/assets/tin.png">
       <a class="name">Tin</a>
       </span>
       <span class="person">
-      <img src="storage\app\public\assets\marin.png">
+      <img src="/storage/assets/marin.png">
       <a class="name">Marin</a>
       </span>
       <span class="person">
-      <img src="storage\app\public\assets\danica.png">
+      <img src="/storage/assets/danica.png">
       <a class="name">Danica</a>
       </span>
     
   </div>
 </footer>
 <!--CARTOON STYLE AVATARS: <a href='https://www.freepik.com/free-photos-vectors/people'>People vector created by macrovector - www.freepik.com</a>
-    ATRIBUTION FOR FREE ICONS?-->
+    ATTRIBUTION FOR FREE ICONS?-->
 </div>
 
 <style scoped>

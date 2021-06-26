@@ -3,7 +3,7 @@
         <nav id="viridian" class="navbar is-transparent is-fixed-top is-spaced has-shadow" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="">
-            <img src="storage\app\public\assets\sprout (1).png" height="28">
+            <img src="/storage/assets/sprout (1).png" height="28">
             </a>
     
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
