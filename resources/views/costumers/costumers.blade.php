@@ -47,7 +47,9 @@
       </div>
     </div>
 </div>
+<style scoped>
 
+</style>
 <script scoped>
   //modal
   const addButton = document.querySelector('#addCostumer');

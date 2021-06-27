@@ -31,10 +31,15 @@ Route::get('/', function() {
 Route::get('/viewBuyer/{buyerId}', [BuyerController::class, 'getBuyer'])
     ->name('getBuyer');
 
+Route::get('/costumers', function() {
+    return view('costumers.costumers');
+});
+
 //Plant routes
 Route::get('/addPlant', function() {
     return view('plants.addPlant');
 });
+
 
 
 Route::post('/dodaj-biljku', [PlantController::class, 'addPlant'])
