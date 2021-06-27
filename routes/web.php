@@ -19,18 +19,13 @@ use App\Http\Controllers\TransactionController;
 |
 */
 
-Route::get('/', function() {
-    return view('app');
-})->name('home');
-
-
 // Route::get('link/{parameter}', [NameController::class, 'function'])
 //     ->name('routeName');
 
 //FRONTPAGE
 Route::get('/', function() {
     return view('home.frontpage');
-});
+})->name('home');
 
 //Buyer routes
 Route::get('/viewBuyer/{buyerId}', [BuyerController::class, 'getBuyer'])
