@@ -31,8 +31,8 @@ Route::get('/', function() {
 Route::get('/viewBuyer/{buyerId}', [BuyerController::class, 'getBuyer'])
     ->name('getBuyer');
 
-Route::get('/costumers', function() {
-    return view('costumers.costumers');
+Route::get('/customers', function() {
+    return view('customers.customers');
 });
 
 //Plant routes
