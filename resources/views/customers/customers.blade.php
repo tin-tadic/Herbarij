@@ -3,12 +3,33 @@
 @section('pageTitle', 'Customers')
 
 @section('content')
-
+<br><br><br>
 <section class="section">
+  <div class="container">
+    <h3 class="title has-text-centered is-size-4">Kupci</h3>
+    <div class="columns mt-5 is-8 is-variable is-centered">
+    
+      <div class="column is-4-tablet is-3-desktop">
+        <div class="card">
+        <div class="card-image has-text-centered px-6">
+          <img src="public\storage\assets\user.png" alt="customer image">
+        </div>
+        <div class="card-content">
+          <p>Ovdje ide ime</p>
+          <p>Ovdje ide prezime ako ima</p>
+          <p>Ovdje ide adresa</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <button class="button mt-4" id="addCostumer">Dodaj Kupca</button>
   </div>
 </section>
+
+
+
 
 <div class="modal">
   <div class="modal-background">
