@@ -39,23 +39,27 @@ Route::get('/customers', function() {
 Route::get('/addPlant', function() {
     return view('plants.addPlant');
 });
-
-
-
 Route::post('/dodaj-biljku', [PlantController::class, 'addPlant'])
     ->name('addPlant');
-
 Route::get('/viewPlant/{plantId}', [PlantController::class, 'getPlant'])
     ->name('viewPlant');
+Route::get('/plants', [PlantController::class, 'getPlants'])
+    ->name('getPlants');
+Route::get('editPlant/{plantId}', [PlantController::class, 'getPlantForEdit'])
+    ->name('getPlantForEdit');
+Route::post('editPlant/{plantId}', [PlantController::class, 'editPlant'])
+    ->name('editPlant');
 
 
 //Planter routes
 Route::get('/viewPlanter/{planterId}', [PlanterController::class, 'getPlanter'])
     ->name('getPlanter');
 
+
 //Planting routes
 Route::get('/viewPlanting/{plantingId}', [PlantingController::class, 'getPlanting'])
     ->name('getPlanting');
+
 
 //Plot routes
 Route::get('/viewPlot/{plotId}', [PlotController::class, 'getPlot'])

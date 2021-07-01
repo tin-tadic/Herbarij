@@ -1,65 +1,65 @@
 @extends('app')
 
-@section('pageTitle', 'Dodaj novu biljku')
+@section('pageTitle', 'Promjena podataka o biljci')
 
 @section('content')
 <div class="container">
 
     <div id="artikl" class="artikl">
         <div class="form">
-            <form class="contact-form" action="/dodaj-biljku" method="POST" enctype="multipart/form-data">
+            <form class="contact-form" action="/editPlant/{{ $plant->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label class="label" for="ime">
                     <span class="left">Ime:</span>
                     
-                    <input class="input is-success" id="ime" name="naziv" type="text" placeholder="Naziv biljke" />
+                    <input class="input is-success" id="ime" name="naziv" type="text" placeholder="Naziv biljke" value="{{ $plant->naziv }}"/>
                     
                 </label>
                 <label class="label" for="narodno_ime">
                     <span class="left">Narodno ime:</span>
-                    <input class="input is-success" id="narodno_ime" type="text" name="narodna_imena" placeholder="Narodno ime biljke" />
+                    <input class="input is-success" id="narodno_ime" type="text" name="narodna_imena" placeholder="Narodno ime biljke" value="{{ $plant->narodna_imena }}"/>
                 </label>
                 <label class="label" for="tip_tla">
                     <span class="left">Tip tla:</span>
-                    <input class="input is-success" id="tip_tla" type="text" name="tip_tla" placeholder="Tip tla" />
+                    <input class="input is-success" id="tip_tla" type="text" name="tip_tla" placeholder="Tip tla" value="{{ $plant->tip_tla }}"/>
                 </label>
-                <label class="label" for="cijena"><!--TRENUTNA CIJENA??-->
-                    <span class="left">Cijena:</span> 
+                <label class="label" for="cijena">
+                    <span class="left">Cijena:</span>
                     <select name="kolicina_cijene"  id="jedinica">
-                        <option value="kg">Kg</option>
-                        <option value="jed">Jedinica</option>
+                        <option value="kg" {{ ($plant->kolicina_cijene=="kg")? "selected" : "" }}>Kg</option>
+                        <option value="jed" {{ ($plant->kolicina_cijene=="jed")? "selected" : "" }}>Jedinica</option>
                     </select>
-                    <input class="input is-success" id="cijena" name="trenutna_cijena" type="text" placeholder="Cijena" />
+                    <input class="input is-success" id="cijena" name="trenutna_cijena" type="text" placeholder="Cijena" value="{{ $plant->trenutna_cijena }}"/>
                 </label>
 
                 <label class="label" for="vrijeme_sadnje">
                     Vrijeme sadnje:
-                    <input class="input is-success" id="vrijeme_sadnje" name="vrijeme_sadnje" type="date">
+                    <input class="input is-success" id="vrijeme_sadnje" name="vrijeme_sadnje" type="date" value="{{ $plant->vrijeme_sadnje }}"/>
 
                 </label>
 
                 <label class="label" for="vrijeme_zetve">
                     Vrijeme zetve:
-                    <input class="input is-success" id="vrijeme_zetve" name="vrijeme_zetve" type="date">
+                    <input class="input is-success" id="vrijeme_zetve" name="vrijeme_zetve" type="date" value="{{ $plant->vrijeme_zetve }}"/>
 
                 </label>
 
                 <label class="label" for="vrijeme_orezivanja">
                     Vrijeme orezivanja:
-                    <input class="input is-success" id="vrijeme_orezivanja" name="vrijeme_orezivanja" type="date">
+                    <input class="input is-success" id="vrijeme_orezivanja" name="vrijeme_orezivanja" type="date" value="{{ $plant->vrijeme_orezivanja }}"/>
 
                 </label>
                 <div class="radijo">
                     <span class="home-radio">
                         <label for="card-byNumber">
                             Jestivo za ljude
-                            <input type="radio" name="jestivost_ljudi" id="card-byNumber" value="1">
+                            <input type="radio" name="jestivost_ljudi" id="card-byNumber" value="1" {{ ($plant->jestivost_ljudi=="1")? "checked" : "" }}>
 
                         </label>
                     </span>
                     <span class="home-radio">
                         <label for="card-byUuid">
-                            <input type="radio" name="jestivost_ljudi" id="card-byUuid" value="0">
+                            <input type="radio" name="jestivost_ljudi" id="card-byUuid" value="0" {{ ($plant->jestivost_ljudi=="0")? "checked" : "" }}>
                             Nije jestivo za ljude
                         </label>
                     </span>
@@ -68,14 +68,14 @@
                     <span class="home-radio">
                         <label for="card-byNumber">
                             Jestivo za zivotinje
-                            <input type="radio" name="jestivost_zivotinje" id="card-byNumber" value="1">
+                            <input type="radio" name="jestivost_zivotinje" id="card-byNumber" value="1" {{ ($plant->jestivost_zivotinje=="1")? "checked" : "" }}>
 
                         </label>
                     </span>
 
                     <span class="home-radio">
                         <label for="card-byUuid">
-                            <input type="radio" name="jestivost_zivotinje" id="card-byUuid" value="0">
+                            <input type="radio" name="jestivost_zivotinje" id="card-byUuid" value="0" {{ ($plant->jestivost_zivotinje=="0")? "checked" : "" }}>
                             Nije jestivo za zivotinje
                         </label>
                     </span>
@@ -84,14 +84,14 @@
                     <span class="home-radio">
                         <label for="card-byNumber">
                             Ljekovito
-                            <input type="radio" name="ljekovitost" id="card-byNumber" value="1">
+                            <input type="radio" name="ljekovitost" id="card-byNumber" value="1" {{ ($plant->ljekovitost=="1")? "checked" : "" }}>
 
                         </label>
                     </span>
 
                     <span class="home-radio">
                         <label for="card-byUuid">
-                            <input type="radio" name="ljekovitost" id="card-byUuid" value="0">
+                            <input type="radio" name="ljekovitost" id="card-byUuid" value="0" {{ ($plant->ljekovitost=="0")? "checked" : "" }}>
                             Nije ljekovito
                         </label>
                     </span>
@@ -100,14 +100,14 @@
                     <span class="home-radio">
                         <label for="card-byNumber">
                             Otrovno
-                            <input type="radio" name="otrovno" id="card-byNumber" value="1">
+                            <input type="radio" name="otrovno" id="card-byNumber" value="1" {{ ($plant->otrovno=="1")? "checked" : "" }}>
 
                         </label>
                     </span>
 
                     <span class="home-radio">
                         <label for="card-byUuid">
-                            <input type="radio" name="otrovno" id="card-byUuid" value="0">
+                            <input type="radio" name="otrovno" id="card-byUuid" value="0" {{ ($plant->otrovno=="0")? "checked" : "" }}>
                             Nije otrovno
                         </label>
                     </span>
@@ -116,14 +116,14 @@
                     <span class="home-radio">
                         <label for="card-byNumber">
                             Upotrebljivo kao gorivo
-                            <input type="radio" name="gorivo" id="card-byNumber" value="1">
+                            <input type="radio" name="gorivo" id="card-byNumber" value="1" {{ ($plant->gorivo=="1")? "checked" : "" }}>
 
                         </label>
                     </span>
 
                     <span class="home-radio">
                         <label for="card-byUuid">
-                            <input type="radio" name="gorivo" id="card-byUuid" value="0">
+                            <input type="radio" name="gorivo" id="card-byUuid" value="0" {{ ($plant->gorivo=="0")? "checked" : "" }}>
                             Nije upotrebljivo kao gorivo
                         </label>
                     </span>
@@ -132,14 +132,14 @@
                     <span class="home-radio">
                         <label for="card-byNumber">
                             Upotrebljivo kao gnjojivo
-                            <input type="radio" name="gnjojivo" id="card-byNumber" value="1">
+                            <input type="radio" name="gnjojivo" id="card-byNumber" value="1" {{ ($plant->gnjojivo=="1")? "checked" : "" }}>
 
                         </label>
                     </span>
 
                     <span class="home-radio">
                         <label for="card-byUuid">
-                            <input type="radio" name="gnjojivo" id="card-byUuid" value="0">
+                            <input type="radio" name="gnjojivo" id="card-byUuid" value="0" {{ ($plant->gnjojivo=="0")? "checked" : "" }}>
                             Nije upotrebljivo kao gnjojivo
                         </label>
                     </span>
@@ -148,14 +148,14 @@
                     <span class="home-radio">
                         <label for="card-byNumber">
                             Upotrebljivo kao sirovina
-                            <input type="radio" name="sirovina" id="card-byNumber" value="1">
+                            <input type="radio" name="sirovina" id="card-byNumber" value="1" {{ ($plant->sirovina=="1")? "checked" : "" }}>
 
                         </label>
                     </span>
 
                     <span class="home-radio">
                         <label for="card-byUuid">
-                            <input type="radio" name="sirovina" id="card-byUuid" value="0">
+                            <input type="radio" name="sirovina" id="card-byUuid" value="0" {{ ($plant->sirovina=="0")? "checked" : "" }}>
                             Nije upotrebljivo kao sirovina
                         </label>
                     </span>
@@ -164,13 +164,13 @@
 
                 <div class="field">
                 <label for="komentar" class="label">Komentar</label>
-                <input class="input is-success" type="tekst" name="komentar" placeholder="Komentar" />
+                <input class="input is-success" type="tekst" name="komentar" placeholder="Komentar" value="{{ $plant->komentar }}"/>
                
                 </div>
                 
                 
                  <label class="label">Opis</label>
-                <textarea class="textarea is-success" name="opis" placeholder="Opis"></textarea>
+                <textarea class="textarea is-success" name="opis" placeholder="Opis">{{ $plant->opis }}</textarea>
 
                 <br>
                 <br>
@@ -195,15 +195,15 @@
                 <br>
                 <br>
                 <div>
-                    <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj biljku" />
+                    <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Spremi promjene" />
                 </div>
 
                 <br>
                 
-
+                {{-- TODO::This is not how a cancel button works
                 <div>
                     <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-                </div>
+                </div> --}}
 
 
             </form>
