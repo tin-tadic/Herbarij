@@ -26,10 +26,10 @@
   </div>
 </div>
 <!--Kartice-->
-<section class="section is-hidden-mobile">
+<section class="section">
   <div class="container">
     <h3 class="title has-text-centered is-size-4">Biljke</h3>
-    <div class="mt-5 columns is-centered is-8 is-variable">
+    <div class="mt-5 columns is-multiline is-centered is-8 is-variable">
         
         @foreach ($plants as $plant)
             <div class="column is-4-tablet is-3-desktop">
