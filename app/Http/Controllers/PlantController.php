@@ -23,7 +23,7 @@ class PlantController extends Controller
         if ($plant) {
             return view('plants.editPlant')->with('plant', $plant);
         } else {
-            return redirect()->route('viewPlant', 3)->with('error', 'Ta biljka nije pronađena!');
+            return redirect()->route('getPlants')->with('error', 'Ta biljka nije pronađena!');
         }
     }
 
