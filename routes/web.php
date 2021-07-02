@@ -49,6 +49,8 @@ Route::get('editPlant/{plantId}', [PlantController::class, 'getPlantForEdit'])
     ->name('getPlantForEdit');
 Route::post('editPlant/{plantId}', [PlantController::class, 'editPlant'])
     ->name('editPlant');
+Route::post('deletePlant/{plantId}', [PlantController::class, 'deletePlant'])
+    ->name('deletePlant');
 
 
 //Planter routes

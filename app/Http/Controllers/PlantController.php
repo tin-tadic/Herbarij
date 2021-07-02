@@ -107,6 +107,8 @@ class PlantController extends Controller
                     'trenutna_cijena' => $request->input('trenutna_cijena'),
                     'kolicina_cijene' => $request->input('kolicina_cijene'),
                 ]);
+            
+            return redirect()->route('getPlants');
         } else {
             return redirect()->route('home')->with('error', 'Došlo je do greške. Promjene nisu spremljene.');
         }
@@ -251,6 +253,8 @@ class PlantController extends Controller
     public function deletePlant($plantId) {
         try {
             Plant::destroy($plantId);
+            
+            return redirect()->route('getPlants');
         } catch(\Illuminate\Database\QueryException $e) {
             //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
             dd($e);

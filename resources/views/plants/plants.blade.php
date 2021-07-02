@@ -45,51 +45,20 @@
                     <p class="card-footer-item">
                     <button onclick="location.href='{{ route('getPlantForEdit', $plant->id) }}'" type="button" class="button mt-5" id="edit">Edit</button>
                     <button onclick="location.href='{{ route('viewPlant', $plant->id) }}'" type="button" class="button mt-5" id="view">View</button>
-                    <button class="button mt-5" id="delete">Delete</button>
+                    <button class="button mt-5" id="delete" onclick="event.preventDefault();
+                      if(confirm('Jeste li sigurni da želite izbrisati ovu biljku?')) {
+                            document.getElementById(`deletePlant_{{ $plant->id }}`).submit();
+                          }">
+                          Delete
+                        </button>
+                    <form id="deletePlant_{{ $plant->id }}" action="{{ route('deletePlant', ['plantId' => $plant->id]) }}" method="POST">
+                        @csrf
+                    </form>
                     </p>
                 </footer>
                 </div>
             </div>
         @endforeach
-      
-
-      <div class="column is-4-tablet is-3-desktop">
-        <div class="card">
-          <div class="card-image has-text-centered px-6">
-            <img src="img/krumpir.jpg" alt="Placeholder image">
-          </div>
-          <div class="card-content">
-            <p>2KM/kg</p>
-            <p class="title is-size-5">Krumpir</p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <button class="button mt-5" id="edit">Edit</button>
-              <button class="button mt-5" id="view">View</button>
-              <button class="button mt-5" id="delete">Delete</button>
-            </p>
-          </footer>
-        </div>
-      </div>
-
-      <div class="column is-4-tablet is-3-desktop">
-        <div class="card">
-          <div class="card-image has-text-centered px-6">
-            <img src="img/mrkva.jpg" alt="Placeholder image">
-          </div>
-          <div class="card-content">
-            <p>2KM/KG</p>
-            <p class="title is-size-5">Mrkva</p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <button class="button mt-5" id="edit">Edit</button>
-              <button class="button mt-5" id="view">View</button>
-              <button class="button mt-5" id="delete">Delete</button>
-            </p>
-          </footer>
-        </div>
-      </div>
 
     </div>
   </div>
