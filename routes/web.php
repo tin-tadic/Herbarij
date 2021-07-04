@@ -30,20 +30,18 @@ Route::get('/', function() {
 //Buyer routes
 Route::get('/customers', [BuyerController::class, 'getBuyers'])
     ->name('getBuyers');
-
 Route::get('/getBuyerForEdit/{buyerId}', [BuyerController::class, 'getBuyerForEdit'])
     ->name('getBuyerForEdit');
-Route::post('/editBuyer{buyerId}', [BuyerController::class, 'editBuyer'])
+Route::post('/editBuyer/{buyerId}', [BuyerController::class, 'editBuyer'])
     ->name('editBuyer');
 
-Route::post('/deleteBuyer{buyerId}', [BuyerController::class, 'deleteBuyer'])
-    ->name('deleteBuyer');
-
-Route::post('/addBuyer', [BuyerController::class, 'addBuyer'])
-    ->name('AddBuyer');
 Route::get('/addBuyer', function() {
     return view('customers.addCustomer');
 });
+Route::post('/addBuyer', [BuyerController::class, 'addBuyer'])
+    ->name('addBuyer');
+    Route::post('/deleteBuyer{buyerId}', [BuyerController::class, 'deleteBuyer'])
+    ->name('deleteBuyer');
 
 //Plant routes
 Route::get('/addPlant', function() {

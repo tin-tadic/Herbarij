@@ -6,20 +6,20 @@
 <div class="container">
     <div id="login" class="login-page">
         <div class="form">
-            <form class="login-form" action="/dodaj-kupca" method="POST" enctype="multipart/form-data">
+            <form class="login-form" action="/addBuyer" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label class="label" for="ime">Ime:
-                    <input class="input is-success" id="ime" type="text" placeholder="Ime" required />
+                    <input class="input is-success" id="ime" name="ime" type="text" placeholder="Ime" required />
                 </label>
                 <label class="label" for="adresa">Adresa:
-                    <input class="input is-success" id="adresa" type="text" placeholder="Adresa" required />
+                    <input class="input is-success" id="adresa" name="adresa" type="text" placeholder="Adresa" required />
                 </label>
                 <label class="label" for="tip">Tip kupca:
                     <br>
                     <br>
                     <select name="tip" id="tip">
-                        <option value="jedan">Pojedinac</option>
-                        <option value="vise">Tvrtka</option>
+                        <option value="Pojedinac">Pojedinac</option>
+                        <option value="Tvrtka">Tvrtka</option>
                     </select>
                 </label>
                 <br>
@@ -37,6 +37,15 @@
 </div>
 
 <style scoped>
+
+    /* Added by Tin */
+
+    .login-form {
+        margin-top: 300px;
+    }
+
+    /* end of the freakshow */
+
     .ticket {
         position: relative;
         max-width: 1000px;

@@ -27,8 +27,8 @@
                 Biljke
             </a>
     
-            <a class="navbar-item">
-                Nešto treće
+            <a class="navbar-item" href="{{ route('getBuyers') }}">
+                Kupci
             </a>
     
             <!-- ovaj dio je za drop down meni, nije potreban?

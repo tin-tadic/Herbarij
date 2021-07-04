@@ -6,20 +6,20 @@
 <div class="container">
     <div id="login" class="login-page">
         <div class="form">
-            <form class="login-form" action="/aditBuyer/{{ $buyer->id }}" method="POST" enctype="multipart/form-data">
+            <form class="login-form" action="/editBuyer/{{ $buyer->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label class="label" for="ime">Ime:
-                    <input class="input is-success" id="ime" type="text" placeholder="Ime" value="{{ $buyer->ime }}" />
+                    <input class="input is-success" id="ime" type="text" name="ime" placeholder="Ime" value="{{ $buyer->ime }}" />
                 </label>
                 <label class="label" for="adresa">Adresa:
-                    <input class="input is-success" id="adresa" type="text" placeholder="Adresa" value="{{ $buyer->adresa }}" />
+                    <input class="input is-success" id="adresa" type="text" name="adresa" placeholder="Adresa" value="{{ $buyer->adresa }}" />
                 </label>
                 <label class="label" for="tip">Tip kupca:
                     <br>
                     <br>
                     <select name="tip" id="tip">
-                        <option value="jedan" {{ $buyer->tip=="jedan"? "selected": "" }}>Pojedinac</option>
-                        <option value="vise" {{ $buyer->tip=="vise"? "selected": "" }}>Tvrtka</option>
+                        <option value="Pojedinac" {{ $buyer->tip=="Pojedinac"? "selected": "" }}>Pojedinac</option>
+                        <option value="Tvrtka" {{ $buyer->tip=="Tvrtka"? "selected": "" }}>Tvrtka</option>
                     </select>
                 </label>
                 <br>

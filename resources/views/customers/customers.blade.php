@@ -36,7 +36,7 @@
       </div>
     </div>
   </section>
-  <button class="button mt-4" id="addCostumer">Dodaj Kupca</button>
+  <button class="button mt-4" id="addCostumer" onclick="location.href='{{ route('addBuyer') }}'">Dodaj Kupca</button>
 </div>
 <!-- modal za brisanje -->
 <div class="modal" id="modalDelete">
