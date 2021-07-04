@@ -39,9 +39,9 @@ Route::post('/editBuyer{buyerId}', [BuyerController::class, 'editBuyer'])
 Route::post('/deleteBuyer{buyerId}', [BuyerController::class, 'deleteBuyer'])
     ->name('deleteBuyer');
 
-Route::get('/addBuyer', [BuyerController::class, 'getAddBuyer'])
-    ->name('getAddCustomer');
-Route::post('/addBuyer', function() {
+Route::post('/addBuyer', [BuyerController::class, 'addBuyer'])
+    ->name('AddBuyer');
+Route::get('/addBuyer', function() {
     return view('customers.addCustomer');
 });
 
