@@ -28,12 +28,21 @@ Route::get('/', function() {
 })->name('home');
 
 //Buyer routes
-Route::get('/viewBuyer/{buyerId}', [BuyerController::class, 'getBuyer'])
-    ->name('getBuyer');
+Route::get('/customers', [BuyerController::class, 'getBuyers'])
+    ->name('getBuyers');
 
-Route::get('/customers', function() {
-    return view('customers.customers');
-});
+Route::get('/getBuyerForEdit/{buyerId}', [BuyerController::class, 'getBuyerForEdit'])
+    ->name('getBuyerForEdit');
+Route::post('/editBuyer{buyerId}', [BuyerController::class, 'editBuyer'])
+    ->name('editBuyer');
+
+Route::post('/deleteBuyer{buyerId}', [BuyerController::class, 'deleteBuyer'])
+    ->name('deleteBuyer');
+
+Route::get('/addBuyer', [BuyerController::class, 'getAddBuyer'])
+    ->name('getAddCustomer');
+Route::post('/addBuyer', [BuyerController::class, 'addBuyer'])
+    ->name('addBuyer');
 
 //Plant routes
 Route::get('/addPlant', function() {
@@ -45,11 +54,11 @@ Route::get('/viewPlant/{plantId}', [PlantController::class, 'getPlant'])
     ->name('viewPlant');
 Route::get('/plants', [PlantController::class, 'getPlants'])
     ->name('getPlants');
-Route::get('editPlant/{plantId}', [PlantController::class, 'getPlantForEdit'])
+Route::get('/editPlant/{plantId}', [PlantController::class, 'getPlantForEdit'])
     ->name('getPlantForEdit');
-Route::post('editPlant/{plantId}', [PlantController::class, 'editPlant'])
+Route::post('/editPlant/{plantId}', [PlantController::class, 'editPlant'])
     ->name('editPlant');
-Route::post('deletePlant/{plantId}', [PlantController::class, 'deletePlant'])
+Route::post('/deletePlant/{plantId}', [PlantController::class, 'deletePlant'])
     ->name('deletePlant');
 
 

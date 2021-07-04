@@ -254,7 +254,7 @@ class PlantController extends Controller
         try {
             Plant::destroy($plantId);
             
-            return redirect()->route('getPlants');
+            return redirect()->route('getPlants')->with('success', 'Biljka uspješno izbrisana!');
         } catch(\Illuminate\Database\QueryException $e) {
             //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
             dd($e);

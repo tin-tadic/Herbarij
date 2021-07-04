@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class BuyerController extends Controller
 {
+
+    public function getBuyers() {
+        $buyers = Buyer::all();
+        return view('customers.customers')->with('buyers', $buyers);
+    }
+
     public function addBuyer(Request $request) {
         
         $rules = [
@@ -38,19 +44,19 @@ class BuyerController extends Controller
     }
 
 
-    public function getBuyer($buyerId) {
+    public function getBuyerForEdit($buyerId) {
         $buyer = Buyer::find($buyerId);
         if ($buyer) {
-            dd($buyer);
-            return view('buyers.viewBuyer')->with('buyer', $buyer);
+            return view('customers.editCustomer')->with('buyer', $buyer);
         } else {
-            dd("TODO::Kupac ne postoji!");
+            return redirect()->route('getBuyers')->with('error', 'Taj kupac nije pronađena!');
         }
     }
 
     public function deleteBuyer($buyerId) {
         try {
             Buyer::destroy($buyerId);
+            return redirect()->route('getBuyers')->with('success', 'Kupac uspješno izbrisan!');
         } catch (\Illuminate\Database\QueryException $e) {
             //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
             dd($e);
