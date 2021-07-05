@@ -69,8 +69,7 @@
     </section>
 
     <div>
-        <button class="button mt-4" id="addPlant" onclick="location.href='{{ route('addPlant') }}'">Dodaj
-            Biljku</button>
+      <button class="button mt-5" id="dodaj" onclick="location.href='{{ route('getAddPlant') }}'">Dodaj Biljku</button>
         <!--pagination-->
         <div id="fixSide" class="mb-5 pb-10">
             {{ $plants->links() }}
