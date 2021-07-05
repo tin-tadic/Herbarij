@@ -3,9 +3,9 @@
 @section('pageTitle', 'Dodaj novog kupca')
 
 @section('content')
+
 <div class="container">
-    <div id="login" class="login-page">
-        <div class="form">
+    <div class="tile is-parent is-10">
             <form class="login-form" action="/addBuyer" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label class="label" for="ime">Ime:
@@ -25,14 +25,13 @@
                 <br>
                 <br>
                 <div>
-                    <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj biljku" />
+                    <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj kupca" />
                 </div>
                 <br>
                 <div>
                     <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
                 </div>
             </form>
-        </div>
     </div>
 </div>
 
@@ -109,7 +108,7 @@
         z-index: 1;
         background: #FFFFFF;
         max-width: 1000px;
-        margin: 0 auto 100px;
+        margin: 0 auto 15px;
         padding: 45px;
         text-align: center;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);

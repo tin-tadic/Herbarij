@@ -25,7 +25,7 @@
                 <br>
                 <br>
                 <div>
-                    <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj biljku" />
+                    <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Spremi promjene" />
                 </div>
                 <br>
                 <div>

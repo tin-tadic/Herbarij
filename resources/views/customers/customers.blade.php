@@ -3,10 +3,11 @@
 @section('pageTitle', 'Customers')
 
 @section('content')
-<div>
+<div class="container">
   <section class="section">
     <div class="container">
-      <h3 class="title has-text-centered is-size-4">Kupci</h3>
+      <!--<h3 class="title has-text-centered is-size-4"></h3>-->
+      <br><br>
       <div class="columns mt-5 is-8 is-variable is-centered is-multiline">
         @foreach ($buyers as $buyer)
           <div class="column is-4-tablet is-3-desktop">
