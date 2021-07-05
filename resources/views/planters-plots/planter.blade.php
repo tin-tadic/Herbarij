@@ -17,7 +17,7 @@
         <div class="column is-4-tablet is-3-desktop">
           <div class="card">
             <div class="card-image has-text-centered px-6">
-              <img src="storage/assets/planter.png" alt="greenhouse">
+              <img src="/storage/assets/plot.png" alt="greenhouse">
             </div>
             <div class="card-content">
               <p>{{ $plot->naziv_plota }}</p>
