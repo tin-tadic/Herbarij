@@ -43,7 +43,7 @@
   <div>
     <button class="button mt-4" id="addCostumer" onclick="location.href='{{ route('addBuyer') }}'">Dodaj Kupca</button>
     <!--pagination-->
-    <div class="mb-5 pb-10">
+    <div id="fixSide" class="mb-5 pb-10">
       {{ $buyers->links() }}
     </div>
     <br><br>
@@ -99,4 +99,12 @@
   })
 </script>
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<style>
+#fixSide{
+  float:right;
+}
+.pagination-list{
+  flex-wrap: nowrap;
+}
+</style>
 @endsection
