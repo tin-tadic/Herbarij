@@ -29,7 +29,7 @@
                         <option value="kg" {{ ($plant->kolicina_cijene=="kg")? "selected" : "" }}>Kg</option>
                         <option value="jed" {{ ($plant->kolicina_cijene=="jed")? "selected" : "" }}>Jedinica</option>
                     </select>
-                    <input class="input is-success" id="cijena" name="trenutna_cijena" type="text" placeholder="Cijena" value="{{ $plant->trenutna_cijena }}"/>
+                    <input class="input is-success" id="cijena" name="trenutna_cijena" type="text" placeholder="Cijena" value="{{ round($plant->trenutna_cijena, 2) }}"/>
                 </label>
 
                 <label class="label" for="vrijeme_sadnje">

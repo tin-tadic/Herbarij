@@ -196,8 +196,7 @@ class PlantController extends Controller
             'kolicina_cijene' => $request->input('kolicina_cijene'),
         ]);
 
-        // return redirect()->route('ADD A ROUTE', ['idBiljke' => $newPlant->id])->with('success', 'Biljka uspješno napravljena.');
-        return redirect()->route('getPlants');
+        return redirect()->route('getPlants')->with('success', 'Biljka uspješno napravljena.');
     }
 
     public function getPlant($plantId) {

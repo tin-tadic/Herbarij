@@ -32,7 +32,7 @@
           </tr>
           <tr>
             <th class="smaller">Cijena</th>
-            <td class="bigger">{{ $plant->trenutna_cijena }}</td>
+            <td class="bigger">{{ round($plant->trenutna_cijena, 2) }}</td>
           </tr>
           <tr>
             {{-- TODO::Standardize date format --}}

@@ -34,6 +34,11 @@
             </div>
           </div>
         @endforeach
+
+        <div>
+          {{ $buyers->links() }}
+        </div>
+        
       </div>
     </div>
   </section>

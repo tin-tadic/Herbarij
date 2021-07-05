@@ -11,7 +11,7 @@ class BuyerController extends Controller
 {
 
     public function getBuyers() {
-        $buyers = Buyer::all();
+        $buyers = Buyer::paginate(4);
         return view('customers.customers')->with('buyers', $buyers);
     }
 

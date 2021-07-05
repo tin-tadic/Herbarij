@@ -38,7 +38,7 @@
                     <img src="/storage/plantPictures/{{ $plant->slika }}" alt="Placeholder image">
                 </div>
                 <div class="card-content">
-                    <p>{{ $plant->trenutna_cijena }}KM/{{ $plant->kolicina_cijene }}</p>
+                    <p>{{ round($plant->trenutna_cijena, 2) }}KM/{{ $plant->kolicina_cijene }}</p>
                     <p class="title is-size-5">{{ $plant->naziv }}</p>
                 </div>
                 <footer class="card-footer">
