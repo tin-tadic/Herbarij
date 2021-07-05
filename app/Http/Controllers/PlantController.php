@@ -13,7 +13,7 @@ class PlantController extends Controller
 
 
     public function getPlants() {
-        $plants = Plant::paginate(8);
+        $plants = Plant::paginate(4);
         return view('plants.plants')->with('plants', $plants);
     }
 
