@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="container">
-    <div id="login" class="login-page">
-        <div class="form">
+    
+        <div class="card">
             <form class="login-form" action="/editBuyer/{{ $buyer->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label class="label" for="ime">Ime:
@@ -33,10 +33,15 @@
                 </div>
             </form>
         </div>
-    </div>
+    
 </div>
 
 <style scoped>
+
+    .login-form {
+        margin-top: 150px;
+    }
+
     .ticket {
         position: relative;
         max-width: 1000px;

@@ -34,7 +34,7 @@
             </div>
           </div>
         @endforeach
-
+        <!--pagination-->
         <div>
           {{ $buyers->links() }}
         </div>
@@ -60,8 +60,6 @@
       </form>
     </div>
   </div>
-</div>
-
 </div>
 
 

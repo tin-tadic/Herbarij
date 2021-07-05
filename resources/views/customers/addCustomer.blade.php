@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-    <div class="tile is-parent is-10">
+    <div class="card">
             <form class="login-form" action="/addBuyer" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label class="label" for="ime">Ime:
@@ -40,7 +40,7 @@
     /* Added by Tin */
 
     .login-form {
-        margin-top: 300px;
+        margin-top: 150px;
     }
 
     /* end of the freakshow */
