@@ -77,8 +77,8 @@ Route::get('/viewPlot/{plotId}', [PlotController::class, 'getPlot'])
 
 
 //Transaction routes
-Route::get('/viewTransactions', function() {
-    return view('transactions.viewTransactions');
-});
+Route::get('/viewTransactions', [TransactionController::class, 'getTransactions'])
+    ->name('viewTransactions');
+
 Route::get('/viewTransaction/{transactionId}', [TransactionController::class, 'getTransaction'])
     ->name('getTransaction');

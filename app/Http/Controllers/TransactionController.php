@@ -53,6 +53,11 @@ class TransactionController extends Controller
         return redirect()->route('home');
     }
 
+    public function getTransactions() {
+        $transactions = Transaction::paginate(4);
+        return view('transactions.viewTransactions')->with('transactions', $transactions);
+    }
+
     public function getTransaction($transactionId) {
         $transaction = Transaction::find($transactionId);
         if ($transaction) {

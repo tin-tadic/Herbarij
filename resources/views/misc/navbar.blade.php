@@ -26,7 +26,11 @@
             <a class="navbar-item" href="{{ route('getPlants') }}">
                 Biljke
             </a>
-    
+
+            <a class="navbar-item" href="{{ route('viewTransactions') }}">
+                Transakcije
+            </a>
+
             <a class="navbar-item" href="{{ route('getBuyers') }}">
                 Kupci
             </a>
