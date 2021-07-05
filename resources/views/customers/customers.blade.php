@@ -13,7 +13,7 @@
           <div class="column is-4-tablet is-3-desktop">
             <div class="card">
               <div class="card-image has-text-centered px-6">
-                <img src="public\storage\assets\user.png" alt="customer image">
+                <img src="storage/assets/user.png" alt="customer image">
               </div>
               <div class="card-content">
                 <p>{{ $buyer->ime }}</p>
