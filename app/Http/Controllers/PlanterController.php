@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Planter;
 use Illuminate\Support\Facades\DB;
+use App\Models\Plot;
 
 class PlanterController extends Controller
 {
@@ -47,10 +48,9 @@ class PlanterController extends Controller
     }
 
     public function getPlanter($planterId) {
-        $planter = Planter::find($planterId);
-        if ($planter) {
-            dd($planter);
-            return view('planters.viewPlanter')->with('planter', $planter);
+        $plots = Plot::where('id_rasadnika', $planterId)->paginate(3);
+        if ($plots) {
+            return view('planters-plots.planter')->with('plots', $plots);
         } else {
             dd("TODO::Rasadnik ne postoji!");
         }

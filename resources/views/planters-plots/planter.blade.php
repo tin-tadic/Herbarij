@@ -48,7 +48,7 @@
 </div>
 
 <div>
-    <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('addPlot') }}'">Dodaj Plot</button>
+    <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getAddPlot') }}'">Dodaj Plot</button>
     <!--pagination-->
     <div id="fixSide" class="mb-5 pb-10">
       {{ $plots->links() }}
