@@ -13,7 +13,7 @@ class PlantController extends Controller
 
 
     public function getPlants() {
-        $plants = Plant::all();
+        $plants = Plant::paginate(8);
         return view('plants.plants')->with('plants', $plants);
     }
 
@@ -197,7 +197,7 @@ class PlantController extends Controller
         ]);
 
         // return redirect()->route('ADD A ROUTE', ['idBiljke' => $newPlant->id])->with('success', 'Biljka uspješno napravljena.');
-        return redirect()->route('home');
+        return redirect()->route('getPlants');
     }
 
     public function getPlant($plantId) {

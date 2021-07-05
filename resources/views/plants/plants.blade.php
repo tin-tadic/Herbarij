@@ -60,12 +60,16 @@
             </div>
         @endforeach
 
+        <div>
+          {{ $plants->links() }}
+        </div>
+
     </div>
   </div>
   
 </section>
 
-<button class="button mt-5 is-pulled-right" id="dodaj">Dodaj Biljku</button>
+<button class="button mt-5 is-pulled-right" id="dodaj" onclick="location.href='{{ route('getAddPlant') }}'">Dodaj Biljku</button>
 </div>
 
 

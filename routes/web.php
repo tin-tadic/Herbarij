@@ -46,7 +46,7 @@ Route::post('/addBuyer', [BuyerController::class, 'addBuyer'])
 //Plant routes
 Route::get('/addPlant', function() {
     return view('plants.addPlant');
-});
+})->name('getAddPlant');
 Route::post('/dodaj-biljku', [PlantController::class, 'addPlant'])
     ->name('addPlant');
 Route::get('/viewPlant/{plantId}', [PlantController::class, 'getPlant'])
