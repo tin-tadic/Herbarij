@@ -3,6 +3,7 @@
 @section('pageTitle', 'Customers')
 
 @section('content')
+<div>
 <div class="container">
   <section class="section">
     <div class="container">
@@ -45,7 +46,9 @@
     <div class="mb-5 pb-10">
       {{ $buyers->links() }}
     </div>
+    <br><br>
   </div>
+  
 </div>
 <!-- modal za brisanje -->
 <div class="modal" id="modalDelete">
@@ -63,6 +66,7 @@
       </form>
     </div>
   </div>
+</div>
 </div>
 
 
