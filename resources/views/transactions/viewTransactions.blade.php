@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('pageTitle', 'Pregledaj transakciju')
+@section('pageTitle', 'Pregledaj transakcije')
 
 @section('content')
 <div class="container">
@@ -23,6 +23,7 @@
                                 <th>CIJENA</th>
                                 <th>UKUPNO</th>
                                 <th>STATUS</th>
+                                <th>EDIT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,6 +34,7 @@
                                 <td>3</td>
                                 <td>9</td>
                                 <td id="blue">Naruceno</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                             <tr>
                                 <td>10.06.2021.</td>
@@ -41,6 +43,7 @@
                                 <td>5</td>
                                 <td>50</td>
                                 <td id="green">Gotovo</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                             <tr>
                                 <td>11.06.2021.</td>
@@ -49,6 +52,7 @@
                                 <td>3</td>
                                 <td>9</td>
                                 <td id="red">Otkazano</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -67,6 +71,7 @@
                                 <th>UKUPNO</th>
                                 <th>STATUS</th>
                                 <!--naruceno, gotovo, otkazano-->
+                                <th>EDIT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,6 +83,7 @@
                                 <td>3</td>
                                 <td>9</td>
                                 <td id="blue">Naruceno</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                             <tr>
                                 <td>10.06.2021.</td>
@@ -86,6 +92,7 @@
                                 <td>5</td>
                                 <td>50</td>
                                 <td id="green">Prodano</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                             <tr>
                                 <td>11.06.2021.</td>
@@ -94,6 +101,7 @@
                                 <td>3</td>
                                 <td>9</td>
                                 <td id="green">Prodano</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -112,6 +120,7 @@
                                 <th>UKUPNO</th>
                                 <th>STATUS</th>
                                 <!--naruceno, gotovo, otkazano-->
+                                <th>EDIT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -123,6 +132,7 @@
                                 <td>3</td>
                                 <td>9</td>
                                 <td id="green">Naruceno</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                             <tr>
                                 <td>10.06.2021.</td>
@@ -131,6 +141,7 @@
                                 <td>5</td>
                                 <td>50</td>
                                 <td id="blue">Planirano</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                             <tr>
                                 <td>11.06.2021.</td>
@@ -139,6 +150,7 @@
                                 <td>3</td>
                                 <td>9</td>
                                 <td id="blue">Planirano</td>
+                                <td><button class="button is-light">Edit</button></td>
                             </tr>
                         </tbody>
                     </table> 
@@ -169,7 +181,7 @@
     }
     .ticket {
         position: relative;
-        max-width: 1000px;
+        max-width: 1500px;
         /* padding: 8% 0 0;*/
         margin: auto;
     }
@@ -229,9 +241,8 @@
         position: relative;
         z-index: 1;
         background: #FFFFFF;
-        max-width: 1000px;
         margin: 0 auto 100px;
-        padding: 45px;
+        padding: 35px;
         text-align: center;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     }
