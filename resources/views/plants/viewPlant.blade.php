@@ -91,7 +91,7 @@
     <div id="documentId">
       <div class="card">
         <div class="card-content">
-          <img id="putImg" src="sprout (1).png" height="50px">
+          <img id="putImg" src="/storage/plantPictures/{{ $plant->slika }}" height="50px">
           <p class="title">
             Biljna putovnica</p>
           <p class="subtitle">
@@ -109,9 +109,9 @@
                 <p>12.11.2009.</p>
               </td>
               <td id="drugiPutovnica">
-                <p>Vrsta/botanički naziv:<span class="podebljani">UBACITI</span></p>
+                <p>Vrsta/botanički naziv:<span class="podebljani">{{ $plant->naziv }}</span></p>
                 <p>Sorta/Klon: <span class="podebljani">UBACITI</span></p>
-                <p>Podloga/Klon: <span class="podebljani">UBACITI</span></p>
+                <p>Podloga/Klon: <span class="podebljani">{{ $plant->tip_tla }}</span></p>
                 <p>Kategorija: <span class="podebljani">UBACITI</span></p>
                 <p>Naziv dobavljača: <span class="podebljani">UBACITI</span></p>
               </td>

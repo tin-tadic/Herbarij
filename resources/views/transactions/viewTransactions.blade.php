@@ -8,11 +8,10 @@
     <div id="add-button">
         <button class="button is-success is-outlined">Add Transaction</button>
     </div>
-
 <!--Tabovi-->
 <div id="ticket" class="ticket">
             <div class="tab">
-                <a class="tablinks" onclick="Switch(event, 'Prvi')">Kupovina</a>
+                <a class="tablinks active" onclick="Switch(event, 'Prvi')">Kupovina</a>
                 <a class="tablinks" onclick="Switch(event, 'Drugi')">Prodaja</a>
                 <a class="tablinks" onclick="Switch(event, 'Treci')">Plan nabave</a>
             </div>
@@ -26,39 +25,34 @@
                                 <th>ARTIKAL</th>
                                 <th>KOLIČINA</th>
                                 <th>CIJENA</th>
-                                <th>UKUPNO</th>
                                 <th>STATUS</th>
                                 <th>EDIT</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($kupovine as $kupovina)
                             <tr>
-                                <td>15.06.2021.</td>
-                                <td>Jabuka</td>
-                                <td>3kg</td>
-                                <td>3</td>
-                                <td>9</td>
-                                <td id="blue">Naruceno</td>
+                                <td>{{ date('d-m-Y', strtotime($kupovina->datum)) }}</td>
+
+                                <td>{{ $kupovina->artikl }}</td>
+
+                                <td>{{ $kupovina->kolicina }}</td>
+
+                                <td>{{ round($kupovina->cijena, 2) }}</td>
+                                
+                                @if ($kupovina->stanje == 0)
+                                    <td id="blue">Naruceno</td>
+                                @elseif ($kupovina->stanje == 1)
+                                    <td id="green">Gotovo</td>
+                                @else
+                                    <td id="red">Otkazano</td>
+                                @endif
+                                
+                               
                                 <td><button class="button is-light">Edit</button></td>
                             </tr>
-                            <tr>
-                                <td>10.06.2021.</td>
-                                <td>Višnja</td>
-                                <td>10kg</td>
-                                <td>5</td>
-                                <td>50</td>
-                                <td id="green">Gotovo</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>11.06.2021.</td>
-                                <td>Jabuka</td>
-                                <td>3kg</td>
-                                <td>3</td>
-                                <td>9</td>
-                                <td id="red">Otkazano</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
+                            @endforeach
+                            
                         </tbody>
                     </table>
                     
@@ -72,42 +66,33 @@
                                 <th>ARTIKAL</th>
                                 <th>KOLIČINA</th>
                                 <th>CIJENA</th>
-                                <!--Ovo je cijena po jedinici/kg-->
-                                <th>UKUPNO</th>
                                 <th>STATUS</th>
-                                <!--naruceno, gotovo, otkazano-->
                                 <th>EDIT</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!--Testni redak u tablici-->
-                            <tr>
-                                <td>15.06.2021.</td>
-                                <td>Jabuka</td>
-                                <td>3kg</td>
-                                <td>3</td>
-                                <td>9</td>
-                                <td id="blue">Naruceno</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>10.06.2021.</td>
-                                <td>Višnja</td>
-                                <td>10kg</td>
-                                <td>5</td>
-                                <td>50</td>
-                                <td id="green">Prodano</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>11.06.2021.</td>
-                                <td>Jabuka</td>
-                                <td>3kg</td>
-                                <td>3</td>
-                                <td>9</td>
-                                <td id="green">Prodano</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
+                            @foreach ($transakcije as $transakcija)
+                                <tr>
+                                    <td>{{ date('d-m-Y', strtotime($transakcija->datum)) }}</td>
+
+                                    <td>{{ $transakcija->artikl }}</td>
+
+                                    <td>{{ $transakcija->kolicina }}</td>
+
+                                    <td>{{ round($transakcija->cijena, 2) }}</td>
+                                    
+                                    @if ($transakcija->stanje == 0)
+                                        <td id="blue">Naruceno</td>
+                                    @elseif ($transakcija->stanje == 1)
+                                        <td id="green">Gotovo</td>
+                                    @else
+                                        <td id="red">Otkazano</td>
+                                    @endif
+                                    
+                                
+                                    <td><button class="button is-light">Edit</button></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
              
@@ -121,42 +106,32 @@
                                 <th>ARTIKAL</th>
                                 <th>KOLIČINA</th>
                                 <th>CIJENA</th>
-                                <!--Ovo je cijena po jedinici/kg-->
-                                <th>UKUPNO</th>
                                 <th>STATUS</th>
-                                <!--naruceno, gotovo, otkazano-->
                                 <th>EDIT</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!--Testni redak u tablici-->
-                            <tr>
-                                <td>15.06.2021.</td>
-                                <td>Jabuka</td>
-                                <td>3kg</td>
-                                <td>3</td>
-                                <td>9</td>
-                                <td id="green">Naruceno</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>10.06.2021.</td>
-                                <td>Višnja</td>
-                                <td>10kg</td>
-                                <td>5</td>
-                                <td>50</td>
-                                <td id="blue">Planirano</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <td>11.06.2021.</td>
-                                <td>Jabuka</td>
-                                <td>3kg</td>
-                                <td>3</td>
-                                <td>9</td>
-                                <td id="blue">Planirano</td>
-                                <td><button class="button is-light">Edit</button></td>
-                            </tr>
+                            @foreach ($nabave as $nabava)
+                                <tr>
+                                    <td>{{ date('d-m-Y', strtotime($nabava->datum)) }}</td>
+
+                                    <td>{{ $nabava->artikl }}</td>
+
+                                    <td>{{ $nabava->kolicina }}</td>
+
+                                    <td>{{ round($nabava->cijena, 2) }}</td>
+                                    
+                                    @if ($nabava->stanje == 0)
+                                        <td id="blue">Naruceno</td>
+                                    @elseif ($nabava->stanje == 1)
+                                        <td id="green">Gotovo</td>
+                                    @else
+                                        <td id="red">Otkazano</td>
+                                    @endif
+                                                                    
+                                    <td><button class="button is-light">Edit</button></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table> 
                 </div>

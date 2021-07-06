@@ -21,5 +21,7 @@ class Transaction extends Model
         'povrsina',
         'komentar',
         'vrsta_tla',
+        'artikl',
+        'kolicina',
     ];
 }

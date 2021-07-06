@@ -37,6 +37,10 @@ class Plants extends Migration
             $table->float('trenutna_cijena')->nullable();
             $table->string('kolicina_cijene')->nullable();
 
+            $table->string('sorta')->nullable();
+            $table->string('kategorija')->nullable();
+            $table->string('naziv_dobavljaca')->nullable();
+
             $table->timestamps();
         });
     }

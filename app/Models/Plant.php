@@ -35,7 +35,11 @@ class Plant extends Model
         'opis',
         'slika',
         'trenutna_cijena',
-        'kolicina_cijene'
+        'kolicina_cijene',
+
+        'sorta',
+        'kategorija',
+        'naziv_dobavljaca',
     ];
 
 }

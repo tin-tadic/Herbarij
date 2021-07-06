@@ -54,8 +54,11 @@ class TransactionController extends Controller
     }
 
     public function getTransactions() {
-        $transactions = Transaction::paginate(4);
-        return view('transactions.viewTransactions')->with('transactions', $transactions);
+        $kupovine = Transaction::where('tip_transakcije', 1)->get();
+        $transakcije = Transaction::where('tip_transakcije', 2)->get();
+        $nabave = Transaction::where('tip_transakcije', 3)->get();
+        
+        return view('transactions.viewTransactions')->with(['kupovine' => $kupovine, 'transakcije' => $transakcije, 'nabave' => $nabave]);
     }
 
     public function getTransaction($transactionId) {
