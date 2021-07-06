@@ -3,16 +3,18 @@
 @section('pageTitle', 'Rasadnici')
 
 @section('content')
-
-<div class="container">
-  <form action="" method="post">
-    <div class="field has-addons is-pulled-right">
-      <label class="label">Rasadnik</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Upišite ime rasadnika">
-      </div>
+<div class="skoci">
+  <form action="" method="post"></form>
+  <div class="field has-addons is-pulled-right">
+    <div class="control">
+      <input class="input" type="text" placeholder="Upiši naziv rasadnika..">
     </div>
-    <button class="button" type="submit">Pretraži</button>
+    <div class="control">
+      <button class="button is-success">
+        Pretraga
+      </button>
+    </div>
+  </div>
   </form>
 
   <section class="section">
@@ -64,24 +66,8 @@
 </div>
 
 </div>
-<!-- modal za brisanje -->
-<div class="modal" id="modalDelete">
-  <div class="modal-background"></div>
-  <div class="modal-content has-background-white py-5 px-5">
-    <h3 class="title mb-6">Jeste li sigurni da želite izbrisati kupca?</h3>
-    <div class="container">
-      <form>
-        <div class="field">
-          <button class="button is-link is-success is-pulled-right" id="canceldelete">Cancel</button>
-        </div>
-        <div class="field">
-          <button class="button is-link is-danger is-pulled-left">Delete</button>
-        </div>
-      </form>
-    </div>
-  </div>
 </div>
-</div>
+
 
 
 
@@ -120,6 +106,10 @@
 
   .pagination-list {
     flex-wrap: nowrap;
+  }
+
+  .skoci {
+    margin-top: 100px;
   }
 </style>
 @endsection
