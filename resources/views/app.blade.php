@@ -34,12 +34,14 @@
 
         @include('misc.navbar')
 
-        @include('misc.messages')
+        
         
         <main>
             @yield('content')
         </main>
 
+        @include('misc.messages')
+        
         @include('misc.footer')
     </div>
 </body>
