@@ -52,7 +52,7 @@ class PlanterController extends Controller
         if ($plots) {
             return view('planters-plots.planter')->with('plots', $plots);
         } else {
-            dd("TODO::Rasadnik ne postoji!");
+            return view('planters-plots.planter')->with('error', 'Rasadnik sa tim IDom nije pronađen!');
         }
     }
 

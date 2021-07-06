@@ -21,6 +21,7 @@ class Plot extends Model
         'trenutno_posadjeno',
         'prethodno_posadjeno',
         'buduce_posadjeno',
+        'broj_sadnica'
     ];
 
 }

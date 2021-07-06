@@ -110,10 +110,10 @@
               </td>
               <td id="drugiPutovnica">
                 <p>Vrsta/botanički naziv:<span class="podebljani">{{ $plant->naziv }}</span></p>
-                <p>Sorta/Klon: <span class="podebljani">UBACITI</span></p>
+                <p>Sorta/Klon: <span class="podebljani">{{ $plant->sorta }}</span></p>
                 <p>Podloga/Klon: <span class="podebljani">{{ $plant->tip_tla }}</span></p>
-                <p>Kategorija: <span class="podebljani">UBACITI</span></p>
-                <p>Naziv dobavljača: <span class="podebljani">UBACITI</span></p>
+                <p>Kategorija: <span class="podebljani">{{ $plant->kategorija }}</span></p>
+                <p>Naziv dobavljača: <span class="podebljani">{{ $plant->naziv_dobavljaca }}</span></p>
               </td>
             </tr>
           </table>

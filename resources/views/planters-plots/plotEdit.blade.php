@@ -6,58 +6,58 @@
 
 <div id="artikl" class="container">
     <div class="form">
-        <form class="contact-form" action="/editPlot/{{ $plot->id }}" method="POST" enctype="multipart/form-data"">
+        <form class="contact-form" action="/editPlot/{{ $plot->id }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
             <label class=" label" for="id_rasadnika">
             ID rasadnika:
-            <input class="input is-success" id="id_rasadnika" type="number" placeholder="Povrsina" />
+            <input class="input is-success" id="id_rasadnika" type="number" placeholder="ID Rasadnika" name="id_rasadnika" value="{{ $plot->id_rasadnika }}" />
             </label>
 
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv plota:</span>
-                <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" />
+                <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv plota" name="naziv_plota" value="{{ $plot->naziv_plota }}" />
             </label>
 
             <label class="label" for="lokacija">
                 <span class="left">Vrsta plota:</span>
-                <input class="input is-success" id="lokacija" type="text" placeholder="Naziv lokacije" />
+                <input class="input is-success" id="lokacija" type="text" placeholder="Vrsta plota" name="vrsta_plota" value="{{ $plot->vrsta_plota }}" />
             </label>
 
 
             <label class="label" for="broj_sadnica">
                 <span class="left">Broj sadnica:</span>
-                <input class="input is-success" id="broj_sadnica" type="number" placeholder="Broj sadnica" />
+                <input class="input is-success" id="broj_sadnica" type="number" placeholder="Broj sadnica" name="broj_sadnica" value="{{ $plot->broj_sadnica }}" />
             </label>
 
             </label>
 
             <label class="label" for="trenutno_posadeno">
                 Trenutno Posadeno:
-                <input class="input is-success" id="trenutno_posadeno" type="text" placeholder="Trenutno Posadeno">
+                <input class="input is-success" id="trenutno_posadeno" type="text" placeholder="Trenutno Posadeno" name="trenutno_posadjeno" value="{{ $plot->trenutno_posadjeno }}" />
 
             </label>
 
             <label class="label" for="prethodno_posadeno">
                 Prethodno Posadeno:
-                <input class="input is-success" id="prethodno_posadeno" type="text" placeholder="Prethodno Posadeno">
+                <input class="input is-success" id="prethodno_posadeno" type="text" placeholder="Prethodno Posadeno" name="prethodno_posadjeno" value="{{ $plot->prethodno_posadjeno }}" />
 
             </label>
 
             <label class="label" for="buduce_posadeno">
                 Buduce Posadeno:
-                <input class="input is-success" id="buduce_posadeno" type="text" placeholder="Buduce Posadeno">
+                <input class="input is-success" id="buduce_posadeno" type="text" placeholder="Buduce Posadeno" name="buduce_posadjeno" value="{{ $plot->buduce_posadjeno }}" />
 
             </label>
 
+            <div>
+                <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Spremi promjene" />
+            </div>
+
         </form>
 
-        <div>
-            <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Spremi promjene" />
-        </div>
+        
         <br>
-        <div>
-            <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-        </div>
 
 
         </form>

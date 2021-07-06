@@ -75,17 +75,18 @@ Route::get('/viewPlanting/{plantingId}', [PlantingController::class, 'getPlantin
 
 
 //Plot routes
-Route::get('addPlot', [PlotController::class, 'getAddPlot'])
-    ->name('getAddPlot'); // <-change this to just return a view
+Route::get('addPlot', function() {
+    return view('planters-plots.plotAdd');
+})->name('getAddPlot');
 Route::post('addPlot', [PlotController::class, 'addPlot'])
-    ->name('getAddPlot');
-Route::get('/viewPlot/{plotId}', [PlotController::class, 'getPlot'])
-    ->name('getPlot');
-Route::get('editPlot', [PlotController::class, 'getPlotForEdit'])
+    ->name('addPlot');
+
+Route::get('editPlot/{plotId}', [PlotController::class, 'getPlotForEdit'])
     ->name('getPlotForEdit');
-Route::post('editPlot', [PlotController::class, 'editPlot'])
+Route::post('editPlot/{plotId}', [PlotController::class, 'editPlot'])
     ->name('editPlot');
-Route::post('deletePlot', [PlotController::class, 'deletePlot'])
+
+Route::post('deletePlot/{plotId}', [PlotController::class, 'deletePlot'])
     ->name('deletePlot');
 
 
