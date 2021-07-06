@@ -19,7 +19,7 @@
                 Naslovna
             </a>
     
-            <a class="navbar-item">
+            <a class="navbar-item" href="{{ route('aboutUs') }}">
                 O nama
             </a>
     

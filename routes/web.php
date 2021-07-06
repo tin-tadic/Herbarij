@@ -22,10 +22,13 @@ use App\Http\Controllers\TransactionController;
 // Route::get('link/{parameter}', [NameController::class, 'function'])
 //     ->name('routeName');
 
-//FRONTPAGE
+//Misc routes
 Route::get('/', function() {
     return view('home.frontpage');
 })->name('home');
+Route::get('/aboutUs', function() {
+    return view('misc.about');
+})->name('aboutUs');
 
 //Buyer routes
 Route::get('/customers', [BuyerController::class, 'getBuyers'])
