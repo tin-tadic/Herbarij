@@ -1,13 +1,13 @@
 @extends('app')
 
-@section('pageTitle', 'Dodaj transakciju')
+@section('pageTitle', 'Dodaj transakcije')
 
 @section('content')
 <section class="section">
 <div class="container">
-    <h1 id="naslov">Dodaj transakciju</h1>
+    <h1 id="naslov">Uredi transakciju</h1>
     <div id="artikl">
-        <form class="contact-form" action="/dodaj-transakciju" method="POST" enctype="multipart/form-data">
+        <form class="contact-form" action="/uredi-transakciju" method="POST" enctype="multipart/form-data">
             @csrf
             <label class="label" for="naz-artikla">
                 <span class="left">Naziv artikla:</span>
