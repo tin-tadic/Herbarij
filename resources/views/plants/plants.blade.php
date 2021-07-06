@@ -6,25 +6,6 @@
 
 
 <div class="container">
-  <div>
-      <!--MODAL ZA BRISANJE BILJKE-->
-      <div class="modal" id="modalDelete">
-          <div class="modal-background"></div>
-          <div class="modal-content has-background-white py-5 px-5">
-              <h3 class="title mb-6">Jeste li sigurni da zelite izbrisati biljku?</h3>
-              <div class="container">
-                  <form>
-                      <div class="field">
-                          <button class="button is-link is-success is-pulled-right" id="canceldelete">Cancel</button>
-                      </div>
-                      <div class="field">
-                          <button class="button is-link is-danger is-pulled-left">Delete</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
     <!--Kartice-->
   <section class="section">
         <div class="container">
