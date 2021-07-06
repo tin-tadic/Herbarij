@@ -25,8 +25,9 @@
   </div>
 </section>
 
-<section id="second" class="hero3">
-  <div class="hero3">
+<section class="somethin3">
+  <div class="hero3-body">
+  sdcfv
   </div>
 </section>
 
@@ -87,11 +88,11 @@ p.blockify{
     font-weight:bolder;
     text-align:center;
 }
-.hero3{
+.somethin3{
     width:100%;
-    height:200px;
+    height:600px;
     background-image: url("storage\app\public\assets\2902348.jpg");
-
+    background-size:cover;
 }
 </style>
 
