@@ -6,7 +6,7 @@
 <div class="container">
 
     <div id="add-button">
-        <button class="button is-success is-outlined">Add Transaction</button>
+        <button id="add-transaction" class="button is-light is-focus is-medium">Add Transaction</button>
     </div>
 <!--Tabovi-->
 <div id="ticket" class="ticket">
@@ -27,6 +27,7 @@
                                 <th>CIJENA</th>
                                 <th>STATUS</th>
                                 <th>EDIT</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +51,7 @@
                                 
                                
                                 <td><button class="button is-light">Edit</button></td>
+                                <td class="del">&#10008;</td>
                             </tr>
                             @endforeach
                             
@@ -68,6 +70,7 @@
                                 <th>CIJENA</th>
                                 <th>STATUS</th>
                                 <th>EDIT</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,6 +94,7 @@
                                     
                                 
                                     <td><button class="button is-light">Edit</button></td>
+                                    <td class="del">&#10008;</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -108,6 +112,7 @@
                                 <th>CIJENA</th>
                                 <th>STATUS</th>
                                 <th>EDIT</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,6 +135,7 @@
                                     @endif
                                                                     
                                     <td><button class="button is-light">Edit</button></td>
+                                    <td class="del">&#10008;</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -157,23 +163,27 @@
 </script>
 <style scoped>
     .container{
-        margin-top:100px;
+        margin-top:150px;
     }
     .ticket {
         position: relative;
         max-width: 1500px;
         /* padding: 8% 0 0;*/
         margin: auto;
+        
+        box-sizing: content-box;
+
     }
 
     #ticket {
         padding-top: 0px;
+        box-sizing: content-box;
     }
 
     .tab {
         overflow: hidden;
         margin-left: 20px;
-        padding: 8% 0 0;
+        padding: 3% 0 0;
         margin: auto;
     }
 
@@ -294,13 +304,34 @@
         display:block;
     }
     #add-button{
-        float:right;
-        margin-right:2%;
-        margin-top:1.5%;
+        text-align:center;
     }
-    #add-button .button{
-        color:#484848;
+    #add-transaction{
+        color: #484848;
+        font-weight: bold;
     }
+    #add-transaction:hover{
+        background-color: #40826d;
+        font-weight: bold;
+        color:white;
+        border: #484848;
+    }
+    .button {
+        background-color: #484848;
+        color: white;
+    }
+
+    .del{
+        font-size:25px;
+        color: red;
+        font-weight:bold;
+    }
+    table td {
+        vertical-align: middle;
+    }
+    table td:not([align]), table th:not([align]) {
+        vertical-align: middle;
+}
 </style>
 
 @endsection
