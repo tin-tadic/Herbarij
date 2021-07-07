@@ -30,7 +30,7 @@
   <section class="section">
     <div class="container">
       <!--<h3 class="title has-text-centered is-size-4">Biljke</h3>-->
-      <div class="mt-5 columns is-multiline is-centered is-8 is-variable">
+      <div class="mt-5 is-8 columns is-multiline is-centered is-variable">
 
         @foreach ($plants as $plant)
         <div class="column is-4-tablet is-3-desktop">
@@ -44,9 +44,9 @@
             </div>
             <footer class="card-footer">
               <p class="card-footer-item">
-                <button onclick="location.href='{{ route('getPlantForEdit', $plant->id) }}'" type="button" class="button mt-5" id="edit">Edit</button>
-                <button onclick="location.href='{{ route('viewPlant', $plant->id) }}'" type="button" class="button mt-5" id="view">View</button>
-                <button class="button mt-5" id="delete" onclick="event.preventDefault();
+                <button onclick="location.href='{{ route('getPlantForEdit', $plant->id) }}'" type="button" class="button is-small mt-5" id="edit">Edit</button>
+                <button onclick="location.href='{{ route('viewPlant', $plant->id) }}'" type="button" class="button is-small mt-5" id="view">View</button>
+                <button class="button is-small mt-5" id="delete" onclick="event.preventDefault();
                       if(confirm('Jeste li sigurni da želite izbrisati ovu biljku?')) {
                             document.getElementById(`deletePlant_{{ $plant->id }}`).submit();
                           }">
@@ -144,6 +144,9 @@
   }
   .skoci{
     margin-top: 100px;
+  }
+  .button{
+
   }
 </style>
 @endsection
