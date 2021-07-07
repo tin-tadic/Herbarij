@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Transaction extends Model
 {
     use HasFactory;
@@ -14,7 +15,8 @@ class Transaction extends Model
      *
      * @var array
      */
-    protected $fillable = [
+    //protected promijenuto  u public
+    public $fillable = [
         'naziv_rasadnika',
         'vrsta',
         'lokacija',

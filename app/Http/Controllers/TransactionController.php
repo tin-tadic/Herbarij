@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\DB;
+use PDF;
+
 
 class TransactionController extends Controller
 {
@@ -79,4 +81,16 @@ class TransactionController extends Controller
             dd($e);
         }
     }
+
+    public function getAllTransaction(){
+        $transactions = Transaction::all();
+        return view ('transaction', compact ('transactions'));
+    
+    }
+    public function downloadPDF(){
+        $transactions = Transaction::all();
+        $pdf = PDF::loadView('transaction' , compact('transactions'));
+        return $pdf->download('transactions.pdf');
+    }
+
 }

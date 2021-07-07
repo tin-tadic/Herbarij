@@ -91,3 +91,9 @@ Route::get('/viewTransactions', [TransactionController::class, 'getTransactions'
     ->name('viewTransactions');
 Route::get('/viewTransaction/{transactionId}', [TransactionController::class, 'getTransaction'])
     ->name('getTransaction');
+
+    
+   // Route::get('/', [TransactionController::class, 'showTransaction']);
+
+    Route::get('/get-all-transactions', [TransactionController::class, 'getAllTransaction']);
+    Route::get('/download-pdf', [TransactionController::class, 'downloadPDF']);
