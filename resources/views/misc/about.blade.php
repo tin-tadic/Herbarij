@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('pageTitle', 'Dodaj transakcije')
+@section('pageTitle', 'O nama')
 
 @section('content')
 <section id="first" class="hero is-large is-dark">
@@ -25,9 +25,50 @@
   </div>
 </section>
 
-<section class="somethin3">
-  <div class="hero3-body">
-  sdcfv
+<section class="part3">
+  <div class="part3-body">
+  <div class="nestoMargina">
+  <div class="naslovi">
+    <h1>Frontendaša</h1>
+  </div>
+  <div id="front">
+      <div class="mini">
+        <h2>Gabrijela Josipović</h2>
+        <img class="profile" src="https://images.pexels.com/photos/3841338/pexels-photo-3841338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=256 width=128/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+      </div>
+      <div class="mini">
+        <h2>Marin Azinović</h2>
+        <img class="profile" src="https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=256 width=128/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+      </div>
+      <div class="mini">
+        <h2>Danica Jurić</h2>
+        <img class="profile" src="https://images.pexels.com/photos/3680316/pexels-photo-3680316.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height=256 width=128/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+      </div>
+    </div>
+  </div>
+  <!--BACKEND-->
+  <div id="razdvoji"></div>
+  <div class="nestoMargina">
+  <div class="naslovi">
+    <h1>Backendaša</h1>
+  </div>
+  <div id="front">
+      <div class="mini">
+        <h2>Ankica Katić</h2>
+        <img class="profile" src="https://images.pexels.com/photos/1898555/pexels-photo-1898555.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height=256 width=128/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+      </div>
+      <div class="mini">
+        <h2>Tin Tadić</h2>
+        <img class="profile" src="https://images.pexels.com/photos/5911942/pexels-photo-5911942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=256 width=128/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+      </div>
+    </div>
+  </div>
+    
   </div>
 </section>
 
@@ -72,7 +113,7 @@ p.blockify{
     font-size:20px;
     text-align:center;
 }
-#hdln{
+#hdln, .naslovi{
     font-weight:bold;
 }
 #arrow-container{
@@ -88,11 +129,65 @@ p.blockify{
     font-weight:bolder;
     text-align:center;
 }
-.somethin3{
+.part3{
+  border-top: groove #40826d 5px;
     width:100%;
-    height:600px;
-    background-image: url("storage\app\public\assets\2902348.jpg");
+    
+    /*background-image: url("https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-image: url("");*/
+    background-image: url("https://images.pexels.com/photos/2097521/pexels-photo-2097521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size:cover;
+}
+#front{  
+  padding-top:1%;
+  display:flex;
+  width:80%;
+  margin:auto;
+  justify-content: space-evenly;
+}
+.mini{
+  width:28%;
+  margin:auto;
+  background-color: white;
+  background:rgba(255,255,255, 0.6);
+  display:inline-block;
+  justify-content: space-evenly;
+  padding: 20px;
+  border-radius:10px;
+  text-align:center;
+}
+.mini h2{
+  font-size: 25px;
+  font-weight: 600;
+  
+  font-family: 'Montserrat', sans-serif;
+}
+.naslovi{
+  margin: 25px;
+  display:block;
+  text-align: center;
+  font-weight:900;
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+}
+.naslovi h1{
+  font-weight: 700;
+  text-shadow: white 1px 1px;
+}
+.profile{
+  margin:auto;
+  border: solid 0.5px #40826d;
+}
+#razdvoji{
+  margin:auto;
+  margin-top:30px;
+  margin-bottom:30px;
+  width:65%;
+  border-top: double 4px white;
+}
+.nestoMargina{
+  margin-bottom:5%;
 }
 </style>
 
