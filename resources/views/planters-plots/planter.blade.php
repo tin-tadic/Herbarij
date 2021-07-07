@@ -16,6 +16,16 @@
     </div>
   </div>
   </form>
+  <div class="field has-addons is-pulled-right">
+      <div class="control">
+        <input class="input" type="text" placeholder="Pretraži plotove...">
+      </div>
+      <div class="control">
+        <button class="button is-success">
+          Pretraga
+        </button>
+      </div>
+  </div>
 
   <section class="section">
     <div class="container">
