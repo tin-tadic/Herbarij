@@ -19,9 +19,10 @@ class Plots extends Migration
             $table->string('naziv_plota')->nullable();
             $table->string('vrsta_plota')->nullable();
 
-            $table->unsignedBigInteger('trenutno_posadjeno')->nullable();
-            $table->unsignedBigInteger('prethodno_posadjeno')->nullable();
-            $table->unsignedBigInteger('buduce_posadjeno')->nullable();
+            $table->string('trenutno_posadjeno')->nullable();
+            $table->string('prethodno_posadjeno')->nullable();
+            $table->string('buduce_posadjeno')->nullable();
+            $table->string('broj_sadnica')->nullable();
 
             $table->timestamps();
         });

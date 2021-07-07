@@ -74,9 +74,9 @@
 
                             <td>{{ round($kupovina->cijena, 2) }}</td>
 
-                            @if ($kupovina->stanje == 0)
+                            @if ($kupovina->stanje == "Naruceno")
                             <td id="blue">Naruceno</td>
-                            @elseif ($kupovina->stanje == 1)
+                            @elseif ($kupovina->stanje == "Gotovo")
                             <td id="green">Gotovo</td>
                             @else
                             <td id="red">Otkazano</td>
@@ -153,9 +153,9 @@
 
                             <td>{{ round($transakcija->cijena, 2) }}</td>
 
-                            @if ($transakcija->stanje == 0)
+                            @if ($transakcija->stanje == "Naruceno")
                             <td id="blue">Naruceno</td>
-                            @elseif ($transakcija->stanje == 1)
+                            @elseif ($transakcija->stanje == "Gotovo")
                             <td id="green">Gotovo</td>
                             @else
                             <td id="red">Otkazano</td>
@@ -231,9 +231,9 @@
 
                             <td>{{ round($nabava->cijena, 2) }}</td>
 
-                            @if ($nabava->stanje == 0)
+                            @if ($nabava->stanje == "Naruceno")
                             <td id="blue">Naruceno</td>
-                            @elseif ($nabava->stanje == 1)
+                            @elseif ($nabava->stanje == "Gotovo")
                             <td id="green">Gotovo</td>
                             @else
                             <td id="red">Otkazano</td>

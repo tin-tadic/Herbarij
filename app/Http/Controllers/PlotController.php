@@ -16,9 +16,6 @@ class PlotController extends Controller
             'naziv_plota' => ['sometimes', 'max:50'],
             'vrsta_plota' => ['sometimes', 'max:50'],
 
-            'trenutno_posadjeno' => ['sometimes', 'exists:plantings,id', 'integer'],
-            'prethodno_posadjeno' => ['sometimes', 'exists:plantings,id', 'integer'],
-            'buduce_posadjeno' => ['sometimes', 'exists:plantings,id', 'integer'],
             'broj_sadnica' => ['sometimes', 'integer']
         ];
         $messages = [
@@ -26,9 +23,6 @@ class PlotController extends Controller
             'naziv_plota.max' => 'Naziv plota ne može biti dulji od 50 znakova!',
             'vrsta_plota.max' => 'Vrsta plota ne može biti dulja od 50 znakova!',
 
-            'trenutno_posadjeno.exists' => 'Mora biti prazno ili mora postojati unutar arhive sađenja!',
-            'prethodno_posadjeno.exists' => 'Mora biti prazno ili mora postojati unutar arhive sađenja!',
-            'buduce_posadjeno.exists' => 'Mora biti prazno ili mora postojati unutar arhive sađenja!',
             'broj_sadnica.integer' => 'Mora biti broj!'
         ];
 
@@ -87,9 +81,6 @@ class PlotController extends Controller
             'naziv_plota' => ['sometimes', 'max:50'],
             'vrsta_plota' => ['sometimes', 'max:50'],
 
-            'trenutno_posadjeno' => ['sometimes', 'exists:plantings,id', 'integer'],
-            'prethodno_posadjeno' => ['sometimes', 'exists:plantings,id', 'integer'],
-            'buduce_posadjeno' => ['sometimes', 'exists:plantings,id', 'integer'],
             'broj_sadnica' => ['sometimes', 'integer']
         ];
         $messages = [
@@ -97,9 +88,6 @@ class PlotController extends Controller
             'naziv_plota.max' => 'Naziv plota ne može biti dulji od 50 znakova!',
             'vrsta_plota.max' => 'Vrsta plota ne može biti dulja od 50 znakova!',
 
-            'trenutno_posadjeno.exists' => 'Mora biti prazno ili mora postojati unutar arhive sađenja!',
-            'prethodno_posadjeno.exists' => 'Mora biti prazno ili mora postojati unutar arhive sađenja!',
-            'buduce_posadjeno.exists' => 'Mora biti prazno ili mora postojati unutar arhive sađenja!',
             'broj_sadnica.integer' => 'Mora biti broj!'
         ];
 

@@ -19,7 +19,7 @@ class Transactions extends Migration
             $table->string('tip_transakcije');
             $table->string('komentar');
             $table->dateTime('datum');
-            $table->integer('stanje');
+            $table->string('stanje');
             $table->float('cijena');
             $table->string('artikl')->nullable();
             $table->integer('kolicina')->nullable();
