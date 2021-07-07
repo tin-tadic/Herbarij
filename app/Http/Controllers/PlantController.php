@@ -108,7 +108,7 @@ class PlantController extends Controller
                     'kolicina_cijene' => $request->input('kolicina_cijene'),
                 ]);
             
-            return redirect()->route('getPlants');
+            return redirect()->route('getPlants')->with('success', 'Promjene uspješno spremljene!');
         } else {
             return redirect()->route('home')->with('error', 'Došlo je do greške. Promjene nisu spremljene.');
         }

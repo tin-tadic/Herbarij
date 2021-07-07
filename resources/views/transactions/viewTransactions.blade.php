@@ -8,141 +8,246 @@
     <div id="add-button">
         <button id="add-transaction" class="button is-light is-focus is-medium">Add Transaction</button>
     </div>
-<!--Tabovi-->
-<div id="ticket" class="ticket">
-            <div class="tab">
-                <a class="tablinks active" onclick="Switch(event, 'Prvi')">Kupovina</a>
-                <a class="tablinks" onclick="Switch(event, 'Drugi')">Prodaja</a>
-                <a class="tablinks" onclick="Switch(event, 'Treci')">Plan nabave</a>
+    <!--Tabovi-->
+    <div id="ticket" class="ticket">
+        <div class="tab">
+            <a class="tablinks active" onclick="Switch(event, 'Prvi')">Kupovina</a>
+            <a class="tablinks" onclick="Switch(event, 'Drugi')">Prodaja</a>
+            <a class="tablinks" onclick="Switch(event, 'Treci')">Plan nabave</a>
+        </div>
+
+        <div class="form">
+            <div id="Prvi" class="tabcontent">
+                <div class="field has-addons">
+                    <input class="input" id="s1" type="text" placeholder="Pretraga">
+                    <div class="control"><button class="button is-success">Pretraga</button></div>
+                </div>
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Kolicina
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Cijena
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Datum
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Artikal
+                    </label>
+                </div>
+
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Ascending
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Descending
+                    </label>
+                </div>
+                <table class="table table-top">
+                    <thead>
+                        <tr>
+                            <th>DATUM</th>
+                            <th>ARTIKAL</th>
+                            <th>KOLIČINA</th>
+                            <th>CIJENA</th>
+                            <th>STATUS</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($kupovine as $kupovina)
+                        <tr>
+                            <td>{{ date('d-m-Y', strtotime($kupovina->datum)) }}</td>
+
+                            <td>{{ $kupovina->artikl }}</td>
+
+                            <td>{{ $kupovina->kolicina }}</td>
+
+                            <td>{{ round($kupovina->cijena, 2) }}</td>
+
+                            @if ($kupovina->stanje == 0)
+                            <td id="blue">Naruceno</td>
+                            @elseif ($kupovina->stanje == 1)
+                            <td id="green">Gotovo</td>
+                            @else
+                            <td id="red">Otkazano</td>
+                            @endif
+
+
+                            <td><button class="button is-light">Edit</button></td>
+                            <td class="del">&#10008;</td>
+                        </tr>
+                        @endforeach
+
+                    </tbody>
+                </table>
+
+            </div>
+            <!--Drugi za pregled statusa transakcija-->
+            <div id="Drugi" class="tabcontent">
+                <div class="field has-addons">
+                    <input class="input" id="s1" type="text" placeholder="Pretraga">
+                    <div class="control"><button class="button is-success">Pretraga</button></div>
+
+
+                </div>
+
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Kolicina
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Cijena
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Datum
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Artikal
+                    </label>
+                </div>
+
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Ascending
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Descending
+                    </label>
+                </div>
+                <table class="table table-top">
+                    <thead>
+                        <tr>
+                            <th>DATUM</th>
+                            <th>ARTIKAL</th>
+                            <th>KOLIČINA</th>
+                            <th>CIJENA</th>
+                            <th>STATUS</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($transakcije as $transakcija)
+                        <tr>
+                            <td>{{ date('d-m-Y', strtotime($transakcija->datum)) }}</td>
+
+                            <td>{{ $transakcija->artikl }}</td>
+
+                            <td>{{ $transakcija->kolicina }}</td>
+
+                            <td>{{ round($transakcija->cijena, 2) }}</td>
+
+                            @if ($transakcija->stanje == 0)
+                            <td id="blue">Naruceno</td>
+                            @elseif ($transakcija->stanje == 1)
+                            <td id="green">Gotovo</td>
+                            @else
+                            <td id="red">Otkazano</td>
+                            @endif
+
+
+                            <td><button class="button is-light">Edit</button></td>
+                            <td class="del">&#10008;</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
             </div>
 
-            <div class="form">
-                <div id="Prvi" class="tabcontent">
-                    <table class="table table-top">
-                        <thead>
-                            <tr>
-                                <th>DATUM</th>
-                                <th>ARTIKAL</th>
-                                <th>KOLIČINA</th>
-                                <th>CIJENA</th>
-                                <th>STATUS</th>
-                                <th>EDIT</th>
-                                <th>DELETE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($kupovine as $kupovina)
-                            <tr>
-                                <td>{{ date('d-m-Y', strtotime($kupovina->datum)) }}</td>
+            <div id="Treci" class="tabcontent">
+                <div class="field has-addons">
+                    <input class="input" id="s1" type="text" placeholder="Pretraga">
+                    <div class="control"><button class="button is-success">Pretraga</button></div>
 
-                                <td>{{ $kupovina->artikl }}</td>
 
-                                <td>{{ $kupovina->kolicina }}</td>
-
-                                <td>{{ round($kupovina->cijena, 2) }}</td>
-                                
-                                @if ($kupovina->stanje == 0)
-                                    <td id="blue">Naruceno</td>
-                                @elseif ($kupovina->stanje == 1)
-                                    <td id="green">Gotovo</td>
-                                @else
-                                    <td id="red">Otkazano</td>
-                                @endif
-                                
-                               
-                                <td><button class="button is-light">Edit</button></td>
-                                <td class="del">&#10008;</td>
-                            </tr>
-                            @endforeach
-                            
-                        </tbody>
-                    </table>
-                    
                 </div>
-                <!--Drugi za pregled statusa transakcija-->
-                <div id="Drugi" class="tabcontent">
-                    <table class="table table-top">
-                        <thead>
-                            <tr>
-                                <th>DATUM</th>
-                                <th>ARTIKAL</th>
-                                <th>KOLIČINA</th>
-                                <th>CIJENA</th>
-                                <th>STATUS</th>
-                                <th>EDIT</th>
-                                <th>DELETE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($transakcije as $transakcija)
-                                <tr>
-                                    <td>{{ date('d-m-Y', strtotime($transakcija->datum)) }}</td>
 
-                                    <td>{{ $transakcija->artikl }}</td>
-
-                                    <td>{{ $transakcija->kolicina }}</td>
-
-                                    <td>{{ round($transakcija->cijena, 2) }}</td>
-                                    
-                                    @if ($transakcija->stanje == 0)
-                                        <td id="blue">Naruceno</td>
-                                    @elseif ($transakcija->stanje == 1)
-                                        <td id="green">Gotovo</td>
-                                    @else
-                                        <td id="red">Otkazano</td>
-                                    @endif
-                                    
-                                
-                                    <td><button class="button is-light">Edit</button></td>
-                                    <td class="del">&#10008;</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-             
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Kolicina
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Cijena
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Datum
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Artikal
+                    </label>
                 </div>
-                <!--Treba li treci uopce?-->
-                <div id="Treci" class="tabcontent">
-                    <table class="table table-top">
-                        <thead>
-                            <tr>
-                                <th>DATUM</th>
-                                <th>ARTIKAL</th>
-                                <th>KOLIČINA</th>
-                                <th>CIJENA</th>
-                                <th>STATUS</th>
-                                <th>EDIT</th>
-                                <th>DELETE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($nabave as $nabava)
-                                <tr>
-                                    <td>{{ date('d-m-Y', strtotime($nabava->datum)) }}</td>
 
-                                    <td>{{ $nabava->artikl }}</td>
-
-                                    <td>{{ $nabava->kolicina }}</td>
-
-                                    <td>{{ round($nabava->cijena, 2) }}</td>
-                                    
-                                    @if ($nabava->stanje == 0)
-                                        <td id="blue">Naruceno</td>
-                                    @elseif ($nabava->stanje == 1)
-                                        <td id="green">Gotovo</td>
-                                    @else
-                                        <td id="red">Otkazano</td>
-                                    @endif
-                                                                    
-                                    <td><button class="button is-light">Edit</button></td>
-                                    <td class="del">&#10008;</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table> 
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Ascending
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Descending
+                    </label>
                 </div>
+                <table class="table table-top">
+                    <thead>
+                        <tr>
+                            <th>DATUM</th>
+                            <th>ARTIKAL</th>
+                            <th>KOLIČINA</th>
+                            <th>CIJENA</th>
+                            <th>STATUS</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($nabave as $nabava)
+                        <tr>
+                            <td>{{ date('d-m-Y', strtotime($nabava->datum)) }}</td>
+
+                            <td>{{ $nabava->artikl }}</td>
+
+                            <td>{{ $nabava->kolicina }}</td>
+
+                            <td>{{ round($nabava->cijena, 2) }}</td>
+
+                            @if ($nabava->stanje == 0)
+                            <td id="blue">Naruceno</td>
+                            @elseif ($nabava->stanje == 1)
+                            <td id="green">Gotovo</td>
+                            @else
+                            <td id="red">Otkazano</td>
+                            @endif
+
+                            <td><button class="button is-light">Edit</button></td>
+                            <td class="del">&#10008;</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
 
 </div>
 
@@ -162,15 +267,16 @@
     }
 </script>
 <style scoped>
-    .container{
-        margin-top:150px;
+    .container {
+        margin-top: 150px;
     }
+
     .ticket {
         position: relative;
         max-width: 1500px;
         /* padding: 8% 0 0;*/
         margin: auto;
-        
+
         box-sizing: content-box;
 
     }
@@ -297,41 +403,50 @@
         background-color: #484848;
         color: white;
     }
-    .tabcontent{
-        display:none;
+
+    .tabcontent {
+        display: none;
     }
-    #Prvi{
-        display:block;
+
+    #Prvi {
+        display: block;
     }
-    #add-button{
-        text-align:center;
+
+    #add-button {
+        text-align: center;
     }
-    #add-transaction{
+
+    #add-transaction {
         color: #484848;
         font-weight: bold;
     }
-    #add-transaction:hover{
+
+    #add-transaction:hover {
         background-color: #40826d;
         font-weight: bold;
-        color:white;
+        color: white;
         border: #484848;
     }
+
     .button {
         background-color: #484848;
         color: white;
     }
 
-    .del{
-        font-size:25px;
+    .del {
+        font-size: 25px;
         color: red;
-        font-weight:bold;
+        font-weight: bold;
     }
+
     table td {
         vertical-align: middle;
     }
-    table td:not([align]), table th:not([align]) {
+
+    table td:not([align]),
+    table th:not([align]) {
         vertical-align: middle;
-}
+    }
 </style>
 
 @endsection

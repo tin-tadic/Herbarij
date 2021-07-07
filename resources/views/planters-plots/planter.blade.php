@@ -3,12 +3,31 @@
 @section('pageTitle', 'Rasadnici')
 
 @section('content')
+<div class="skoci">
+  <form action="" method="post"></form>
+  <div class="field has-addons is-pulled-right">
+    <div class="control">
+      <input class="input" type="text" placeholder="Upiši naziv rasadnika..">
+    </div>
+    <div class="control">
+      <button class="button is-success">
+        Pretraga
+      </button>
+    </div>
+  </div>
+  </form>
+  <div class="field has-addons is-pulled-right">
+      <div class="control">
+        <input class="input" type="text" placeholder="Pretraži plotove...">
+      </div>
+      <div class="control">
+        <button class="button is-success">
+          Pretraga
+        </button>
+      </div>
+  </div>
 
-<div class="container">
-    <input class="input" type="text" placeholder="Traži rasadnik...">
-
-
-    <section class="section">
+  <section class="section">
     <div class="container">
       <!--<h3 class="title has-text-centered is-size-4"></h3>-->
       <br><br>
@@ -48,33 +67,17 @@
 </div>
 
 <div>
-    <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getAddPlot') }}'">Dodaj Plot</button>
-    <!--pagination-->
-    <div id="fixSide" class="mb-5 pb-10">
-      {{ $plots->links() }}
-    </div>
-    <br><br>
+  <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getAddPlot') }}'">Dodaj Plot</button>
+  <!--pagination-->
+  <div id="fixSide" class="mb-5 pb-10">
+    {{ $plots->links() }}
   </div>
-  
+  <br><br>
 </div>
-<!-- modal za brisanje -->
-<div class="modal" id="modalDelete">
-  <div class="modal-background"></div>
-  <div class="modal-content has-background-white py-5 px-5">
-    <h3 class="title mb-6">Jeste li sigurni da želite izbrisati kupca?</h3>
-    <div class="container">
-      <form>
-        <div class="field">
-          <button class="button is-link is-success is-pulled-right" id="canceldelete">Cancel</button>
-        </div>
-        <div class="field">
-          <button class="button is-link is-danger is-pulled-left">Delete</button>
-        </div>
-      </form>
-    </div>
-  </div>
+
 </div>
 </div>
+
 
 
 
@@ -107,11 +110,16 @@
 </script>
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <style>
-#fixSide{
-  float:right;
-}
-.pagination-list{
-  flex-wrap: nowrap;
-}
+  #fixSide {
+    float: right;
+  }
+
+  .pagination-list {
+    flex-wrap: nowrap;
+  }
+
+  .skoci {
+    margin-top: 100px;
+  }
 </style>
 @endsection

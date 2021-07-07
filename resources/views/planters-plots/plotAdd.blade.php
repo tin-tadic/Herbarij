@@ -10,55 +10,53 @@
             @csrf
             <label class="label" for="id_rasadnika">
                 ID rasadnika:
-                <input class="input is-success" id="id_rasadnika" type="number" placeholder="Povrsina" />
+                <input class="input is-success" id="id_rasadnika" type="number" name="id_rasadnika" placeholder="ID Rasadnika" />
             </label>
 
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv plota:</span>
-                <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" />
+                <input class="input is-success" id="naziv_rasadnika" type="text" name="naziv_plota" placeholder="Naziv rasadnika" />
             </label>
 
             <label class="label" for="lokacija">
                 <span class="left">Vrsta plota:</span>
-                <input class="input is-success" id="lokacija" type="text" placeholder="Naziv lokacije" />
+                <input class="input is-success" id="lokacija" type="text" name="vrsta_plota" placeholder="Naziv lokacije" />
             </label>
 
 
             <label class="label" for="broj_sadnica">
                 <span class="left">Broj sadnica:</span>
-                <input class="input is-success" id="broj_sadnica" type="number" placeholder="Broj sadnica" />
+                <input class="input is-success" id="broj_sadnica" type="number" name="broj_sadnica" placeholder="Broj sadnica" />
             </label>
 
             </label>
 
             <label class="label" for="trenutno_posadeno">
                 Trenutno Posadeno:
-                <input class="input is-success" id="trenutno_posadeno" type="text" placeholder="Trenutno Posadeno">
+                <input class="input is-success" id="trenutno_posadeno" type="text" name="trenutno_posadjeno" placeholder="Trenutno Posadeno">
 
             </label>
 
             <label class="label" for="prethodno_posadeno">
                 Prethodno Posadeno:
-                <input class="input is-success" id="prethodno_posadeno" type="text" placeholder="Prethodno Posadeno">
+                <input class="input is-success" id="prethodno_posadeno" type="text" name="prethodno_posadjeno" placeholder="Prethodno Posadeno">
 
             </label>
 
             <label class="label" for="buduce_posadeno">
                 Buduce Posadeno:
-                <input class="input is-success" id="buduce_posadeno" type="text" placeholder="Buduce Posadeno">
+                <input class="input is-success" id="buduce_posadeno" type="text" name="buduce_posadjeno" placeholder="Buduce Posadeno">
 
             </label>
 
+            <div>
+                <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj plot" />
+            </div>
+
         </form>
 
-        <div>
-            <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj kupca" />
-        </div>
+        
         <br>
-        <div>
-            <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-        </div>
-
 
         </form>
     </div>
