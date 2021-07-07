@@ -84,11 +84,20 @@ class TransactionController extends Controller
 
     public function getAllTransaction(){
         $transactions = Transaction::all();
+
+        foreach ($transactions as $transaction) {
+            $transaction->cijena = round($transaction->cijena, 2);
+        }
+
         return view ('transaction', compact ('transactions'));
     
     }
     public function downloadPDF(){
         $transactions = Transaction::all();
+        foreach ($transactions as $transaction) {
+            $transaction->cijena = round($transaction->cijena, 2);
+        }
+        
         $pdf = PDF::loadView('transaction' , compact('transactions'));
         return $pdf->download('transactions.pdf');
     }
