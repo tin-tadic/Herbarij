@@ -35,17 +35,17 @@
   <div id="front">
       <div class="mini">
         <h2>Gabrijela Josipović</h2>
-        <img class="profile" src="storage/assets/gabrijelaProfilna.png" height=256 width=128/>
+        <img class="profile" src="/storage/assets/gabrijelaProfilna.png" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
       <div class="mini">
         <h2>Marin Azinović</h2>
-        <img class="profile" src="storage/app/assets/marinProfilna.jpeg" height=256 width=128/>
+        <img class="profile" src="/storage/assets/marinProfilna.jpeg" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
       <div class="mini">
         <h2>Danica Jurić</h2>
-        <img class="profile" src="storage/app/assets/danicaProfilna.png" height=256 width=128/>
+        <img class="profile" src="/storage/assets/danicaProfilna.png" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
     </div>
@@ -59,12 +59,12 @@
   <div id="front">
       <div class="mini">
         <h2>Tin Tadić</h2>
-        <img class="profile" src="storage/app/assets/tinProfilna.jpeg" height=256 width=128/>
+        <img class="profile" src="/storage/assets/tinProfilna.jpeg" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
       <div class="mini">
         <h2>Ankica Katić</h2>
-        <img class="profile" src="storage/app/assets/ankicaProfilna.png" height=256 width=128/>
+        <img class="profile" src="/storage/assets/ankicaProfilna.png" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
     </div>
