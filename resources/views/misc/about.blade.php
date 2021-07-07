@@ -34,17 +34,17 @@
   <div id="front">
       <div class="mini">
         <h2>Gabrijela Josipović</h2>
-        <img class="profile" src="https://images.pexels.com/photos/3841338/pexels-photo-3841338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=256 width=128/>
+        <img class="profile" src="storage/assets/gabrijelaProfilna.jpeg" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
       <div class="mini">
         <h2>Marin Azinović</h2>
-        <img class="profile" src="https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=256 width=128/>
+        <img class="profile" src="storage/app/assets/marinProfilna.jpeg" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
       <div class="mini">
         <h2>Danica Jurić</h2>
-        <img class="profile" src="https://images.pexels.com/photos/3680316/pexels-photo-3680316.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height=256 width=128/>
+        <img class="profile" src="storage/app/assets/danicaProfilna.jpeg" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
     </div>
@@ -58,12 +58,12 @@
   <div id="front">
       <div class="mini">
         <h2>Tin Tadić</h2>
-        <img class="profile" src="https://images.pexels.com/photos/5911942/pexels-photo-5911942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=256 width=128/>
+        <img class="profile" src="storage/app/assets/tinProfilna.jpeg" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
       <div class="mini">
         <h2>Ankica Katić</h2>
-        <img class="profile" src="https://images.pexels.com/photos/1898555/pexels-photo-1898555.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height=256 width=128/>
+        <img class="profile" src="storage/app/assets/ankicaProfilna.jpeg" height=256 width=128/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
       </div>
     </div>
