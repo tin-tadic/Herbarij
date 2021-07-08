@@ -60,11 +60,11 @@
             </div>
     
             <div class="navbar-end">
-            <div class="navbar-item">
+           <!-- <div class="navbar-item">
                 <div class="control">
                 <input class="input is-success" type="text" placeholder="Search">
                 </div>
-            </div>
+            </div>-->
             </div>
         </div>
         </nav>
