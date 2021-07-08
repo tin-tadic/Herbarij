@@ -17,12 +17,11 @@ class Transaction extends Model
      */
     //protected promijenuto  u public
     public $fillable = [
-        'naziv_rasadnika',
-        'vrsta',
-        'lokacija',
-        'povrsina',
-        'komentar',
-        'vrsta_tla',
+        'id_kupca',
+        'tip_transakcije',
+        'datum',
+        'stanje',
+        'cijena',
         'artikl',
         'kolicina',
     ];

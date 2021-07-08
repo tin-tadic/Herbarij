@@ -1,31 +1,55 @@
 @extends('app')
 
-@section('pageTitle', 'Dodaj transakcije')
+@section('pageTitle', 'Edit transakcije')
 
 @section('content')
 <section class="section">
 <div class="container">
-    <h1 id="naslov">Uredi transakciju</h1>
+    <h1 id="naslov">Edit transakcije</h1>
     <div id="artikl">
-        <form class="contact-form" action="/uredi-transakciju" method="POST" enctype="multipart/form-data">
+        <form class="contact-form" action="/editTransaction/{{ $transaction->id }}" method="POST" enctype="multipart/form-data">
             @csrf
+
+            <label class="label" for="id_kupca">
+                <span class="left">ID kupca:</span>
+                <input class="input is-success" id="id_kupca" name="id_kupca" type="text" placeholder="Naziv artikla" value="{{ $transaction->id_kupca }}" />
+            </label>
+
             <label class="label" for="naz-artikla">
                 <span class="left">Naziv artikla:</span>
-                <input class="input is-success" id="naz-artikla" name="naz-artikla" type="text" placeholder="Naziv artikla"/>
+                <input class="input is-success" id="naz-artikla" name="artikl" type="text" placeholder="Naziv artikla" value="{{ $transaction->artikl }}" />
             </label>
+
+            <label for="tip_transakcije">Tip transakcije:
+                <select id="tip_transakcije" name="tip_transakcije">
+                    <option value="1" {{ ($transaction->tip_transakcije=="1")? "selected" : "" }}>Kupovina</option>
+                    <option value="2" {{ ($transaction->tip_transakcije=="2")? "selected" : "" }}>Prodaja</option>
+                    <option value="3" {{ ($transaction->tip_transakcije=="3")? "selected" : "" }}>Plan nabave</option>
+                </select>
+            </label>
+
             <label class="label" for="datum-transakc">
-                <span class="left">Datum transakcije:</span>
-                <input class="input is-success" id="datum-transakc" name="datum" type="text" placeholder="Datum transakcije"/>
+                <span class="left">Datum transakcije:</span> {{ $transaction->datum }}
+                <input class="input is-success" id="datum-transakc" name="datum" type="date" placeholder="Datum transakcije" value="{{ $transaction->datum }}" />
             </label>
             <label class="label" for="kolicina">
                 <span class="left">Količina proizvoda:</span>
-                <input class="input is-success" id="kolicina" type="text" placeholder="Kolicina"/>
+                <input class="input is-success" id="kolicina" name="kolicina" type="number" placeholder="Kolicina" value="{{ $transaction->kolicina }}" />
             </label>
-            <label class="label" for="price">
+            <label class="label" for="cijena">
                 <span class="left">Cijena proizvoda:</span>
-                <input class="input is-success" id="price" name="price" type="text" placeholder="Cijena artikla"/>
+                <input class="input is-success" id="price" name="cijena" type="text" placeholder="Cijena artikla" value="{{ round($transaction->cijena, 2) }}" />
             </label>
-            <input type="button" class="button is-large is-fullwidth is-focus is-success is-outlined" value="Submit">
+
+            <label for="stanje">Status transakcije: {{ $transaction->stanje }}
+                <select id="stanje" name="stanje">
+                    <option value="Naruceno" {{ ($transaction->stanje=="Naruceno")? "selected" : "" }}>Naručeno</option>
+                    <option value="Gotovo" {{ ($transaction->stanje=="Gotovo")? "selected" : "" }}>Gotovo</option>
+                    <option value="Otkazano" {{ ($transaction->stanje=="Otkazano")? "selected" : "" }}>Otkazano</option>
+                </select>
+            </label>
+
+            <input type="submit" class="button is-large is-fullwidth is-focus is-success is-outlined" value="Submit">
         </form>
     </div>
 </div>

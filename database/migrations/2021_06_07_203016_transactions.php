@@ -17,8 +17,7 @@ class Transactions extends Migration
             $table->id();
             $table->unsignedBigInteger('id_kupca');
             $table->string('tip_transakcije');
-            $table->string('komentar');
-            $table->dateTime('datum');
+            $table->date('datum');
             $table->string('stanje');
             $table->float('cijena');
             $table->string('artikl')->nullable();

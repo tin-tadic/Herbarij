@@ -6,7 +6,7 @@
 <div class="container">
 
     <div id="add-button">
-        <button id="add-transaction" class="button is-light is-focus is-medium">Add Transaction</button>
+        <button id="add-transaction" class="button is-light is-focus is-medium" onclick="location.href='{{ route('getAddTransaction') }}'">Add Transaction</button>
     </div>
     <!--Tabovi-->
     <div id="ticket" class="ticket">
@@ -55,6 +55,7 @@
                     <thead>
                         <tr>
                             <th>DATUM</th>
+                            <th>ID KUPCA</th>
                             <th>ARTIKAL</th>
                             <th>KOLIČINA</th>
                             <th>CIJENA</th>
@@ -67,6 +68,8 @@
                         @foreach ($kupovine as $kupovina)
                         <tr>
                             <td>{{ date('d-m-Y', strtotime($kupovina->datum)) }}</td>
+
+                            <td>{{ $kupovina->id_kupca }}</td>
 
                             <td>{{ $kupovina->artikl }}</td>
 
@@ -83,13 +86,23 @@
                             @endif
 
 
-                            <td><button class="button is-light">Edit</button></td>
-                            <td class="del">&#10008;</td>
+                            <td><button class="button is-light" onclick="location.href='{{ route('editTransaction', $kupovina->id) }}'">Edit</button></td>
+                            
+                            <td class="del" onclick="event.preventDefault();
+                            if(confirm('Jeste li sigurni da želite izbrisati ovu transakciju?')) {
+                                  document.getElementById(`deleteKupovina_{{ $kupovina->id }}`).submit();
+                                }">&#10008;</td>
+                            <form id="deleteKupovina_{{ $kupovina->id }}" action="{{ route('deleteTransaction', ['transactionId' => $kupovina->id]) }}" method="POST">
+                                @csrf
+                            </form>
                         </tr>
                         @endforeach
 
                     </tbody>
                 </table>
+                <div id="fixSide" class="mb-5 pb-10">
+                    {{ $kupovine->links() }}
+                </div>
 
             </div>
             <!--Drugi za pregled statusa transakcija-->
@@ -134,6 +147,7 @@
                     <thead>
                         <tr>
                             <th>DATUM</th>
+                            <th>ID KUPCA</th>
                             <th>ARTIKAL</th>
                             <th>KOLIČINA</th>
                             <th>CIJENA</th>
@@ -146,6 +160,8 @@
                         @foreach ($transakcije as $transakcija)
                         <tr>
                             <td>{{ date('d-m-Y', strtotime($transakcija->datum)) }}</td>
+
+                            <td>{{ $transakcija->id_kupca }}</td>
 
                             <td>{{ $transakcija->artikl }}</td>
 
@@ -162,12 +178,21 @@
                             @endif
 
 
-                            <td><button class="button is-light">Edit</button></td>
-                            <td class="del">&#10008;</td>
+                            <td><button class="button is-light" onclick="location.href='{{ route('editTransaction', $transakcija->id) }}'">Edit</button></td>
+                            <td class="del" onclick="event.preventDefault();
+                            if(confirm('Jeste li sigurni da želite izbrisati ovu transakciju?')) {
+                                  document.getElementById(`deleteKupovina_{{ $transakcija->id }}`).submit();
+                                }">&#10008;</td>
+                            <form id="deleteKupovina_{{ $transakcija->id }}" action="{{ route('deleteTransaction', ['transactionId' => $transakcija->id]) }}" method="POST">
+                                @csrf
+                            </form>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div id="fixSide" class="mb-5 pb-10">
+                    {{ $transakcije->links() }}
+                </div>
 
             </div>
 
@@ -212,6 +237,7 @@
                     <thead>
                         <tr>
                             <th>DATUM</th>
+                            <th>ID KUPCA</th>
                             <th>ARTIKAL</th>
                             <th>KOLIČINA</th>
                             <th>CIJENA</th>
@@ -224,6 +250,8 @@
                         @foreach ($nabave as $nabava)
                         <tr>
                             <td>{{ date('d-m-Y', strtotime($nabava->datum)) }}</td>
+
+                            <td>{{ $nabava->id_kupca }}</td>
 
                             <td>{{ $nabava->artikl }}</td>
 
@@ -239,12 +267,21 @@
                             <td id="red">Otkazano</td>
                             @endif
 
-                            <td><button class="button is-light">Edit</button></td>
-                            <td class="del">&#10008;</td>
+                            <td><button class="button is-light" onclick="location.href='{{ route('editTransaction', $nabava->id) }}'">Edit</button></td>
+                            <td class="del" onclick="event.preventDefault();
+                            if(confirm('Jeste li sigurni da želite izbrisati ovu transakciju?')) {
+                                  document.getElementById(`deleteKupovina_{{ $nabava->id }}`).submit();
+                                }">&#10008;</td>
+                            <form id="deleteKupovina_{{ $nabava->id }}" action="{{ route('deleteTransaction', ['transactionId' => $nabava->id]) }}" method="POST">
+                                @csrf
+                            </form>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div id="fixSide" class="mb-5 pb-10">
+                    {{ $nabave->links() }}
+                </div>
             </div>
         </div>
     </div>

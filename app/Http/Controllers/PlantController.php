@@ -76,7 +76,7 @@ class PlantController extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             dd($validator);
-            return redirect()->back()->withErrors($validator);
+            return redirect()->back()->withInput()->withErrors($validator);
         }
 
         $name = Str::random(15) . $request->slika->getClientOriginalName();

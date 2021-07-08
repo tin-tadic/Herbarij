@@ -95,9 +95,19 @@ Route::get('/viewTransactions', [TransactionController::class, 'getTransactions'
     ->name('viewTransactions');
 Route::get('/viewTransaction/{transactionId}', [TransactionController::class, 'getTransaction'])
     ->name('getTransaction');
-
+Route::get('/addTransaction', function() {
+    return view('transactions.addTransaction');
+})->name('getAddTransaction');
+Route::post('/addTransaction', [TransactionController::class, 'addTransaction'])
+    ->name('addTransaction');
+Route::get('/editTransaction/{transactionId}', [TransactionController::class, 'getTransactionForEdit'])
+    ->name('getEditTransaction');
+Route::post('/editTransaction/{transactionId}', [TransactionController::class, 'editTransaction'])
+    ->name('editTransaction');
+Route::post('/deleteTransaction/{transactionId}', [TransactionController::class, 'deleteTransaction'])
+    ->name('deleteTransaction');
     
    // Route::get('/', [TransactionController::class, 'showTransaction']);
 
-    Route::get('/get-all-transactions', [TransactionController::class, 'getAllTransaction']);
-    Route::get('/download-pdf', [TransactionController::class, 'downloadPDF']);
+Route::get('/get-all-transactions', [TransactionController::class, 'getAllTransaction']);
+Route::get('/download-pdf', [TransactionController::class, 'downloadPDF']);
