@@ -1,68 +1,59 @@
 @extends('app')
 
-@section('pageTitle', 'Uredi rasadnik')
+@section('pageTitle', 'Dodaj rasadnik')
 
 @section('content')
 
-<div id="artikl" class="artikl">
+<div id="artikl" class="container is-centered">
     <div class="form">
         <form class="contact-form" action="/editPlanter/{{ $planter->id }}" method="POST" enctype="multipart/form-data">
-
-            <label class="label" for="id_rasadnika">
-                ID rasadnika:
-                <input class="input is-success" id="id_rasadnika" type="number" placeholder="ID rasadnika" />
-            </label>
-
+            @csrf
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv rasadnika:</span>
-                <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" />
+                <input class="input is-success" id="naziv_rasadnika" name="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" value="{{ $planter->naziv_rasadnika }}" />
             </label>
 
             <label class="label" for="lokacija">
-                <span class="left">Naziv lokacije:</span>
-                <input class="input is-success" id="lokacija" type="text" placeholder="Naziv lokacije" />
+                <span class="left">Lokacija rasadnika:</span>
+                <input class="input is-success" id="lokacija" name="lokacija" type="text" placeholder="Naziv lokacije" value="{{ $planter->lokacija }}" />
             </label>
 
 
             <label class="label" for="vrsta_rasadnika">
                 <span class="left">Vrsta rasadnika:</span>
-                <input class="input is-success" id="vrsta_rasadnika" type="text" placeholder="Vrsta rasadnika" />
+                <input class="input is-success" id="vrsta_rasadnika" name="vrsta" type="text" placeholder="Vrsta rasadnika" value="{{ $planter->vrsta }}" />
             </label>
 
 
             <label class="label" class="left" for="povrsina">
                 Povrsina:
-                <input class="input is-success" id="povrsina" type="number" placeholder="Povrsina" />
+                <input class="input is-success" id="povrsina" name="povrsina" type="number" placeholder="Povrsina" value="{{ $planter->povrsina }}" />
             </label>
 
             <label class="label" for="vrsta_tla">
                 Vrsta tla:
-                <input class="input is-success" id="vrsta_tla" type="text" placeholder="Vrsta tla">
+                <input class="input is-success" id="vrsta_tla" name="vrsta_tla" type="text" placeholder="Vrsta tla" value="{{ $planter->vrsta_tla }}" />
 
             </label>
 
             <label class="label" for="komentar">
                 Komentar:
-                <input class="input is-success" id="komentar" type="text" placeholder="Komentar">
+                <input class="input is-success" id="komentar" name="komentar" type="text" placeholder="Komentar" value="{{ $planter->komentar }}" />
 
             </label>
 
 
-        </form>
 
         <div>
             <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Spremi promjene" />
         </div>
         <br>
-        <div>
-            <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-        </div>
 
         </form>
     </div>
 </div>
 <style scoped>
-    .artikl {
+    #artikl {
         text-align: left;
         width: 1000px;
         max-width: 100%;

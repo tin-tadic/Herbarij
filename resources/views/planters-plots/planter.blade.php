@@ -4,28 +4,18 @@
 
 @section('content')
 <div class="skoci">
-  <form action="" method="post"></form>
-  <div class="field has-addons is-pulled-right">
-    <div class="control">
-      <input class="input" type="text" placeholder="Upiši naziv rasadnika..">
-    </div>
-    <div class="control">
-      <button class="button is-success">
-        Pretraga
-      </button>
-    </div>
-  </div>
-  </form>
-  <div class="field has-addons is-pulled-right">
+  <form action="/searchForPlanter" method="get">
+    <div class="field has-addons is-pulled-right">
       <div class="control">
-        <input class="input" type="text" placeholder="Pretraži plotove...">
+        <input class="input" type="text" name="lookForPlanter" placeholder="Upiši id rasadnika..">
       </div>
       <div class="control">
-        <button class="button is-success">
+        <button type="submit" class="button is-success">
           Pretraga
         </button>
       </div>
-  </div>
+    </div>
+    </form>
 
   <section class="section">
     <div class="container">
@@ -68,6 +58,7 @@
 
 <div>
   <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getAddPlot') }}'">Dodaj Plot</button>
+  <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getPlanterForEdit', $planter->id) }}'">Edit Rasadnika</button>
   <!--pagination-->
   <div id="fixSide" class="mb-5 pb-10">
     {{ $plots->links() }}

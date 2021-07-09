@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Plot;
+use App\Models\Planter;
 use Illuminate\Support\Facades\DB;
 use Validator;
 
 class PlotController extends Controller
 {
+
+    public function getAddPlot() {
+        $available_planters = DB::table('planters')->select('id', 'naziv_rasadnika')->get();
+        return view('planters-plots.plotAdd', compact('available_planters'));
+    }
+
     public function addPlot(Request $request) {
         
         $rules = [
@@ -69,7 +76,8 @@ class PlotController extends Controller
     public function getPlotForEdit($plotId) {
         $plot = Plot::find($plotId);
         if ($plot) {
-            return view('planters-plots.plotEdit')->with('plot', $plot);
+            $available_planters = DB::table('planters')->select('id', 'naziv_rasadnika')->get();
+            return view('planters-plots.plotEdit', compact('plot', 'available_planters'));
         } else {
             return redirect()->route('home')->with('error', 'Taj plot nije pronađen!');
         }

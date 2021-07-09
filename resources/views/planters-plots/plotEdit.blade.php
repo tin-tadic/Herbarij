@@ -9,9 +9,13 @@
         <form class="contact-form" action="/editPlot/{{ $plot->id }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <label class=" label" for="id_rasadnika">
-            ID rasadnika:
-            <input class="input is-success" id="id_rasadnika" type="number" placeholder="ID Rasadnika" name="id_rasadnika" value="{{ $plot->id_rasadnika }}" />
+            <label class="label" for="id_rasadnika">
+                ID rasadnika:
+                <select id="id_rasadnika" name="id_rasadnika">
+                    @foreach($available_planters as $planter)
+                        <option {{ ($planter->id==$plot->id_rasadnika)? "selected" : "" }} value="{{ $planter->id }}" >{{ $planter->id }} - {{ $planter->naziv_rasadnika }}</option>
+                    @endforeach
+                </select>
             </label>
 
             <label class="label" for="naziv_rasadnika">

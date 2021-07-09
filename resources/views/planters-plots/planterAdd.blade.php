@@ -10,49 +10,44 @@
             @csrf
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv rasadnika:</span>
-                <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" />
+                <input class="input is-success" id="naziv_rasadnika" name="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" />
             </label>
 
             <label class="label" for="lokacija">
                 <span class="left">Lokacija rasadnika:</span>
-                <input class="input is-success" id="lokacija" type="text" placeholder="Naziv lokacije" />
+                <input class="input is-success" id="lokacija" name="lokacija" type="text" placeholder="Naziv lokacije" />
             </label>
 
 
             <label class="label" for="vrsta_rasadnika">
                 <span class="left">Vrsta rasadnika:</span>
-                <input class="input is-success" id="vrsta_rasadnika" type="text" placeholder="Vrsta rasadnika" />
+                <input class="input is-success" id="vrsta_rasadnika" name="vrsta" type="text" placeholder="Vrsta rasadnika" />
             </label>
 
 
             <label class="label" class="left" for="povrsina">
                 Povrsina:
-                <input class="input is-success" id="povrsina" type="number" placeholder="Povrsina" />
+                <input class="input is-success" id="povrsina" name="povrsina" type="number" placeholder="Povrsina" />
             </label>
 
             <label class="label" for="vrsta_tla">
                 Vrsta tla:
-                <input class="input is-success" id="vrsta_tla" type="text" placeholder="Vrsta tla">
+                <input class="input is-success" id="vrsta_tla" name="vrsta_tla" type="text" placeholder="Vrsta tla">
 
             </label>
 
             <label class="label" for="komentar">
                 Komentar:
-                <input class="input is-success" id="komentar" type="text" placeholder="Komentar">
+                <input class="input is-success" id="komentar" name="komentar" type="text" placeholder="Komentar">
 
             </label>
 
 
-        </form>
 
         <div>
             <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj rasadnik" />
         </div>
         <br>
-        <div>
-            <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-        </div>
-
 
         </form>
     </div>

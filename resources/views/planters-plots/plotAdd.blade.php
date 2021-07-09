@@ -10,7 +10,11 @@
             @csrf
             <label class="label" for="id_rasadnika">
                 ID rasadnika:
-                <input class="input is-success" id="id_rasadnika" type="number" name="id_rasadnika" placeholder="ID Rasadnika" />
+                <select id="id_rasadnika" name="id_rasadnika">
+                    @foreach($available_planters as $planter)
+                        <option value="{{ $planter->id }}">{{ $planter->id }} - {{ $planter->naziv_rasadnika }}</option>
+                    @endforeach
+                </select>
             </label>
 
             <label class="label" for="naziv_rasadnika">
