@@ -191,7 +191,7 @@
                     <br>
                     @if ($errors->has('jestivost_ljudi') ||$errors->has('jestivost_zivotinje') ||$errors->has('ljekovitost') ||$errors->has('otrovno') ||$errors->has('gorivo') ||
                     $errors->has('gnjojivo') ||$errors->has('sirovina'))
-                    <p class="plant">{{ $errors->first('jestivost_ljudi') ||$errors->first('jestivost_zivotinje')|| $errors->first('ljekovitost') || $errors->first('otrovno')
+                    <p class="plant">{{ $errors->first('jestivost_ljudi') ||$errors->first('jestivost_zivotinje')|| $errors->first('ljekovitost') || $errors->first('otrovno') ||
                     $errors->first('gorivo')|| $errors->first('gnjojivo') || $errors->first('sirovina')}}</p>
                     @endif
 
