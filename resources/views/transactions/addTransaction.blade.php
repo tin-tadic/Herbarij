@@ -13,11 +13,21 @@
             <label class="label" for="id_kupca">
                 <span class="left">ID kupca:</span>
                 <input class="input is-success" id="id_kupca" name="id_kupca" type="text" placeholder="Naziv artikla"/>
+                
+                @if ($errors->has('id_kupca'))
+                <p class="plant">{{ $errors->first('id_kupca') }}</p>
+                @endif
+            
             </label>
 
             <label class="label" for="naz-artikla">
                 <span class="left">Naziv artikla:</span>
                 <input class="input is-success" id="naz-artikla" name="artikl" type="text" placeholder="Naziv artikla"/>
+               
+                @if ($errors->has('artikl'))
+                <p class="plant">{{ $errors->first('artikl') }}</p>
+                @endif
+           
             </label>
 
             <label for="tip_transakcije">Tip transakcije:
@@ -31,14 +41,28 @@
             <label class="label" for="datum-transakc">
                 <span class="left">Datum transakcije:</span>
                 <input class="input is-success" id="datum-transakc" name="datum" type="date" placeholder="Datum transakcije"/>
+               
+                @if ($errors->has('datum'))
+                <p class="plant">{{ $errors->first('datum') }}</p>
+                @endif
+           
             </label>
             <label class="label" for="kolicina">
                 <span class="left">Količina proizvoda:</span>
                 <input class="input is-success" id="kolicina" name="kolicina" type="number" placeholder="Kolicina"/>
+                
+                @if ($errors->has('kolicina'))
+                <p class="plant">{{ $errors->first('kolicina') }}</p>
+                @endif
             </label>
             <label class="label" for="cijena">
                 <span class="left">Cijena proizvoda:</span>
                 <input class="input is-success" id="price" name="cijena" type="text" placeholder="Cijena artikla"/>
+                
+                @if ($errors->has('cijena'))
+                <p class="plant">{{ $errors->first('cijena') }}</p>
+                @endif
+            
             </label>
 
             <label for="stanje">Status transakcije:

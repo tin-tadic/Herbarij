@@ -10,7 +10,12 @@
             @csrf
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv rasadnika:</span>
-                <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" />
+              <input class="input is-success" id="naziv_rasadnika"  name="naziv_rasadnika "type="text" placeholder="Naziv rasadnika" />
+               
+              @if ($errors->has('naziv_rasadnika'))
+              <p class="plant">{{ $errors->first('naziv_rasadnika') }}</p>
+              @endif
+           
             </label>
 
             <label class="label" for="lokacija">
@@ -21,24 +26,41 @@
 
             <label class="label" for="vrsta_rasadnika">
                 <span class="left">Vrsta rasadnika:</span>
-                <input class="input is-success" id="vrsta_rasadnika" type="text" placeholder="Vrsta rasadnika" />
+                <input class="input is-success" id="vrsta_rasadnika" name="vrsta_rasadnika" type="text" placeholder="Vrsta rasadnika" />
+                
+                @if ($errors->has('vrsta_radnika'))
+                <p class="plant">{{ $errors->first('vrsta_rasadnika') }}</p>
+                @endif
+            
             </label>
 
 
             <label class="label" class="left" for="povrsina">
                 Povrsina:
-                <input class="input is-success" id="povrsina" type="number" placeholder="Povrsina" />
+                <input class="input is-success" id="povrsina" name ="povrsina" type="number" placeholder="Povrsina" />
+               
+                @if ($errors->has('povrsina'))
+                <p class="plant">{{ $errors->first('povrsina') }}</p>
+                @endif
             </label>
 
             <label class="label" for="vrsta_tla">
                 Vrsta tla:
-                <input class="input is-success" id="vrsta_tla" type="text" placeholder="Vrsta tla">
+                <input class="input is-success" id="vrsta_tla" name="vrsta_tla" type="text" placeholder="Vrsta tla">
+                    
+                @if ($errors->has('vrsta_tla'))
+                <p class="plant">{{ $errors->first('vrsta_tla') }}</p>
+                @endif
 
             </label>
 
             <label class="label" for="komentar">
                 Komentar:
-                <input class="input is-success" id="komentar" type="text" placeholder="Komentar">
+                <input class="input is-success" id="komentar" name="komentar" type="text" placeholder="Komentar">
+                    
+                @if ($errors->has('komentar'))
+                <p class="plant">{{ $errors->first('komenatar') }}</p>
+                @endif
 
             </label>
 

@@ -13,15 +13,28 @@
                     <span class="left">Ime:</span>
                     
                     <input class="input is-success" id="ime" name="naziv" type="text" placeholder="Naziv biljke" />
+                        
+                    @if ($errors->has('naziv'))
+                     <p class="plant">{{ $errors->first('naziv') }}</p>
+                     @endif
                     
                 </label>
                 <label class="label" for="narodno_ime">
                     <span class="left">Narodno ime:</span>
                     <input class="input is-success" id="narodno_ime" type="text" name="narodna_imena" placeholder="Narodno ime biljke" />
+              
+                  
+                    @if ($errors->has('narodno_ime'))
+                     <p class="plant">{{ $errors->first('narodno_ime') }}</p>
+                     @endif
                 </label>
                 <label class="label" for="tip_tla">
                     <span class="left">Tip tla:</span>
-                    <input class="input is-success" id="tip_tla" type="text" name="tip_tla" placeholder="Tip tla" />
+                <input class="input is-success" id="tip_tla" type="text" name="tip_tla" placeholder="Tip tla" />
+                    
+                @if ($errors->has('tip_tla'))
+                <p class="plant">{{ $errors->first('tip_tla') }}</p>
+                @endif
                 </label>
                 <label class="label" for="cijena"><!--TRENUTNA CIJENA??-->
                     <span class="left">Cijena:</span> 
@@ -30,24 +43,40 @@
                         <option value="jed">Jedinica</option>
                     </select>
                     <input class="input is-success" id="cijena" name="trenutna_cijena" type="text" placeholder="Cijena" />
+                   
+                    @if ($errors->has('trenutna_cijena'))
+                     <p class="plant">{{ $errors->first('trenutna_cijena') }}</p>
+                     @endif
+               
                 </label>
 
                 <label class="label" for="vrijeme_sadnje">
                     Vrijeme sadnje:
                     <input class="input is-success" id="vrijeme_sadnje" name="vrijeme_sadnje" type="date">
+                        
+                    @if ($errors->has('vrijeme_sadnje'))
+                     <p class="plant">{{ $errors->first('vrijeme_sadnje') }}</p>
+                     @endif
 
                 </label>
 
                 <label class="label" for="vrijeme_zetve">
                     Vrijeme zetve:
                     <input class="input is-success" id="vrijeme_zetve" name="vrijeme_zetve" type="date">
+                        
+                    @if ($errors->has('vrijeme_zetve'))
+                     <p class="plant">{{ $errors->first('vrijeme_zetve') }}</p>
+                     @endif
 
                 </label>
 
                 <label class="label" for="vrijeme_orezivanja">
                     Vrijeme orezivanja:
                     <input class="input is-success" id="vrijeme_orezivanja" name="vrijeme_orezivanja" type="date">
-
+    
+                    @if ($errors->has('vrijeme_orezivanja'))
+                     <p class="plant">{{ $errors->first('trenutna_cijena') }}</p>
+                     @endif
                 </label>
                 <div class="radijo">
                     <span class="home-radio">
@@ -160,6 +189,12 @@
                         </label>
                     </span>
                     <br>
+                    @if ($errors->has('jestivost_ljudi') ||$errors->has('jestivost_zivotinje') ||$errors->has('ljekovitost') ||$errors->has('otrovno') ||$errors->has('gorivo') ||
+                    $errors->has('gnjojivo') ||$errors->has('sirovina'))
+                    <p class="plant">{{ $errors->first('jestivost_ljudi') ||$errors->first('jestivost_zivotinje')|| $errors->first('ljekovitost') || $errors->first('otrovno')
+                    $errors->first('gorivo')|| $errors->first('gnjojivo') || $errors->first('sirovina')}}</p>
+                    @endif
+
                 </div>
 
                 <div class="field">

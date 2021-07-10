@@ -10,9 +10,15 @@
                 @csrf
                 <label class="label" for="ime">Ime:
                     <input class="input is-success" id="ime" name="ime" type="text" placeholder="Ime" required />
+                    @if ($errors->has('ime'))
+                 <p class="error">{{ $errors->first('ime') }}</p>
+                    @endif
                 </label>
                 <label class="label" for="adresa">Adresa:
                     <input class="input is-success" id="adresa" name="adresa" type="text" placeholder="Adresa" required />
+                    @if ($errors->has('adresa'))
+            <p class="error">{{ $errors->first('adresa') }}</p>
+                @endif
                 </label>
                 <label class="label" for="tip">Tip kupca:
                     <br>

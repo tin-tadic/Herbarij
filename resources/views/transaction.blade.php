@@ -34,7 +34,7 @@
                     <td> {{$transaction->datum}} </td>
                     <td> {{$transaction->stanje}} </td>
                     <td> {{$transaction->cijena}} </td>
-                    <td> {{$transaction->artikal}} </td>
+                    <td> {{$transaction->artikl}} </td>
                     <td> {{$transaction->kolicina}} </td>
 
 

@@ -12,22 +12,42 @@
             <label class=" label" for="id_rasadnika">
             ID rasadnika:
             <input class="input is-success" id="id_rasadnika" type="number" placeholder="ID Rasadnika" name="id_rasadnika" value="{{ $plot->id_rasadnika }}" />
-            </label>
+               
+            @if ($errors->has('id_rasadnika'))
+            <p class="plant">{{ $errors->first('id_rasadnika') }}</p>
+            @endif
+        
+        </label>
 
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv plota:</span>
                 <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv plota" name="naziv_plota" value="{{ $plot->naziv_plota }}" />
+                
+                @if ($errors->has('naziv_rasadnika'))
+                <p class="plant">{{ $errors->first('naziv_rasadnika') }}</p>
+                @endif
+            
             </label>
 
             <label class="label" for="lokacija">
                 <span class="left">Vrsta plota:</span>
                 <input class="input is-success" id="lokacija" type="text" placeholder="Vrsta plota" name="vrsta_plota" value="{{ $plot->vrsta_plota }}" />
+               
+                @if ($errors->has('vrsta_plota'))
+                <p class="plant">{{ $errors->first('vsrta_plota') }}</p>
+                @endif
+           
             </label>
 
 
             <label class="label" for="broj_sadnica">
                 <span class="left">Broj sadnica:</span>
                 <input class="input is-success" id="broj_sadnica" type="number" placeholder="Broj sadnica" name="broj_sadnica" value="{{ $plot->broj_sadnica }}" />
+            
+                
+                @if ($errors->has('broj_sadnica'))
+                <p class="plant">{{ $errors->first('broj_sadnica') }}</p>
+                @endif
             </label>
 
             </label>
@@ -36,18 +56,27 @@
                 Trenutno Posadeno:
                 <input class="input is-success" id="trenutno_posadeno" type="text" placeholder="Trenutno Posadeno" name="trenutno_posadjeno" value="{{ $plot->trenutno_posadjeno }}" />
 
+                @if ($errors->has('trenutno_posadeno'))
+                <p class="plant">{{ $errors->first('trenutno_posadeno') }}</p>
+                @endif
             </label>
 
             <label class="label" for="prethodno_posadeno">
                 Prethodno Posadeno:
                 <input class="input is-success" id="prethodno_posadeno" type="text" placeholder="Prethodno Posadeno" name="prethodno_posadjeno" value="{{ $plot->prethodno_posadjeno }}" />
-
+         
+                @if ($errors->has('prethodno_posadeno'))
+                <p class="plant">{{ $errors->first('prethodno_posadeno') }}</p>
+                @endif
             </label>
 
             <label class="label" for="buduce_posadeno">
                 Buduce Posadeno:
                 <input class="input is-success" id="buduce_posadeno" type="text" placeholder="Buduce Posadeno" name="buduce_posadjeno" value="{{ $plot->buduce_posadjeno }}" />
-
+    
+                @if ($errors->has('buduce_posadeno'))
+                <p class="plant">{{ $errors->first('buduce_posadeno') }}</p>
+                @endif
             </label>
 
             <div>
