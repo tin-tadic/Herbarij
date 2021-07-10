@@ -13,14 +13,21 @@ class PlanterController extends Controller
     public function addPlanter(Request $request) {
         
         $rules = [
-            'naziv_rasadnika' => ['sometimes', 'max:50'],
-            'vrsta' => ['sometimes', 'max:50'],
-            'lokacija' => ['sometimes', 'max:200'],
-            'povrsina' => ['sometimes', 'numeric'],
-            'komentar' => ['sometimes', 'max:1000'],
-            'vrsta_tla' => ['sometimes', 'max: 50']
+            'naziv_rasadnika' => ['required', 'max:50'],
+            'vrsta' => ['required', 'max:50'],
+            'lokacija' => ['required', 'max:200'],
+            'povrsina' => ['required', 'numeric'],
+            'komentar' => ['required', 'max:1000'],
+            'vrsta_tla' => ['required', 'max: 50']
         ];
         $messages = [
+            'naziv_rasadnika.required' => 'Naziv rasadnika je obavezan!',
+            'narodna_imena.required' => 'Vrsta rasadnika je obavezna!',
+            'lokacija.required' => 'Lokacija rasadnika je obavezna!',
+            'komentar.required' => 'Komentar rasadnika je obavezan!',
+            'vrsta_tla.required' => 'Vrsta tla je obavezna!',
+            'vrsta.required' => 'Vrsta je obavezna!',
+
             'naziv_rasadnika.max' => 'Naziv rasadnika ne može biti duži od 50 znakova!',
             'narodna_imena.max' => 'Vrsta rasadnika ne može biti duža od 50 znakova!',
             'lokacija.max' => 'Lokacija rasadnika ne može biti duža od 200 znakova!',
@@ -30,7 +37,6 @@ class PlanterController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
@@ -48,8 +54,13 @@ class PlanterController extends Controller
     }
 
     public function searchForPlanter(Request $request) {
+
+        if(!is_numeric($request->input('lookForPlanter'))) {
+            return redirect()->back()->with('error', 'ID rasadnika mora biti broj!');
+        }
+
         $planterId = $request->input('lookForPlanter');
-        if (Planter::find($planterId)->exists()) {
+        if (Planter::find($planterId)) {
             $planter = Planter::find($planterId);
             $plots = Plot::where('id_rasadnika', $planterId)->paginate(3);
             return view('planters-plots.planter', compact('plots', 'planter'));
@@ -95,7 +106,6 @@ class PlanterController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
@@ -119,8 +129,7 @@ class PlanterController extends Controller
         try {
             Planter::destroy($planterId);
         } catch (\Illuminate\Database\QueryException $e) {
-            //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
-            dd($e);
+            return redirect()->back()->with('error', 'Rasadnik nije moguće izbrisati!');
         }
     }
 }

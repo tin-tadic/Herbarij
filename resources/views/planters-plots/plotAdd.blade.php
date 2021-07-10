@@ -24,7 +24,7 @@
 
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv plota:</span>
-                <input class="input is-success" id="naziv_rasadnika" type="text" name="naziv_plota" placeholder="Naziv rasadnika" />
+                <input class="input is-success" id="naziv_rasadnika" type="text" name="naziv_plota" placeholder="Naziv rasadnika" value="{{ old('naziv_plota') }}" />
             
                 
                 @if ($errors->has('naziv_plota'))
@@ -34,7 +34,7 @@
 
             <label class="label" for="lokacija">
                 <span class="left">Vrsta plota:</span>
-                <input class="input is-success" id="lokacija" type="text" name="vrsta_plota" placeholder="Naziv lokacije" />
+                <input class="input is-success" id="lokacija" type="text" name="vrsta_plota" placeholder="Naziv lokacije" value="{{ old('vrsta_plota') }}" />
                
                 @if ($errors->has('vrsta_plota'))
                 <p class="plant">{{ $errors->first('vrsta_plota') }}</p>
@@ -45,7 +45,7 @@
 
             <label class="label" for="broj_sadnica">
                 <span class="left">Broj sadnica:</span>
-                <input class="input is-success" id="broj_sadnica" type="number" name="broj_sadnica" placeholder="Broj sadnica" />
+                <input class="input is-success" id="broj_sadnica" type="number" name="broj_sadnica" placeholder="Broj sadnica" value="{{ old('broj_sadnica') }}" />
             
                 
                 @if ($errors->has('broj_sadnica'))
@@ -56,8 +56,8 @@
             </label>
 
             <label class="label" for="trenutno_posadeno">
-                Trenutno Posadeno:
-                <input class="input is-success" id="trenutno_posadeno" type="text" name="trenutno_posadjeno" placeholder="Trenutno Posadeno">
+                Trenutno Posađeno:
+                <input class="input is-success" id="trenutno_posadeno" type="text" name="trenutno_posadjeno" placeholder="Trenutno Posadeno" value="{{ old('trenutno_posadjeno') }}" />
     
                 @if ($errors->has('trenutno_posadjeno'))
                 <p class="plant">{{ $errors->first('trenutno_posadjeno') }}</p>
@@ -65,8 +65,8 @@
             </label>
 
             <label class="label" for="prethodno_posadeno">
-                Prethodno Posadeno:
-                <input class="input is-success" id="prethodno_posadeno" type="text" name="prethodno_posadjeno" placeholder="Prethodno Posadeno">
+                Prethodno Posađeno:
+                <input class="input is-success" id="prethodno_posadeno" type="text" name="prethodno_posadjeno" placeholder="Prethodno Posadeno" value="{{ old('prethodno_posadjeno') }}" />
     
                 @if ($errors->has('prethodno_posadjeno'))
                 <p class="plant">{{ $errors->first('prethodno_posadjeno') }}</p>
@@ -74,8 +74,8 @@
             </label>
 
             <label class="label" for="buduce_posadeno">
-                Buduce Posadeno:
-                <input class="input is-success" id="buduce_posadeno" type="text" name="buduce_posadjeno" placeholder="Buduce Posadeno">
+                Buduce Posađeno:
+                <input class="input is-success" id="buduce_posadeno" type="text" name="buduce_posadjeno" placeholder="Buduce Posadeno" value="{{ old('buduce_posadjeno') }}" />
     
                 @if ($errors->has('buduce_posadjeno'))
                 <p class="plant">{{ $errors->first('buduce_posadjeno') }}</p>

@@ -13,16 +13,29 @@
                     <span class="left">Ime:</span>
                     
                     <input class="input is-success" id="ime" name="naziv" type="text" placeholder="Naziv biljke" value="{{ $plant->naziv }}"/>
-                    
+                    @if ($errors->has('naziv'))
+                        <p class="plant">{{ $errors->first('naziv') }}</p>
+                    @endif
                 </label>
+
                 <label class="label" for="narodno_ime">
                     <span class="left">Narodno ime:</span>
                     <input class="input is-success" id="narodno_ime" type="text" name="narodna_imena" placeholder="Narodno ime biljke" value="{{ $plant->narodna_imena }}"/>
+                
+                    @if ($errors->has('narodno_ime'))
+                        <p class="plant">{{ $errors->first('narodno_ime') }}</p>
+                    @endif
                 </label>
+
                 <label class="label" for="tip_tla">
                     <span class="left">Tip tla:</span>
                     <input class="input is-success" id="tip_tla" type="text" name="tip_tla" placeholder="Tip tla" value="{{ $plant->tip_tla }}"/>
+                    
+                    @if ($errors->has('tip_tla'))
+                        <p class="plant">{{ $errors->first('tip_tla') }}</p>
+                    @endif
                 </label>
+
                 <label class="label" for="cijena">
                     <span class="left">Cijena:</span>
                     <select name="kolicina_cijene"  id="jedinica">
@@ -30,24 +43,37 @@
                         <option value="jed" {{ ($plant->kolicina_cijene=="jed")? "selected" : "" }}>Jedinica</option>
                     </select>
                     <input class="input is-success" id="cijena" name="trenutna_cijena" type="text" placeholder="Cijena" value="{{ round($plant->trenutna_cijena, 2) }}"/>
+                
+                    @if ($errors->has('trenutna_cijena'))
+                        <p class="plant">{{ $errors->first('trenutna_cijena') }}</p>
+                    @endif
                 </label>
 
                 <label class="label" for="vrijeme_sadnje">
                     Vrijeme sadnje:
                     <input class="input is-success" id="vrijeme_sadnje" name="vrijeme_sadnje" type="date" value="{{ $plant->vrijeme_sadnje }}"/>
 
+                    @if ($errors->has('vrijeme_sadnje'))
+                        <p class="plant">{{ $errors->first('vrijeme_sadnje') }}</p>
+                    @endif
                 </label>
 
                 <label class="label" for="vrijeme_zetve">
                     Vrijeme zetve:
                     <input class="input is-success" id="vrijeme_zetve" name="vrijeme_zetve" type="date" value="{{ $plant->vrijeme_zetve }}"/>
 
+                    @if ($errors->has('vrijeme_zetve'))
+                        <p class="plant">{{ $errors->first('vrijeme_zetve') }}</p>
+                    @endif
                 </label>
 
                 <label class="label" for="vrijeme_orezivanja">
                     Vrijeme orezivanja:
                     <input class="input is-success" id="vrijeme_orezivanja" name="vrijeme_orezivanja" type="date" value="{{ $plant->vrijeme_orezivanja }}"/>
 
+                    @if ($errors->has('vrijeme_orezivanja'))
+                        <p class="plant">{{ $errors->first('vrijeme_orezivanja') }}</p>
+                    @endif
                 </label>
                 <div class="radijo">
                     <span class="home-radio">
@@ -160,6 +186,11 @@
                         </label>
                     </span>
                     <br>
+
+                    @if ($errors->has('jestivost_ljudi') ||$errors->has('jestivost_zivotinje') ||$errors->has('ljekovitost') ||$errors->has('otrovno') ||$errors->has('gorivo') ||
+                    $errors->has('gnjojivo') ||$errors->has('sirovina'))
+                        <p class="plant">Obavezno je odabrati sve atribute!</p>
+                    @endif
                 </div>
 
                 <div class="field">
@@ -187,6 +218,9 @@
                     </span>
                   </span>
                 </label>
+                @if ($errors->has('slika'))
+                     <p class="plant">{{ $errors->first('slika') }}</p>
+                @endif
               </div>
 
 

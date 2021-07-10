@@ -69,13 +69,13 @@ class PlantController extends Controller
             
             'komentar.max' => 'Komentar ne može biti dulji od 1000 znakova!',
             'opis.max' => 'Opis ne može biti dulji od 200 znakova!',
+            'slika.required' => 'Slika je obavezna!',
             'slika.mimes' => 'Format slike nije podržan! Podržani formati: .bmp .jpg .png .jpeg',
             'trenutna_cijena.numeric' => 'Trenutna cijena mora biti broj! Probajte koristiti točku umjesto zareza.',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
@@ -164,7 +164,6 @@ class PlantController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
@@ -248,15 +247,13 @@ class PlantController extends Controller
         
     }
 
-
     public function deletePlant($plantId) {
         try {
             Plant::destroy($plantId);
             
             return redirect()->route('getPlants')->with('success', 'Biljka uspješno izbrisana!');
         } catch(\Illuminate\Database\QueryException $e) {
-            //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
-            dd($e);
+            return redirect()->route('getPlants')->with('error', 'Biljku nije moguće izbrisati!');
         }
     }
 

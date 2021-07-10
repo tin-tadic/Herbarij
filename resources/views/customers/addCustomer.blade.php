@@ -17,8 +17,8 @@
                 <label class="label" for="adresa">Adresa:
                     <input class="input is-success" id="adresa" name="adresa" type="text" placeholder="Adresa" required />
                     @if ($errors->has('adresa'))
-            <p class="error">{{ $errors->first('adresa') }}</p>
-                @endif
+                        <p class="error">{{ $errors->first('adresa') }}</p>
+                    @endif
                 </label>
                 <label class="label" for="tip">Tip kupca:
                     <br>
@@ -34,9 +34,6 @@
                     <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj kupca" />
                 </div>
                 <br>
-                <div>
-                    <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-                </div>
             </form>
     </div>
 </div>

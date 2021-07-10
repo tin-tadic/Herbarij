@@ -20,22 +20,24 @@ class PlotController extends Controller
         
         $rules = [
             'id_rasadnika' => ['exists:planters,id'],
-            'naziv_plota' => ['sometimes', 'max:50'],
-            'vrsta_plota' => ['sometimes', 'max:50'],
+            'naziv_plota' => ['required', 'max:50'],
+            'vrsta_plota' => ['required', 'max:50'],
 
-            'broj_sadnica' => ['sometimes', 'integer']
+            'broj_sadnica' => ['required', 'integer']
         ];
         $messages = [
             'id_rasadnika.exists' => 'Taj rasadnik ne postoji!' ,
+            'naziv_plota.required' => 'Naziv plota je obavezan!',
+            'vrsta_plota.required' => 'Vrsta plota je obavezna!',
             'naziv_plota.max' => 'Naziv plota ne može biti dulji od 50 znakova!',
             'vrsta_plota.max' => 'Vrsta plota ne može biti dulja od 50 znakova!',
 
-            'broj_sadnica.integer' => 'Mora biti broj!'
+            'broj_sadnica.integer' => 'Mora biti broj!',
+            'broj_sadnica.required' => 'Broj sadnica je obavezan!'
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
@@ -52,16 +54,6 @@ class PlotController extends Controller
         ]);
 
         return redirect()->route('home')->with('success', 'Plot uspješno napravljen.');
-    }
-
-    public function getPlot($plotId) {
-        $plot = Plot::find($plotId);
-        if ($plot) {
-            dd($plot);
-            return view('plots.viewPlot')->with('plot', $plot);
-        } else {
-            dd("TODO::Plot ne postoji!");
-        }
     }
 
     public function deletePlot($plotId) {
@@ -86,13 +78,16 @@ class PlotController extends Controller
     public function editPlot(Request $request, $plotId) {
         $rules = [
             'id_rasadnika' => ['exists:planters,id'],
-            'naziv_plota' => ['sometimes', 'max:50'],
-            'vrsta_plota' => ['sometimes', 'max:50'],
+            'naziv_plota' => ['required', 'max:50'],
+            'vrsta_plota' => ['required', 'max:50'],
 
-            'broj_sadnica' => ['sometimes', 'integer']
+            'broj_sadnica' => ['required', 'integer'],
+            'broj_sadnica.required' => 'Broj sadnica je obavezan!'
         ];
         $messages = [
             'id_rasadnika.exists' => 'Taj rasadnik ne postoji!' ,
+            'naziv_plota.required' => 'Naziv plota je obavezan!',
+            'vrsta_plota.required' => 'Vrsta plota je obavezna!',
             'naziv_plota.max' => 'Naziv plota ne može biti dulji od 50 znakova!',
             'vrsta_plota.max' => 'Vrsta plota ne može biti dulja od 50 znakova!',
 
@@ -101,7 +96,6 @@ class PlotController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 

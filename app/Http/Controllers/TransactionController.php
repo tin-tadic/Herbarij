@@ -14,7 +14,7 @@ class TransactionController extends Controller
     public function addTransaction(Request $request) {
         
         $rules = [
-            'id_kupca' => ['required', 'exists:buyers,id'],
+            'id_kupca' => ['required', 'numeric', 'exists:buyers,id'],
             'tip_transakcije' => ['required'],
             'datum' => ['required', 'date'],
             'stanje' => ['required'],
@@ -24,6 +24,7 @@ class TransactionController extends Controller
         ];
         $messages = [
             'id_kupca.required' => "Ovo polje je obavezno!",
+            'id_kupca.numeric' => 'ID kupca mora biti broj!',
             'id_kupca.exists' => "Taj kupac ne postoji!",
 
             'tip_transakcije.required' => "Tip transakcije je obavezan!",
@@ -46,7 +47,6 @@ class TransactionController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            dd($validator);
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
@@ -117,7 +117,6 @@ class TransactionController extends Controller
     
             $validator = Validator::make($request->all(), $rules, $messages);
             if ($validator->fails()) {
-                dd($validator);
                 return redirect()->back()->withInput()->withErrors($validator);
             }
     
@@ -144,8 +143,7 @@ class TransactionController extends Controller
             Transaction::destroy($transactionId);
             return redirect()->route('viewTransactions')->with('success', 'Transakcija uspješno izbrisana!');
         } catch (\Illuminate\Database\QueryException $e) {
-            //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
-            dd($e);
+            return redirect()->back()->with('error', 'Transakcija se ne može izbrisati!');
         }
     }
 

@@ -57,7 +57,7 @@
             </label>
 
             <label class="label" for="trenutno_posadeno">
-                Trenutno Posadeno:
+                Trenutno Posađeno:
                 <input class="input is-success" id="trenutno_posadeno" type="text" placeholder="Trenutno Posadeno" name="trenutno_posadjeno" value="{{ $plot->trenutno_posadjeno }}" />
 
                 @if ($errors->has('trenutno_posadeno'))
@@ -66,7 +66,7 @@
             </label>
 
             <label class="label" for="prethodno_posadeno">
-                Prethodno Posadeno:
+                Prethodno Posađeno:
                 <input class="input is-success" id="prethodno_posadeno" type="text" placeholder="Prethodno Posadeno" name="prethodno_posadjeno" value="{{ $plot->prethodno_posadjeno }}" />
          
                 @if ($errors->has('prethodno_posadeno'))
@@ -75,7 +75,7 @@
             </label>
 
             <label class="label" for="buduce_posadeno">
-                Buduce Posadeno:
+                Buduce Posađeno:
                 <input class="input is-success" id="buduce_posadeno" type="text" placeholder="Buduce Posadeno" name="buduce_posadjeno" value="{{ $plot->buduce_posadjeno }}" />
     
                 @if ($errors->has('buduce_posadeno'))

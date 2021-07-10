@@ -19,7 +19,7 @@ class BuyerController extends Controller
         
         $rules = [
             'ime' => ['required', 'max: 50'],
-            'adresa' => ['sometimes', 'max:200'],
+            'adresa' => ['required', 'max:200'],
             'tip' => ['required', 'max:50'],
         ];
         $messages = [
@@ -59,7 +59,7 @@ class BuyerController extends Controller
     public function editBuyer(Request $request, $buyerId) {
         $rules = [
             'ime' => ['required', 'max: 50'],
-            'adresa' => ['sometimes', 'max:200'],
+            'adresa' => ['required', 'max:200'],
             'tip' => ['required', 'max:50'],
         ];
         $messages = [
@@ -96,8 +96,7 @@ class BuyerController extends Controller
             Buyer::destroy($buyerId);
             return redirect()->route('getBuyers')->with('success', 'Kupac uspješno izbrisan!');
         } catch (\Illuminate\Database\QueryException $e) {
-            //TODO::Redirect back with message saying it cannot be deleted because of an FK constraint
-            dd($e);
+            return redirect()->back()->with('error', 'Kupca nije moguće izbrisati!');
         }
     }
 }

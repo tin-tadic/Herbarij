@@ -12,7 +12,7 @@
 
             <label class="label" for="id_kupca">
                 <span class="left">ID kupca:</span>
-                <input class="input is-success" id="id_kupca" name="id_kupca" type="text" placeholder="Naziv artikla"/>
+                <input class="input is-success" id="id_kupca" name="id_kupca" type="text" placeholder="Id kupca" value="{{ old('id_kupca') }}"/>
                 
                 @if ($errors->has('id_kupca'))
                 <p class="plant">{{ $errors->first('id_kupca') }}</p>
@@ -22,7 +22,7 @@
 
             <label class="label" for="naz-artikla">
                 <span class="left">Naziv artikla:</span>
-                <input class="input is-success" id="naz-artikla" name="artikl" type="text" placeholder="Naziv artikla"/>
+                <input class="input is-success" id="naz-artikla" name="artikl" type="text" placeholder="Naziv artikla" value="{{ old('artikl') }}"/>
                
                 @if ($errors->has('artikl'))
                 <p class="plant">{{ $errors->first('artikl') }}</p>
@@ -40,7 +40,7 @@
 
             <label class="label" for="datum-transakc">
                 <span class="left">Datum transakcije:</span>
-                <input class="input is-success" id="datum-transakc" name="datum" type="date" placeholder="Datum transakcije"/>
+                <input class="input is-success" id="datum-transakc" name="datum" type="date" placeholder="Datum transakcije" value="{{ old('datum') }}"/>
                
                 @if ($errors->has('datum'))
                 <p class="plant">{{ $errors->first('datum') }}</p>
@@ -49,7 +49,7 @@
             </label>
             <label class="label" for="kolicina">
                 <span class="left">Količina proizvoda:</span>
-                <input class="input is-success" id="kolicina" name="kolicina" type="number" placeholder="Kolicina"/>
+                <input class="input is-success" id="kolicina" name="kolicina" type="number" placeholder="Kolicina" value="{{ old('kolicina') }}"/>
                 
                 @if ($errors->has('kolicina'))
                 <p class="plant">{{ $errors->first('kolicina') }}</p>
@@ -57,7 +57,7 @@
             </label>
             <label class="label" for="cijena">
                 <span class="left">Cijena proizvoda:</span>
-                <input class="input is-success" id="price" name="cijena" type="text" placeholder="Cijena artikla"/>
+                <input class="input is-success" id="price" name="cijena" type="text" placeholder="Cijena artikla" value="{{ old('cijena') }}"/>
                 
                 @if ($errors->has('cijena'))
                 <p class="plant">{{ $errors->first('cijena') }}</p>
