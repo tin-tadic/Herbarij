@@ -16,14 +16,19 @@
                         <option {{ ($planter->id==$plot->id_rasadnika)? "selected" : "" }} value="{{ $planter->id }}" >{{ $planter->id }} - {{ $planter->naziv_rasadnika }}</option>
                     @endforeach
                 </select>
+
+                @if ($errors->has('id_rasadnika'))
+                    <p class="plant">{{ $errors->first('id_rasadnika') }}</p>
+                @endif
+
             </label>
 
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv plota:</span>
                 <input class="input is-success" id="naziv_rasadnika" type="text" placeholder="Naziv plota" name="naziv_plota" value="{{ $plot->naziv_plota }}" />
                 
-                @if ($errors->has('naziv_rasadnika'))
-                <p class="plant">{{ $errors->first('naziv_rasadnika') }}</p>
+                @if ($errors->has('naziv_plota'))
+                    <p class="plant">{{ $errors->first('naziv_plota') }}</p>
                 @endif
             
             </label>

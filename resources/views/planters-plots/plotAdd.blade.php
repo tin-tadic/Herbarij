@@ -15,6 +15,11 @@
                         <option value="{{ $planter->id }}">{{ $planter->id }} - {{ $planter->naziv_rasadnika }}</option>
                     @endforeach
                 </select>
+
+                @if ($errors->has('id_rasadnika'))
+                    <p class="plant">{{ $errors->first('id_rasadnika') }}</p>
+                @endif
+                
             </label>
 
             <label class="label" for="naziv_rasadnika">
@@ -23,7 +28,7 @@
             
                 
                 @if ($errors->has('naziv_plota'))
-                <p class="plant">{{ $errors->first('naziv_plota') }}</p>
+                    <p class="plant">{{ $errors->first('naziv_plota') }}</p>
                 @endif
             </label>
 
