@@ -34,6 +34,10 @@
             <a class="navbar-item" href="{{ route('getBuyers') }}">
                 Kupci
             </a>
+
+            <a class="navbar-item" href="{{ route('lookForPlanter') }}">
+                Rasadnici
+            </a>
     
             <!-- ovaj dio je za drop down meni, nije potreban?
             <div class="navbar-item has-dropdown is-hoverable">

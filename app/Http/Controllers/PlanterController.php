@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Planter;
 use Illuminate\Support\Facades\DB;
 use App\Models\Plot;
+use Validator;
 
 class PlanterController extends Controller
 {
@@ -34,7 +35,7 @@ class PlanterController extends Controller
         }
 
 
-        $newPlanter = Planter::create([
+        Planter::create([
             'naziv_rasadnika' => $request->input('naziv_rasadnika'),
             'vrsta' => $request->input('vrsta'),
             'lokacija' => $request->input('lokacija'),
@@ -43,17 +44,75 @@ class PlanterController extends Controller
             'vrsta_tla' => $request->input('vrsta_tla'),
         ]);
 
-        // return redirect()->route('ADD A ROUTE', ['idRasadnika' => $newPlanter->id])->with('success', 'Rasadnik uspješno napravljen.');
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Rasadnik uspješno napravljen!');
+    }
+
+    public function searchForPlanter(Request $request) {
+        $planterId = $request->input('lookForPlanter');
+        if (Planter::find($planterId)->exists()) {
+            $planter = Planter::find($planterId);
+            $plots = Plot::where('id_rasadnika', $planterId)->paginate(3);
+            return view('planters-plots.planter', compact('plots', 'planter'));
+        } else {
+            return redirect()->route('home')->with('error', 'Rasadnik sa tim IDom nije pronađen!');
+        }
     }
 
     public function getPlanter($planterId) {
-        $plots = Plot::where('id_rasadnika', $planterId)->paginate(3);
-        if ($plots) {
+        if (Plot::where('id_rasadnika', $planterId)->exists()) {
+            $plots = Plot::where('id_rasadnika', $planterId)->paginate(3);
             return view('planters-plots.planter')->with('plots', $plots);
         } else {
-            return view('planters-plots.planter')->with('error', 'Rasadnik sa tim IDom nije pronađen!');
+            return redirect()->route('home')->with('error', 'Rasadnik sa tim IDom nije pronađen!');
         }
+    }
+
+    public function getPlanterForEdit($planterId) {
+        $planter = Planter::find($planterId);
+        if ($planter) {
+            return view('planters-plots.planterEdit')->with('planter', $planter);
+        } else {
+            return redirect()->route('home')->with('error', 'Taj rasadnik nije pronađen!');
+        }
+    }
+
+    public function editPlanter(Request $request, $planterId) {
+        $rules = [
+            'naziv_rasadnika' => ['sometimes', 'max:50'],
+            'vrsta' => ['sometimes', 'max:50'],
+            'lokacija' => ['sometimes', 'max:200'],
+            'povrsina' => ['sometimes', 'numeric'],
+            'komentar' => ['sometimes', 'max:1000'],
+            'vrsta_tla' => ['sometimes', 'max: 50']
+        ];
+        $messages = [
+            'naziv_rasadnika.max' => 'Naziv rasadnika ne može biti duži od 50 znakova!',
+            'narodna_imena.max' => 'Vrsta rasadnika ne može biti duža od 50 znakova!',
+            'lokacija.max' => 'Lokacija rasadnika ne može biti duža od 200 znakova!',
+            'komentar.max' => 'Komentar rasadnika ne može biti duži od 1000 znakova!',
+            'vrsta_tla.max' => 'Vrsta tla ne može biti duža od 50 znakova!',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            dd($validator);
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+
+
+        if (Planter::find($planterId)->exists()) {
+            Planter::find($planterId)
+                ->update([
+                    'naziv_rasadnika' => $request->input('naziv_rasadnika'),
+                    'vrsta' => $request->input('vrsta'),
+                    'lokacija' => $request->input('lokacija'),
+                    'povrsina' => $request->input('povrsina'),
+                    'komentar' => $request->input('komentar'),
+                    'vrsta_tla' => $request->input('vrsta_tla'),
+                ]);
+            }
+
+        return redirect()->route('home')->with('success', 'Rasadnik uspješno napravljen!');
     }
 
     public function deletePlanter($planterId) {

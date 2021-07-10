@@ -10,71 +10,84 @@
             @csrf
             <label class="label" for="naziv_rasadnika">
                 <span class="left">Naziv rasadnika:</span>
+<<<<<<< HEAD
               <input class="input is-success" id="naziv_rasadnika"  name="naziv_rasadnika "type="text" placeholder="Naziv rasadnika" />
                
               @if ($errors->has('naziv_rasadnika'))
               <p class="plant">{{ $errors->first('naziv_rasadnika') }}</p>
               @endif
            
+=======
+                <input class="input is-success" id="naziv_rasadnika" name="naziv_rasadnika" type="text" placeholder="Naziv rasadnika" />
+>>>>>>> 6336f1b03acc00033103114eed57fca98fb406cc
             </label>
 
             <label class="label" for="lokacija">
                 <span class="left">Lokacija rasadnika:</span>
-                <input class="input is-success" id="lokacija" type="text" placeholder="Naziv lokacije" />
+                <input class="input is-success" id="lokacija" name="lokacija" type="text" placeholder="Naziv lokacije" />
             </label>
 
 
             <label class="label" for="vrsta_rasadnika">
                 <span class="left">Vrsta rasadnika:</span>
+<<<<<<< HEAD
                 <input class="input is-success" id="vrsta_rasadnika" name="vrsta_rasadnika" type="text" placeholder="Vrsta rasadnika" />
                 
                 @if ($errors->has('vrsta_radnika'))
                 <p class="plant">{{ $errors->first('vrsta_rasadnika') }}</p>
                 @endif
             
+=======
+                <input class="input is-success" id="vrsta_rasadnika" name="vrsta" type="text" placeholder="Vrsta rasadnika" />
+>>>>>>> 6336f1b03acc00033103114eed57fca98fb406cc
             </label>
 
 
             <label class="label" class="left" for="povrsina">
                 Povrsina:
+<<<<<<< HEAD
                 <input class="input is-success" id="povrsina" name ="povrsina" type="number" placeholder="Povrsina" />
                
                 @if ($errors->has('povrsina'))
                 <p class="plant">{{ $errors->first('povrsina') }}</p>
                 @endif
+=======
+                <input class="input is-success" id="povrsina" name="povrsina" type="number" placeholder="Povrsina" />
+>>>>>>> 6336f1b03acc00033103114eed57fca98fb406cc
             </label>
 
             <label class="label" for="vrsta_tla">
                 Vrsta tla:
                 <input class="input is-success" id="vrsta_tla" name="vrsta_tla" type="text" placeholder="Vrsta tla">
+<<<<<<< HEAD
                     
                 @if ($errors->has('vrsta_tla'))
                 <p class="plant">{{ $errors->first('vrsta_tla') }}</p>
                 @endif
+=======
+>>>>>>> 6336f1b03acc00033103114eed57fca98fb406cc
 
             </label>
 
             <label class="label" for="komentar">
                 Komentar:
                 <input class="input is-success" id="komentar" name="komentar" type="text" placeholder="Komentar">
+<<<<<<< HEAD
                     
                 @if ($errors->has('komentar'))
                 <p class="plant">{{ $errors->first('komenatar') }}</p>
                 @endif
+=======
+>>>>>>> 6336f1b03acc00033103114eed57fca98fb406cc
 
             </label>
 
 
-        </form>
 
         <div>
             <input class="button is-center is-link is-success" id="butAdd" type="submit" value="Dodaj rasadnik" />
         </div>
         <br>
-        <div>
-            <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-        </div>
-
 
         </form>
     </div>
