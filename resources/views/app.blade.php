@@ -42,7 +42,6 @@
             @yield('content')
         </main>
 
-        @include('misc.messages')
         
         @include('misc.footer')
     </div>

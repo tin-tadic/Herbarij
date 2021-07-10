@@ -7,7 +7,7 @@
 
     <div id="add-button">
         <button id="add-transaction" class="button is-light is-focus is-medium" onclick="location.href='{{ route('getAddTransaction') }}'">Add Transaction</button>
-        <button id="add-transaction" class="button is-light is-focus is-medium" onclick="location.href='/get-all-transactions'">Download izvještaja</button>
+        <button id="add-transaction" class="button is-light is-focus is-medium" onclick="location.href='/download-pdf'">Download izvještaja</button>
     </div>
     <!--Tabovi-->
     <div id="ticket" class="ticket">
