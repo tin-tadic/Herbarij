@@ -62,6 +62,8 @@ Route::post('/editPlant/{plantId}', [PlantController::class, 'editPlant'])
     ->name('editPlant');
 Route::post('/deletePlant/{plantId}', [PlantController::class, 'deletePlant'])
     ->name('deletePlant');
+Route::post('/plantSearch', [PlantController::class, 'lookForPlant'])
+    ->name('lookForPlant');
 
 
 //Planter routes
@@ -72,13 +74,11 @@ Route::post('/addPlanter', [PlanterController::class, 'addPlanter'])
     ->name('addPlanter');
 Route::get('/searchForPlanter', [PlanterController::class, 'searchForPlanter'])
     ->name('searchForPlanter');
-
 Route::get('/lookForPlanter', function() {
     return view('planters-plots.planterSearch');
-})->name('lookForPlanter');//TODO::here
+})->name('lookForPlanter');
 Route::get('/viewPlanter/{planterId}', [PlanterController::class, 'getPlanter'])
     ->name('getPlanter');
-
 Route::get('/editPlanter/{planterId}', [PlanterController::class, 'getPlanterForEdit'])
     ->name('getPlanterForEdit');
 Route::post('/editPlanter/{planterId}', [PlanterController::class, 'editPlanter'])
@@ -88,11 +88,11 @@ Route::post('/editPlanter/{planterId}', [PlanterController::class, 'editPlanter'
 
 //Plot routes
 Route::get('addPlot', [PlotController::class, 'getAddPlot'])
-    ->name('getAddPlot');//TODO::here
+    ->name('getAddPlot');
 Route::post('addPlot', [PlotController::class, 'addPlot'])
     ->name('addPlot');
 Route::get('editPlot/{plotId}', [PlotController::class, 'getPlotForEdit'])
-    ->name('getPlotForEdit');//TODO::here
+    ->name('getPlotForEdit');
 Route::post('editPlot/{plotId}', [PlotController::class, 'editPlot'])
     ->name('editPlot');
 Route::post('deletePlot/{plotId}', [PlotController::class, 'deletePlot'])
@@ -106,7 +106,7 @@ Route::get('/viewTransaction/{transactionId}', [TransactionController::class, 'g
     ->name('getTransaction');
 Route::get('/addTransaction', function() {
     return view('transactions.addTransaction');
-})->name('getAddTransaction');// TODO::here
+})->name('getAddTransaction');
 Route::post('/addTransaction', [TransactionController::class, 'addTransaction'])
     ->name('addTransaction');
 Route::get('/editTransaction/{transactionId}', [TransactionController::class, 'getTransactionForEdit'])
@@ -115,6 +115,10 @@ Route::post('/editTransaction/{transactionId}', [TransactionController::class, '
     ->name('editTransaction');
 Route::post('/deleteTransaction/{transactionId}', [TransactionController::class, 'deleteTransaction'])
     ->name('deleteTransaction');
+
+Route::post('/searchKupovina', [TransactionController::class, 'searchKupovina']);
+Route::post('/searchProdaja', [TransactionController::class, 'searchProdaja']);
+Route::post('/searchNabava', [TransactionController::class, 'searchNabava']);
 
 
 Route::get('/get-all-transactions', [TransactionController::class, 'getAllTransaction']);

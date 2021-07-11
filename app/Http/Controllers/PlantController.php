@@ -10,11 +10,22 @@ use Illuminate\Support\Str;
 
 class PlantController extends Controller
 {
-
-
     public function getPlants() {
         $plants = Plant::paginate(4);
-        return view('plants.plants')->with('plants', $plants);
+        $noLinks = 0;
+        return view('plants.plants', compact ('plants', 'noLinks'));
+    }
+
+    public function lookForPlant(Request $request) {
+        $orderBy = $request->input('orderBy');
+
+        if(strlen($request->input('lookForPlant')) < 3) {
+            return redirect()->back()->with('error', 'Morate unijeti minimalno 3 znaka za pretragu!');
+        }
+
+        $plants = Plant::where('naziv', 'like', '%' . $request->input('lookForPlant') . '%')->orderBy('trenutna_cijena', $orderBy)->get();
+        $noLinks = 1;
+        return view('plants.plants', compact ('plants', 'noLinks'));
     }
 
 

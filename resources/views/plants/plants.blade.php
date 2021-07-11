@@ -7,26 +7,32 @@
 
 <div class="container skoci">
   <!--Kartice-->
+  <form action="/plantSearch" method="POST" enctype="multipart/form-data">
+    @csrf
   <div class="field has-addons is-pulled-right">
-    <div class="control">
-      <input class="input" type="text" placeholder="Pretraži biljke...">
+        <div class="control">
+          <input class="input" type="text" name="lookForPlant" placeholder="Pretraži biljke...">
+        </div>
+    
+          <div class="control">
+            <button class="button is-success">
+              Pretraga
+            </button>
+        </div>
     </div>
-    <div class="control">
-      <button class="button is-success">
-        Pretraga
-      </button>
+
+
+    <div class="control is-pulled-right">
+      <label class="radio">
+        <input type="radio" name="orderBy" value="asc" checked>
+        Ascending
+      </label>
+      <label class="radio">
+        <input type="radio" name="orderBy" value="desc">
+        Descending
+      </label>
     </div>
-  </div>
-  <div class="control is-pulled-right">
-    <label class="radio">
-      <input type="radio" name="answer">
-      Ascending
-    </label>
-    <label class="radio">
-      <input type="radio" name="answer">
-      Descending
-    </label>
-  </div>
+  </form>
   <section class="section">
     <div class="container">
       <!--<h3 class="title has-text-centered is-size-4">Biljke</h3>-->
@@ -69,9 +75,11 @@
   <div>
     <button class="button mt-5" id="dodaj" onclick="location.href='{{ route('getAddPlant') }}'">Dodaj Biljku</button>
     <!--pagination-->
+    @if ($noLinks == 0)
     <div id="fixSide" class="mb-5 pb-10">
       {{ $plants->links() }}
     </div>
+    @endif
   </div>
 </div>
 </div>

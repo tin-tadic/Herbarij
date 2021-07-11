@@ -95,7 +95,7 @@
           <p class="title">
             Biljna putovnica</p>
           <p class="subtitle">
-            podnaslov
+            
           </p>
         </div>
         <div class="card-content">

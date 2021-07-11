@@ -29,11 +29,11 @@
               <img src="/storage/assets/plot.png" alt="greenhouse">
             </div>
             <div class="card-content">
-              <p>{{ $plot->naziv_plota }}</p>
-              <p>{{ $plot->vrsta_plota }}</p>
-              <p>{{ $plot->trenutno_posadjeno }}</p>
-              <p>{{ $plot->prethodno_posadjeno }}</p>
-              <p>{{ $plot->buduce_posadjeno }}</p>
+              <p>Naziv plota: {{ $plot->naziv_plota }}</p>
+              <p>Vrsta plota: {{ $plot->vrsta_plota }}</p>
+              <p>Trenutno posađeno: {{ $plot->trenutno_posadjeno }}</p>
+              <p>Prethodno posađeno: {{ $plot->prethodno_posadjeno }}</p>
+              <p>Buduće posađeno: {{ $plot->buduce_posadjeno }}</p>
             </div>
             <footer class="card-footer">
               <p class="card-footer-item">
@@ -50,7 +50,6 @@
         </div>
         @endforeach
 
-
       </div>
     </div>
   </section>
@@ -59,10 +58,7 @@
 <div>
   <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getAddPlot') }}'">Dodaj Plot</button>
   <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getPlanterForEdit', $planter->id) }}'">Edit Rasadnika</button>
-  <!--pagination-->
-  <div id="fixSide" class="mb-5 pb-10">
-    {{ $plots->links() }}
-  </div>
+  
   <br><br>
 </div>
 

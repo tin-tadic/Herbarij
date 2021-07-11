@@ -62,16 +62,16 @@ class PlanterController extends Controller
         $planterId = $request->input('lookForPlanter');
         if (Planter::find($planterId)) {
             $planter = Planter::find($planterId);
-            $plots = Plot::where('id_rasadnika', $planterId)->paginate(3);
+            $plots = Plot::where('id_rasadnika', $planterId)->get();
             return view('planters-plots.planter', compact('plots', 'planter'));
         } else {
-            return redirect()->route('home')->with('error', 'Rasadnik sa tim IDom nije pronađen!');
+            return redirect()->back()->with('error', 'Rasadnik sa tim IDom nije pronađen!');
         }
     }
 
     public function getPlanter($planterId) {
         if (Plot::where('id_rasadnika', $planterId)->exists()) {
-            $plots = Plot::where('id_rasadnika', $planterId)->paginate(3);
+            $plots = Plot::where('id_rasadnika', $planterId)->get();
             return view('planters-plots.planter')->with('plots', $plots);
         } else {
             return redirect()->route('home')->with('error', 'Rasadnik sa tim IDom nije pronađen!');

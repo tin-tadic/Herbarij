@@ -19,39 +19,59 @@
 
         <div class="form">
             <div id="Prvi" class="tabcontent">
-                <div class="field has-addons">
-                    <input class="input" id="s1" type="text" placeholder="Pretraga">
-                    <div class="control"><button class="button is-success">Pretraga</button></div>
-                </div>
-                <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Kolicina
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Cijena
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Datum
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Artikal
-                    </label>
-                </div>
+                <form action="/searchKupovina" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="field has-addons">
+                        <input class="input" id="s1" type="text" placeholder="Pretraga" name='searchFor' />
+                        <div class="control"><button class="button is-success">Pretraga</button></div>
+                    </div>
+                    <div class="control">
+                        Pretraži po: 
+                        <label class="radio">
+                            <input type="radio" name="kupovina_searchBy" checked value="kolicina">
+                            Kolicina
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="kupovina_searchBy" value="cijena">
+                            Cijena
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="kupovina_searchBy" value="artikl">
+                            Artikal
+                        </label>
+                    </div>
+                    <div class="control">
+                        Sortiraj po: 
+                        <label class="radio">
+                            <input type="radio" name="kupovina_orderBy" checked value="kolicina">
+                            Kolicina
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="kupovina_orderBy" value="cijena">
+                            Cijena
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="kupovina_orderBy" value="datum">
+                            Datum
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="kupovina_orderBy" value="artikl">
+                            Artikal
+                        </label>
+                    </div>
 
-                <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Ascending
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Descending
-                    </label>
-                </div>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="kupovina_sortBy" value="asc" checked>
+                            Ascending
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="kupovina_sortBy" value="desc">
+                            Descending
+                        </label>
+                    </div>
+                </form>
+
                 <table class="table table-top">
                     <thead>
                         <tr>
@@ -101,49 +121,68 @@
 
                     </tbody>
                 </table>
-                <div id="fixSide" class="mb-5 pb-10">
-                    {{ $kupovine->links() }}
-                </div>
+                {{-- @if ($noLinksKupovina == 0) --}}
+                    <div id="fixSide" class="mb-5 pb-10">
+                        {{ $kupovine->links() }}
+                    </div>
+                {{-- @endif --}}
 
             </div>
             <!--Drugi za pregled statusa transakcija-->
             <div id="Drugi" class="tabcontent">
-                <div class="field has-addons">
-                    <input class="input" id="s1" type="text" placeholder="Pretraga">
-                    <div class="control"><button class="button is-success">Pretraga</button></div>
+                <form action="/searchProdaja" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="field has-addons">
+                        <input class="input" id="s1" type="text" placeholder="Pretraga" name='searchFor' />
+                        <div class="control"><button class="button is-success">Pretraga</button></div>
+                    </div>
+                    <div class="control">
+                        Pretraži po: 
+                        <label class="radio">
+                            <input type="radio" name="transakcija_searchBy" checked value="kolicina">
+                            Kolicina
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="transakcija_searchBy" value="cijena">
+                            Cijena
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="transakcija_searchBy" value="artikl">
+                            Artikal
+                        </label>
+                    </div>
+                    <div class="control">
+                        Sortiraj po: 
+                        <label class="radio">
+                            <input type="radio" name="transakcija_orderBy" checked value="kolicina">
+                            Kolicina
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="transakcija_orderBy" value="cijena">
+                            Cijena
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="transakcija_orderBy" value="datum">
+                            Datum
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="transakcija_orderBy" value="artikl">
+                            Artikal
+                        </label>
+                    </div>
 
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="transakcija_sortBy" value="asc" checked>
+                            Ascending
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="transakcija_sortBy" value="desc">
+                            Descending
+                        </label>
+                    </div>
+                </form>
 
-                </div>
-
-                <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Kolicina
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Cijena
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Datum
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Artikal
-                    </label>
-                </div>
-
-                <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Ascending
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Descending
-                    </label>
-                </div>
                 <table class="table table-top">
                     <thead>
                         <tr>
@@ -191,49 +230,69 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div id="fixSide" class="mb-5 pb-10">
-                    {{ $transakcije->links() }}
-                </div>
+                {{-- @if ($noLinksProdaja == 0) --}}
+                    <div id="fixSide" class="mb-5 pb-10">
+                        {{ $kupovine->links() }}
+                    </div>
+                {{-- @endif --}}
 
             </div>
 
             <div id="Treci" class="tabcontent">
-                <div class="field has-addons">
-                    <input class="input" id="s1" type="text" placeholder="Pretraga">
-                    <div class="control"><button class="button is-success">Pretraga</button></div>
+                <form action="/searchNabava" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="field has-addons">
+                        <input class="input" id="s1" type="text" placeholder="Pretraga" name='searchFor' />
+                        <div class="control"><button class="button is-success">Pretraga</button></div>
+                    </div>
+                    <div class="control">
+                        Pretraži po: 
+                        <label class="radio">
+                            <input type="radio" name="nabava_searchBy" checked value="kolicina">
+                            Kolicina
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="nabava_searchBy" value="cijena">
+                            Cijena
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="nabava_searchBy" value="artikl">
+                            Artikal
+                        </label>
+                    </div>
+                    <div class="control">
+                        Sortiraj po: 
+                        <label class="radio">
+                            <input type="radio" name="nabava_orderBy" checked value="kolicina">
+                            Kolicina
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="nabava_orderBy" value="cijena">
+                            Cijena
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="nabava_orderBy" value="datum">
+                            Datum
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="nabava_orderBy" value="artikl">
+                            Artikal
+                        </label>
+                    </div>
+
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="nabava_sortBy" value="asc" checked>
+                            Ascending
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="nabava_sortBy" value="desc">
+                            Descending
+                        </label>
+                    </div>
+                </form>
 
 
-                </div>
-
-                <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Kolicina
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Cijena
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Datum
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Artikal
-                    </label>
-                </div>
-
-                <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Ascending
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Descending
-                    </label>
-                </div>
                 <table class="table table-top">
                     <thead>
                         <tr>
@@ -280,9 +339,11 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div id="fixSide" class="mb-5 pb-10">
-                    {{ $nabave->links() }}
-                </div>
+                {{-- @if ($noLinksNabava == 0) --}}
+                    <div id="fixSide" class="mb-5 pb-10">
+                        {{ $kupovine->links() }}
+                    </div>
+                {{-- @endif --}}
             </div>
         </div>
     </div>
@@ -305,186 +366,183 @@
     }
 </script>
 <style scoped>
-    .container {
-        margin-top: 150px;
-    }
-
-    .ticket {
-        position: relative;
-        max-width: 1500px;
-        /* padding: 8% 0 0;*/
-        margin: auto;
-
-        box-sizing: content-box;
-
-    }
-
-    #ticket {
-        padding-top: 0px;
-        box-sizing: content-box;
-    }
-
-    .tab {
-        overflow: hidden;
-        margin-left: 20px;
-        padding: 3% 0 0;
-        margin: auto;
-    }
-
-    #tab1 {
-        padding-top: 0px;
-    }
-
-    .tab ul {
-        list-style-type: none;
-        margin-left: 20px;
-    }
-
-    .tab a {
-        text-decoration: none;
-        float: left;
-        cursor: pointer;
-        padding: 12px 24px;
-        transition: background-color 0.2s;
-        border: 1px solid #ccc;
-        border-right: none;
-        background-color: #f1f1f1;
-        border-radius: 10px 10px 0 0;
-        font-weight: bold;
-        color: black;
-    }
-
-    .tab a:last-child {
-        border-right: 1px solid #ccc;
-    }
-
-    .tab a:hover {
-        background-color: #aaa;
-        color: #fff;
-    }
-
-    .tab a.active {
-        border-bottom: 2px solid #fff;
-        cursor: default;
-        background-color: #40826d;
-        color: white;
-        font-weight: bold;
-    }
-
-    .form {
-        position: relative;
-        z-index: 1;
-        background: #FFFFFF;
-        margin: 0 auto 100px;
-        padding: 35px;
-        text-align: center;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    }
-
-    .form p {
-        text-align: left;
-        font-family: "Roboto", sans-serif;
-        outline: 0;
-        background: #c4c4be;
-        width: 100%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 15px;
-        box-sizing: border-box;
-        font-size: 14px;
-
-    }
-
-    .table {
-        overflow: hidden;
-        width: 100%;
-        background-color: #fff;
-        text-align: center;
-        padding: 0 10 10 0;
-    }
-
-    .table-top thead th {
-        background: #274f42;
-        font-size: 16px;
-        color: #fff;
-        vertical-align: middle;
-        font-weight: 400;
-        text-transform: capitalize;
-        line-height: 1;
-        padding: 22px 40px;
-        white-space: nowrap;
-    }
-
-    .table-rows tbody td {
-        color: #808080;
-        padding: 12px 40px;
-        white-space: nowrap;
-    }
-
-    #red {
-        color: red;
-    }
-
-    #blue {
-        color: blue;
-    }
-
-    #green {
-        color: green;
-    }
-
-    .process {
-        color: #274f42;
-    }
-
-    .button {
-        background-color: #484848;
-        color: white;
-    }
-
-    .tabcontent {
-        display: none;
-    }
-
-    #Prvi {
-        display: block;
-    }
-
-    #add-button {
-        text-align: center;
-    }
-
-    #add-transaction {
-        color: #484848;
-        font-weight: bold;
-    }
-
-    #add-transaction:hover {
-        background-color: #40826d;
-        font-weight: bold;
-        color: white;
-        border: #484848;
-    }
-
-    .button {
-        background-color: #484848;
-        color: white;
-    }
-
-    .del {
-        font-size: 25px;
-        color: red;
-        font-weight: bold;
-    }
-
-    table td {
-        vertical-align: middle;
-    }
-
-    table td:not([align]),
-    table th:not([align]) {
-        vertical-align: middle;
-    }
+    .container{
+                margin-top:150px;
+            }
+            .ticket {
+                position: relative;
+                max-width: 1500px;
+                /* padding: 8% 0 0;*/
+                margin: auto;
+                
+                box-sizing: content-box;
+        
+            }
+            #s1{
+                margin:auto;
+                height: 50%;
+                width: 100%;
+            }
+            
+        
+            #ticket {
+                padding-top: 0px;
+                box-sizing: content-box;
+            }
+        
+            .tab {
+                overflow: hidden;
+                margin-left: 20px;
+                padding: 3% 0 0;
+                margin: auto;
+            }
+        
+            #tab1 {
+                padding-top: 0px;
+            }
+        
+            .tab ul {
+                list-style-type: none;
+                margin-left: 20px;
+            }
+        
+            .tab a {
+                text-decoration: none;
+                float: left;
+                cursor: pointer;
+                padding: 12px 24px;
+                transition: background-color 0.2s;
+                border: 1px solid #ccc;
+                border-right: none;
+                background-color: #f1f1f1;
+                border-radius: 10px 10px 0 0;
+                font-weight: bold;
+                color: black;
+            }
+        
+            .tab a:last-child {
+                border-right: 1px solid #ccc;
+            }
+        
+            .tab a:hover {
+                background-color: #aaa;
+                color: #fff;
+            }
+        
+            .tab a.active {
+                border-bottom: 2px solid #fff;
+                cursor: default;
+                background-color: #40826d;
+                color: white;
+                font-weight: bold;
+            }
+        
+            .form {
+                position: relative;
+                z-index: 1;
+                background: #FFFFFF;
+                margin: 0 auto 100px;
+                padding: 35px;
+                text-align: center;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            }
+        
+            .form p {
+                text-align: left;
+                font-family: "Roboto", sans-serif;
+                outline: 0;
+                background: #c4c4be;
+                width: 100%;
+                border: 0;
+                margin: 0 0 15px;
+                padding: 15px;
+                box-sizing: border-box;
+                font-size: 14px;
+        
+            }
+        
+            .table {
+                overflow: hidden;
+                width: 100%;
+                background-color: #fff;
+                text-align: center;
+                padding: 0 10 10 0;
+            }
+        
+            .table-top thead th {
+                background: #274f42;
+                font-size: 16px;
+                color: #fff;
+                vertical-align: middle;
+                font-weight: 400;
+                text-transform: capitalize;
+                line-height: 1;
+                padding: 22px 40px;
+                white-space: nowrap;
+            }
+        
+            .table-rows tbody td {
+                color: #808080;
+                padding: 12px 40px;
+                white-space: nowrap;
+            }
+        
+            #red {
+                color: red;
+            }
+        
+            #blue {
+                color: blue;
+            }
+        
+            #green {
+                color: green;
+            }
+        
+            .process {
+                color: #274f42;
+            }
+        
+            .button {
+                background-color: #484848;
+                color: white;
+            }
+            .tabcontent{
+                display:none;
+            }
+            #Prvi{
+                display:block;
+            }
+            #add-button{
+                text-align:center;
+            }
+            #add-transaction{
+                color: #484848;
+                font-weight: bold;
+            }
+            #add-transaction:hover{
+                background-color: #40826d;
+                font-weight: bold;
+                color:white;
+                border: #484848;
+            }
+            .button {
+                background-color: #484848;
+                color: white;
+            }
+        
+            .del{
+                font-size:25px;
+                color: red;
+                font-weight:bold;
+                cursor: pointer;
+            }
+            table td {
+                vertical-align: middle;
+            }
+            table td:not([align]), table th:not([align]) {
+                vertical-align: middle;
+        }
 </style>
 
 @endsection

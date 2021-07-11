@@ -65,12 +65,114 @@ class TransactionController extends Controller
     }
 
     public function getTransactions() {
+        $noLinksKupovina = 0;
+        $noLinksProdaja = 0;
+        $noLinksNabava = 0;
         $kupovine = Transaction::where('tip_transakcije', 1)->paginate(3);
         $transakcije = Transaction::where('tip_transakcije', 2)->paginate(3);
         $nabave = Transaction::where('tip_transakcije', 3)->paginate(3);
         
-        return view('transactions.viewTransactions')->with(['kupovine' => $kupovine, 'transakcije' => $transakcije, 'nabave' => $nabave]);
+        return view('transactions.viewTransactions')->with(['kupovine' => $kupovine, 'transakcije' => $transakcije, 'nabave' => $nabave, 'noLinksKupovina' => $noLinksKupovina, 'noLinksProdaja' => $noLinksProdaja, 'noLinksNabava' => $noLinksNabava]);
     }
+
+    public function searchKupovina(Request $request) {
+        $noLinksKupovina = 1;
+        $noLinksProdaja = 1;
+        $noLinksNabava = 1;
+        $transakcije = Transaction::where('tip_transakcije', 2)->paginate(3);
+        $nabave = Transaction::where('tip_transakcije', 3)->paginate(3);
+
+        $searchBy = $request->input('kupovina_searchBy');
+        $orderBy = $request->input('kupovina_orderBy');
+        $sortBy = $request->input('kupovina_sortBy');
+
+        if($request->input('searchFor') == '') {
+            return redirect()->back()->with('error', 'Morate upisati kritarij za pretragu!');
+        }
+
+
+        if($searchBy == 'kolicina') {
+            if(!is_numeric($request->input('searchFor'))) {
+                return redirect()->back()->with('error', 'Za pretragu po količini morate upisati broj');
+            }
+
+            $kupovine = Transaction::where('tip_transakcije', 1)->where('kolicina', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        } else if ($searchBy == 'cijena') {
+
+            if(!is_numeric($request->input('searchFor'))) {
+                return redirect()->back()->with('error', 'Za pretragu po cijeni morate upisati broj');
+            }
+
+            $kupovine = Transaction::where('tip_transakcije', 1)->where('cijena', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        } else if ($searchBy == 'artikl') {
+            $kupovine = Transaction::where('tip_transakcije', 1)->where('artikl', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        }
+        
+        return view('transactions.viewTransactions')->with(['kupovine' => $kupovine, 'transakcije' => $transakcije, 'nabave' => $nabave, 'noLinksKupovina' => $noLinksKupovina, 'noLinksProdaja' => $noLinksProdaja, 'noLinksNabava' => $noLinksNabava]);
+    }
+
+    public function searchProdaja(Request $request) {
+        $noLinksKupovina = 1;
+        $noLinksProdaja = 1;
+        $noLinksNabava = 1;
+        $kupovine = Transaction::where('tip_transakcije', 1)->paginate(3);
+        $nabave = Transaction::where('tip_transakcije', 3)->paginate(3);
+
+        $searchBy = $request->input('transakcija_searchBy');
+        $orderBy = $request->input('transakcija_orderBy');
+        $sortBy = $request->input('transakcija_sortBy');
+
+
+        if($searchBy == 'kolicina') {
+            if(!is_numeric($request->input('searchFor'))) {
+                return redirect()->back()->with('error', 'Za pretragu po količini morate upisati broj');
+            }
+
+            $transakcije = Transaction::where('tip_transakcije', 2)->where('kolicina', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        } else if ($searchBy == 'cijena') {
+            if(!is_numeric($request->input('searchFor'))) {
+                return redirect()->back()->with('error', 'Za pretragu po cijeni morate upisati broj');
+            }
+
+            $transakcije = Transaction::where('tip_transakcije', 2)->where('cijena', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        } else if ($searchBy == 'artikl') {
+            $transakcije = Transaction::where('tip_transakcije', 2)->where('artikl', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        }
+        
+        return view('transactions.viewTransactions')->with(['kupovine' => $kupovine, 'transakcije' => $transakcije, 'nabave' => $nabave, 'noLinksKupovina' => $noLinksKupovina, 'noLinksProdaja' => $noLinksProdaja, 'noLinksNabava' => $noLinksNabava]);
+    }
+
+    public function searchNabava(Request $request) {
+        $noLinksKupovina = 1;
+        $noLinksProdaja = 1;
+        $noLinksNabava = 1;
+        $kupovine = Transaction::where('tip_transakcije', 1)->paginate(3);
+        $transakcije = Transaction::where('tip_transakcije', 2)->paginate(3);
+
+        $searchBy = $request->input('nabava_searchBy');
+        $orderBy = $request->input('nabava_orderBy');
+        $sortBy = $request->input('nabava_sortBy');
+
+
+        if($searchBy == 'kolicina') {
+            if(!is_numeric($request->input('searchFor'))) {
+                return redirect()->back()->with('error', 'Za pretragu po količini morate upisati broj');
+            }
+
+            $nabave = Transaction::where('tip_transakcije', 3)->where('kolicina', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        } else if ($searchBy == 'cijena') {
+            if(!is_numeric($request->input('searchFor'))) {
+                return redirect()->back()->with('error', 'Za pretragu po cijeni morate upisati broj');
+            }
+
+            $nabave = Transaction::where('tip_transakcije', 3)->where('cijena', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        } else if ($searchBy == 'artikl') {
+            $nabave = Transaction::where('tip_transakcije', 3)->where('artikl', '=', $request->input('searchFor'))->orderBy($orderBy, $sortBy)->get();
+        }
+        
+        return view('transactions.viewTransactions')->with(['kupovine' => $kupovine, 'transakcije' => $transakcije, 'nabave' => $nabave, 'noLinksKupovina' => $noLinksKupovina, 'noLinksProdaja' => $noLinksProdaja, 'noLinksNabava' => $noLinksNabava]);
+    }
+
 
     public function getTransactionForEdit($transactionId) {
         $transaction = Transaction::find($transactionId);
@@ -164,7 +266,7 @@ class TransactionController extends Controller
         }
         
         $pdf = PDF::loadView('transaction' , compact('transactions'));
-        return $pdf->download('transactions.pdf');
+        return $pdf->download('izvjestaj_transakcija.pdf');
     }
 
 }

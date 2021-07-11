@@ -13,7 +13,6 @@
             <tr>
                 <th> ID kupca </th>
                 <th> tip transakcije </th>
-                <th> komentar </th>
 
                 <th> datum </th>
                 <th> stanje </th>
@@ -30,7 +29,6 @@
                 <tr>
                     <td> {{$transaction->id_kupca}} </td>
                     <td> {{$transaction->tip_transakcije}} </td>
-                    <td> {{$transaction->komentar}} </td>
                     <td> {{$transaction->datum}} </td>
                     <td> {{$transaction->stanje}} </td>
                     <td> {{$transaction->cijena}} </td>
