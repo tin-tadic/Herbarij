@@ -4,23 +4,23 @@
     
       <span class="person">
       <img src="/storage/assets/gabi.png">
-      <a class="name">Gabrijela</a>
+      <a class="name" href="https://github.com/gj1827">Gabrijela</a>
       </span>
       <span class="person">
       <img src="/storage/assets/ankica.png">
-      <a class="name">Ankica</a>
+      <a class="name" href="https://github.com/AnkicaKatic">Ankica</a>
       </span>
       <span class="person">
       <img src="/storage/assets/tin.png">
-      <a class="name">Tin</a>
+      <a class="name" href="https://github.com/tin-tadic">Tin</a>
       </span>
       <span class="person">
       <img src="/storage/assets/marin.png">
-      <a class="name">Marin</a>
+      <a class="name" href="https://github.com/MarinAzinovic4">Marin</a>
       </span>
       <span class="person">
       <img src="/storage/assets/danica.png">
-      <a class="name">Danica</a>
+      <a class="name" href="https://github.com/danicajuric">Danica</a>
       </span>
     
   </div>
