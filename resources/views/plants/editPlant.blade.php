@@ -36,6 +36,33 @@
                     @endif
                 </label>
 
+                <label class="label" for="sorta">
+                    <span class="left">Sorta:</span>
+                    <input class="input is-success" id="sorta" type="text" name="sorta" placeholder="Sorta" value="{{ $plant->sorta }}"/>
+                    
+                    @if ($errors->has('sorta'))
+                        <p class="plant">{{ $errors->first('sorta') }}</p>
+                    @endif
+                </label>
+
+                <label class="label" for="kategorija">
+                    <span class="left">Kategorija:</span>
+                    <input class="input is-success" id="kategorija" type="text" name="kategorija" placeholder="Kategorija" value="{{ $plant->kategorija }}"/>
+                    
+                    @if ($errors->has('kategorija'))
+                        <p class="plant">{{ $errors->first('kategorija') }}</p>
+                    @endif
+                </label>
+
+                <label class="label" for="naziv_dobavljaca">
+                    <span class="left">Naziv dobavljaca:</span>
+                    <input class="input is-success" id="naziv_dobavljaca" type="text" name="naziv_dobavljaca" placeholder="Naziv dobavljaca" value="{{ $plant->naziv_dobavljaca }}"/>
+                    
+                    @if ($errors->has('naziv_dobavljaca'))
+                        <p class="plant">{{ $errors->first('naziv_dobavljaca') }}</p>
+                    @endif
+                </label>
+
                 <label class="label" for="cijena">
                     <span class="left">Cijena:</span>
                     <select name="kolicina_cijene"  id="jedinica">
@@ -234,11 +261,7 @@
 
                 <br>
                 
-                {{-- TODO::This is not how a cancel button works
-                <div>
-                    <input class="button is-center is-link is-danger" id="butCan" type="submit" value="Cancel" />
-                </div> --}}
-
+                
 
             </form>
         </div>

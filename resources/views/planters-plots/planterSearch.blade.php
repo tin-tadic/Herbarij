@@ -20,7 +20,7 @@
 </div>
 
 <div>
-  <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getAddPlanter') }}'">Dodaj Rasadnik</button>
+  <button class="button" id="addPlot" onclick="location.href='{{ route('getAddPlanter') }}'">Dodaj Rasadnik</button>
   <br><br>
 </div>
 

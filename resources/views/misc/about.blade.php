@@ -36,17 +36,27 @@
       <div class="mini">
         <h2>Gabrijela Josipović</h2>
         <img class="profile" src="/storage/assets/gabrijelaProfilna.png" height=256 width=128/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+        <p class="has-text-weight-bold">Moji zadaci na stranici:</p>
+        <p>-stranica s kupcima</p>
+        <p>-stranica o rasadnicima/plotovima u suradnji s kolegom Marinom</p>
+        <p>-debugging/style fix po potrebi</p>
       </div>
       <div class="mini">
         <h2>Marin Azinović</h2>
         <img class="profile" src="/storage/assets/marinProfilna.png" height=256 width=128/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+        <p class="has-text-weight-bold">Moji zadaci na stranici:</p>
+        <p>-stranica o biljkama</p>
+        <p>-stranica o rasadnicima/plotovima u suradnji s kolegicom Gabrijelom</p>
+        <p>-debugging/style fix po potrebi</p>
       </div>
       <div class="mini">
         <h2>Danica Jurić</h2>
         <img class="profile" src="/storage/assets/danicaProfilna.png" height=256 width=128/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+        <p class="has-text-weight-bold">Moji zadaci na stranici:</p>
+        <p>-navbar i footer</p>
+        <p>-plant view sa biljnomm putovnicom</p>
+        <p>-stranica o transakcijama</p>
+        <p>-stranica 'O nama'</p>
       </div>
     </div>
   </div>
@@ -60,12 +70,20 @@
       <div class="mini">
         <h2>Tin Tadić</h2>
         <img class="profile" src="/storage/assets/tinProfilna.png" height=256 width=128/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+        <p class="has-text-weight-bold">Moji zadaci na stranici:</p>
+        <p>-konfiguracija ruta i njihovo postavljanje</p>
+        <p>-request handling, error messages</p>
+        <p>-search i sort funkcije gdje su bile potrebne</p>
+        <p>-suradnja kod dinamičkog dohvata podataka</p>
       </div>
       <div class="mini">
         <h2>Ankica Katić</h2>
         <img class="profile" src="/storage/assets/ankicaProfilna.png" height=256 width=128/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum, purus ac mattis dictum, nisl sapien convallis arcu, sit amet fermentum orci est eu ex. Pellentesque euismod magna id interdum fringilla. Vivamus vel fringilla erat. Nunc a convallis tortor. Sed posuere varius efficitur. In id ultricies nunc. Suspendisse eleifend,</p>
+        <p class="has-text-weight-bold">Moji zadaci na stranici:</p>
+        <p>-migracija baza</p>
+        <p>-validacija u controllerima, validacijske poruke</p>
+        <p>-backend dio na kupcima</p>
+        <p>-ispis izvještaja transakcija</p>
       </div>
     </div>
   </div>

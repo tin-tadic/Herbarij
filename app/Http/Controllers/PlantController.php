@@ -60,6 +60,9 @@ class PlantController extends Controller
             'opis' => ['sometimes', 'max:200'],
             'slika' => ['required', 'mimes:jpeg,jpg,png,bmp'],
             'trenutna_cijena' => ['sometimes', 'numeric'],
+            'sorta'=>['required'],
+            'kategorija'=>['required'],
+            'naziv_dobavljaca'=>['required'],
         ];
         $messages = [
             'naziv.required' => 'Obavezno je unijeti latinski naziv biljke!',
@@ -80,9 +83,12 @@ class PlantController extends Controller
             
             'komentar.max' => 'Komentar ne može biti dulji od 1000 znakova!',
             'opis.max' => 'Opis ne može biti dulji od 200 znakova!',
-            'slika.required' => 'Slika je obavezna!',
             'slika.mimes' => 'Format slike nije podržan! Podržani formati: .bmp .jpg .png .jpeg',
             'trenutna_cijena.numeric' => 'Trenutna cijena mora biti broj! Probajte koristiti točku umjesto zareza.',
+            'sorta.required'=>'Sorta je obavezna',
+            'kategorija.required'=>'Kategorija je obavezna',
+            'naziv_dobavljaca.required'=>'Naziv dobavljaca je obavezan',
+
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -117,6 +123,10 @@ class PlantController extends Controller
                     'slika' => $name,
                     'trenutna_cijena' => $request->input('trenutna_cijena'),
                     'kolicina_cijene' => $request->input('kolicina_cijene'),
+                    'sorta'=>$request->input('sorta'),
+                    'kategorija'=>$request->input('kategorija'),
+                    'naziv_dobavljaca'=>$request->input('naziv_dobavljaca'),
+        
                 ]);
             
             return redirect()->route('getPlants')->with('success', 'Promjene uspješno spremljene!');
@@ -149,6 +159,9 @@ class PlantController extends Controller
             'opis' => ['sometimes', 'max:200'],
             'slika' => ['required', 'mimes:jpeg,jpg,png,bmp'],
             'trenutna_cijena' => ['sometimes', 'numeric'],
+            'sorta'=>['required'],
+            'kategorija'=>['required'],
+            'naziv_dobavljaca'=>['required'],
         ];
         $messages = [
             'naziv.required' => 'Obavezno je unijeti latinski naziv biljke!',
@@ -171,6 +184,10 @@ class PlantController extends Controller
             'opis.max' => 'Opis ne može biti dulji od 200 znakova!',
             'slika.mimes' => 'Format slike nije podržan! Podržani formati: .bmp .jpg .png .jpeg',
             'trenutna_cijena.numeric' => 'Trenutna cijena mora biti broj! Probajte koristiti točku umjesto zareza.',
+            'sorta.required'=>'Sorta je obavezna',
+            'kategorija.required'=>'Kategorija je obavezna',
+            'naziv_dobavljaca.required'=>'Naziv dobavljaca je obavezan',
+
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -204,6 +221,10 @@ class PlantController extends Controller
             'slika' => $name,
             'trenutna_cijena' => $request->input('trenutna_cijena'),
             'kolicina_cijene' => $request->input('kolicina_cijene'),
+            'sorta'=>$request->input('sorta'),
+            'kategorija'=>$request->input('kategorija'),
+            'naziv_dobavljaca'=>$request->input('naziv_dobavljaca'),
+
         ]);
 
         return redirect()->route('getPlants')->with('success', 'Biljka uspješno napravljena.');

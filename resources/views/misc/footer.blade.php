@@ -1,5 +1,5 @@
 <div class="mojContainer">
-<footer class="navbar is-transparent is-boxed is-fixed-bottom has-text-centered">
+<footer class="navbar is-transparent is-boxed is-fixed-bottom has-text-centered mrgn">
   <div class="navbar-item ">
     
       <span class="person">
@@ -36,7 +36,6 @@
   }
 .navbar{
       max-width:100%;
-      
       background-color: #40826d;
    
   }
@@ -63,5 +62,8 @@
 }
 img{
     height:183px;
+}
+.mrgn{
+  margin-top:15px;
 }
 </style>

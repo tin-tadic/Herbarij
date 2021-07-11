@@ -20,8 +20,6 @@
             </button>
         </div>
     </div>
-
-
     <div class="control is-pulled-right">
       <label class="radio">
         <input type="radio" name="orderBy" value="asc" checked>
@@ -33,6 +31,7 @@
       </label>
     </div>
   </form>
+  <button class="button" id="dodaj" onclick="location.href='{{ route('getAddPlant') }}'">Dodaj Biljku</button>
   <section class="section">
     <div class="container">
       <!--<h3 class="title has-text-centered is-size-4">Biljke</h3>-->
@@ -72,11 +71,10 @@
 
   </section>
 
-  <div>
-    <button class="button mt-5" id="dodaj" onclick="location.href='{{ route('getAddPlant') }}'">Dodaj Biljku</button>
+  <div class="m-5">
     <!--pagination-->
     @if ($noLinks == 0)
-    <div id="fixSide" class="mb-5 pb-10">
+    <div id="fixSide">
       {{ $plants->links() }}
     </div>
     @endif
@@ -90,6 +88,7 @@
 <style>
   #fixSide {
     float: right;
+    margin-bottom: 100px;
   }
 
   .pagination-list {

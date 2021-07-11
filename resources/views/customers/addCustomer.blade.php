@@ -4,9 +4,9 @@
 
 @section('content')
 
-<div class="container">
+<div class="container skoci">
     <div class="card">
-            <form class="login-form" action="/addBuyer" method="POST" enctype="multipart/form-data">
+            <form class="m-6" action="/addBuyer" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label class="label" for="ime">Ime:
                     <input class="input is-success" id="ime" name="ime" type="text" placeholder="Ime" required />
@@ -40,17 +40,16 @@
 
 <style scoped>
 
-    /* Added by Tin */
-
-    .login-form {
+    .skoci{
         margin-top: 150px;
+        width: 1000px;
     }
 
-    /* end of the freakshow */
+   
 
     .ticket {
         position: relative;
-        max-width: 1000px;
+        max-width: 800px;
         /* padding: 8% 0 0;*/
         margin: auto;
     }
