@@ -86,62 +86,7 @@
 
 
 
-<script scoped>
-  //Button idovi
-  const dodajButton = document.querySelector('#dodaj');
-  const editButton = document.querySelector('#edit');
-  const deleteButton = document.querySelector('#delete');
-  const deleteplantButton = document.querySelector('#deleteplant');
-  const viewoneButton = document.querySelector('#viewone');
 
-  //Idovi specificnih "cancel" dugmadi
-  const canceleditButton = document.querySelector('#canceledit');
-  const canceldodajButton = document.querySelector('#canceldodaj');
-  const canceldeleteButton = document.querySelector('#canceldelete');
-
-
-  //Za modal pozadinu
-  const modalBg = document.querySelector('.modal-background');
-
-  //Modali
-  const modalDodaj = document.querySelector('#modalDodaj');
-  const modalEdit = document.querySelector('#modalEdit');
-  const modalDelete = document.querySelector('#modalDelete');
-  const modalDeleteplant = document.querySelector('#modalDeleteplant');
-
-
-  //Event listeneri za modale
-  dodajButton.addEventListener('click', () => {
-    modalDodaj.classList.add('is-active');
-  })
-
-  editButton.addEventListener('click', () => {
-    modalEdit.classList.add('is-active');
-  })
-
-  deleteButton.addEventListener('click', () => {
-    modalDelete.classList.add('is-active');
-  })
-
-  deleteplantButton.addEventListener('click', () => {
-    modalDeleteplant.classList.add('is-active');
-  })
-
-
-  //Event listeneri za cancel dugmad
-  canceldodajButton.addEventListener('click', () => {
-    modalDodaj.classList.remove('is-active');
-  })
-
-  canceleditButton.addEventListener('click', () => {
-    modalEdit.classList.remove('is-active');
-  })
-
-  canceldeleteButton.addEventListener('click', () => {
-    modalDelete.classList.remove('is-active');
-  })
-</script>
-<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <style>
   #fixSide {
     float: right;

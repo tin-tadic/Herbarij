@@ -51,36 +51,6 @@
   
 </div>
 
-
-
-<script scoped>
-  //buttons
-  const dodajButton = document.querySelector('#dodaj');
-  const editButton = document.querySelector('#edit');
-  const deleteButton = document.querySelector('#delete');
-  const deleteBuyerButton = document.querySelector('#deletebuyer');
-
-  const canceleditButton = document.querySelector('#canceledit');
-  const canceldodajButton = document.querySelector('#canceldodaj');
-  const canceldeleteButton = document.querySelector('#canceldelete');
-
-  //modal background
-  const modalBg = document.querySelector('.modal-background');
-
-  //modal delete
-  const modalDelete = document.querySelector('#modalDelete');
-  const modalDeleteBuyer = document.querySelector('#modalDeleteBuyer')
-
-  //event listeners
-  deleteButton.addEventListener('click', () => {
-    modalDelete.classList.add('is-active');
-  })
-
-  deleteBuyerButton.addEventListener('click', () => {
-    modalDeleteBuyer.classList.app('is-active');
-  })
-</script>
-<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <style>
 #fixSide{
   float:right;
