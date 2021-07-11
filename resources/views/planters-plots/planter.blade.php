@@ -16,6 +16,8 @@
       </div>
     </div>
     </form>
+    <button class="button" id="addPlot" onclick="location.href='{{ route('getAddPlot') }}'">Dodaj Plot</button>
+  <button class="button" id="addPlot" onclick="location.href='{{ route('getPlanterForEdit', $planter->id) }}'">Edit Rasadnika</button>
 
   <section class="section">
     <div class="container">
@@ -54,14 +56,7 @@
     </div>
   </section>
 </div>
-
-<div>
-  <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getAddPlot') }}'">Dodaj Plot</button>
-  <button class="button mt-4" id="addPlot" onclick="location.href='{{ route('getPlanterForEdit', $planter->id) }}'">Edit Rasadnika</button>
-  
-  <br><br>
-</div>
-
+<br>
 </div>
 </div>
 
